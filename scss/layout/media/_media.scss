@@ -176,7 +176,20 @@
                 }
             }
         }
-    }   
+    }
+    .footer{
+        padding: 2rem 2rem;
+        p{
+            font-size: map-get($tamaño-font, responsive-footer-p);
+        }
+    }
+    .footer-iconTop{
+        a{
+            i{
+                font-size: 2rem;
+            }
+        }
+    }
 }
 @media(max-width:615px){
     .home{

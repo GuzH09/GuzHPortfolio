@@ -4,6 +4,7 @@
 .home{
     @include container-size($padding: 10rem 6rem 2rem, $width: 100%, $min-height: 100vh);
     @include flex($direction: row, $wrap: nowrap, $justify: center, $align: start, $gap: 10rem);
+    @import "../components/animations";
     .home-content{
         h1{
             @include fonts($align:left, $size: map-get($tamaño-font, main-h1), $weight: bold, $color: white);
