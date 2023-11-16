@@ -396,6 +396,8 @@ main {
       margin-top: 1rem; }
       header .barra-navegacion .contenedor-header .lista-links ul .link {
         text-align: right; }
+        header .barra-navegacion .contenedor-header .lista-links ul .link:hover {
+          transform: none; }
     header .barra-navegacion .contenedor-header .boton-primario:hover {
       background: #88d2fd;
       color: #1f242d;
@@ -428,6 +430,10 @@ main {
     color: #1f242d;
     box-shadow: none; } }
 
+@media (max-width: 768px) {
+  .portfolio {
+    padding: 4rem 2rem 6rem; } }
+
 @media (max-width: 615px) {
   .home {
     padding-left: 1rem;
@@ -452,6 +458,8 @@ main {
     .home .home-content .boton-primario {
       display: flex;
       justify-content: center; }
+    .home .home-img {
+      display: none; }
   .about .about-img {
     width: 100%; } }
 
