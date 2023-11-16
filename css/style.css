@@ -396,6 +396,10 @@ main {
       margin-top: 1rem; }
       header .barra-navegacion .contenedor-header .lista-links ul .link {
         text-align: right; }
+    header .barra-navegacion .contenedor-header .boton-primario:hover {
+      background: #88d2fd;
+      color: #1f242d;
+      box-shadow: none; }
   .about {
     padding: 1rem 3rem;
     gap: 1rem;
@@ -407,9 +411,49 @@ main {
     gap: 0; }
     .about .about-img {
       height: 15rem;
-      width: 30%; }
+      width: 50%; }
     .about .about-content {
-      width: auto; } }
+      width: auto; }
+      .about .about-content h2 {
+        text-align: center;
+        margin-top: 1rem; }
+      .about .about-content p {
+        text-align: center;
+        margin: 0; }
+    .about .boton-primario {
+      display: flex;
+      justify-content: center; }
+  .home .home-content .boton-primario:hover {
+    background: #88d2fd;
+    color: #1f242d;
+    box-shadow: none; } }
+
+@media (max-width: 615px) {
+  .home {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    justify-content: center; }
+    .home .home-content h1 {
+      text-align: center; }
+    .home .home-content h3 {
+      text-align: center; }
+    .home .home-content p {
+      text-align: center; }
+    .home .home-content .skills {
+      display: flex;
+      justify-content: center; }
+    .home .home-content .social-media {
+      display: flex;
+      justify-content: center; }
+      .home .home-content .social-media a:hover {
+        background: #88d2fd;
+        color: white;
+        box-shadow: none; }
+    .home .home-content .boton-primario {
+      display: flex;
+      justify-content: center; }
+  .about .about-img {
+    width: 100%; } }
 
 @media (max-width: 426px) {
   header .barra-navegacion .contenedor-header {

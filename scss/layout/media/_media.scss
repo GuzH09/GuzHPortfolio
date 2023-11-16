@@ -87,6 +87,13 @@
                         }
                     }
                 }
+                .boton-primario{
+                    &:hover{
+                        background: $azul;
+                        color: $negro;
+                        box-shadow: none;
+                    }
+                }
             }
         }
     }
@@ -95,10 +102,76 @@
         gap: 1rem;
         @include flex($direction: column, $wrap: wrap, $justify: center, $align: center, $gap: 0);
         .about-img{
-            @include container-size($height: 15rem, $width: 30%);
+            @include container-size($height: 15rem, $width: 50%);
         }
         .about-content{
             width: auto;
+            h2{
+                text-align: center;
+                margin-top: 1rem;
+            }
+            p{
+                text-align: center;
+                margin: 0;
+            }
+        }
+        .boton-primario{
+            display: flex;
+            justify-content: center;
+        }
+    }
+    .home{
+        .home-content{
+            .boton-primario{
+                &:hover{
+                    background: $azul;
+                    color: $negro;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:615px){
+    .home{
+        padding-left: 1rem;
+        padding-right: 1rem;
+        justify-content: center;
+        .home-content{
+            h1{
+                text-align: center;
+            }
+            h3{
+                text-align: center;
+            }
+            p{
+                text-align: center;
+            }
+            .skills{
+                display: flex;
+                justify-content: center;
+            }
+            .social-media{
+                display: flex;
+                justify-content: center;
+                a{
+                    &:hover{
+                        background: $azul;
+                        color: white;
+                        box-shadow: none;
+                    }
+                }
+            }
+            .boton-primario{
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+    .about{
+        .about-img{
+            width: 100%;
         }
     }
 }
