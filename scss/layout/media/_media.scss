@@ -1,0 +1,114 @@
+/*--------------------------------------------------------------
+# Media Queries - Responsive
+--------------------------------------------------------------*/
+@media(max-width:1814px){
+    .home{
+        gap: 5rem;
+    }
+}
+
+@media(max-width:1734px){
+    .home{
+        .home-img{
+            width:40rem;
+        }
+    }
+}
+
+@media(max-width:1574px){
+    .home{
+        .home-img{
+            width:30rem;
+        }
+    }
+}
+
+@media(max-width:1414px){
+    .home{
+        .home-img{
+            width:25rem;
+        }
+    }
+    .about{
+        padding: 5rem 3rem;
+        gap: 3rem;
+        .about-img{
+            @include container-size($height: 20rem, $width: 20.625rem);
+        }
+    }
+}
+
+@media(max-width:1333px){
+    .home{
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 3rem;
+        padding-top: 2rem;
+        .home-img{
+            @include container-size($height:20rem, $width:100%);
+        }
+    }
+}
+
+@media(max-width:1180px){
+    .about{
+        .about-content{
+            height: auto;
+        }
+        .about-img{
+            @include container-size($height: 25rem, $width: 20.625rem);
+        }
+    }
+
+    .portfolio{
+        .portfolio-container{
+            gap: 1rem;
+        }
+    }
+}
+
+@media(max-width:991px){
+    header{
+        .barra-navegacion{
+            .contenedor-header{
+                padding-left: 3rem;
+                padding-right: 3rem;
+                .logo{
+                    padding: 0;
+                    margin-left: 0;
+                }
+                .lista-links{
+                    ul{
+                        margin-top: 1rem;
+                        .link{
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .about{
+        padding: 1rem 3rem;
+        gap: 1rem;
+        @include flex($direction: column, $wrap: wrap, $justify: center, $align: center, $gap: 0);
+        .about-img{
+            @include container-size($height: 15rem, $width: 30%);
+        }
+        .about-content{
+            width: auto;
+        }
+    }
+}
+
+@media(max-width:426px){
+    header{
+        .barra-navegacion{
+            .contenedor-header{
+                padding: 0 1rem;
+            }
+        }
+    }
+}

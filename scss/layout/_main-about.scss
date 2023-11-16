@@ -1,0 +1,30 @@
+/*--------------------------------------------------------------
+# Main - About
+--------------------------------------------------------------*/
+.about{
+    @include container-size($padding: 10rem 6rem 14rem, $width: 100%, $min-height: 100vh);
+    @include flex($direction: row, $wrap: nowrap, $justify: center, $align: center, $gap: 10rem);
+    .about-content{
+        @include container-size($height: 26.875rem, $width: 56.25rem);
+        h2{
+            @include fonts($family: ('Poppins', sans-serif) , $align:left, $size: map-get($tamaño-font, main-h2), $weight: bold, $color: $azul);
+            line-height: 1.2;
+        }
+        p{
+            @include fonts($family: ('Poppins', sans-serif) , $align:left, $size: map-get($tamaño-font, main-p), $weight: lighter, $color: white);
+            margin: 2rem 0 3rem;
+        }
+        @import "./components/bootstrap-btn";
+    }
+    .about-img{
+        @include container-size($height: 16.25rem, $width: 20.625rem);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 1rem 0 3rem 1rem $negro-sombra;
+        img{
+            height:100%;
+            width:100%;
+            object-fit: cover;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+
+.footer{
+    @include flex($wrap: wrap, $justify: space-between, $align: center);
+    padding: 2rem 6rem;
+    background: $negro;
+    p{
+        @include fonts($align:left, $size: map-get($tamaño-font, footer-p), $weight: lighter, $color: white);
+    }
+}
+
+.footer-iconTop{
+    @import "./components/bootstrap-btn";
+    a{
+        @include inline-flex($justify: center, $align: center);
+        padding: 0.8rem;
+        // background: $gris;
+        // border-radius: 0.8rem;
+        transition: 0.5s ease;
+        text-decoration: none;
+        // &:hover{
+        //     box-shadow: 0 0 1rem $negro-sombra;
+        // }
+        i{
+            font-size: 2.4rem;
+            color: $azul;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+/*--------------------------------------------------------------
+# Main - Contact
+--------------------------------------------------------------*/
+.contact{
+    @include flex($direction: column, $justify: center, $align: center);
+    background-color: $negro-mas;
+    .social-media{
+        a{
+            @include inline-flex($justify: center, $align: center);
+            @include container-size($margin:0.625rem, $height:3rem, $width:3rem);
+            @include fonts($size: map-get($tamaño-font, social-media-icons), $color: $azul);
+            text-decoration: none;
+            background: transparent;
+            border: 0.2rem solid $azul;
+            border-radius: 100%;
+            transition: 0.5s ease;
+            &:hover {
+                background: $azul;
+                color: white;
+                box-shadow: 0 0 1rem $azul;
+            }
+        }
+    }
+}

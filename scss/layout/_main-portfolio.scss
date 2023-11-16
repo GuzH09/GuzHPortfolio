@@ -1,0 +1,60 @@
+/*--------------------------------------------------------------
+# Main - Portfolio
+--------------------------------------------------------------*/
+.portfolio{
+    @include container-size($padding: 10rem 6rem 14rem, $width: 100%, $min-height: 100vh);
+    h2{
+        @include fonts($family: ('Poppins', sans-serif), $align: center, $size: map-get($tamaño-font, main-h2), $weight: bold, $color: $azul);
+        margin-bottom: 3rem;
+    }
+    .portfolio-container{
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        .portfolio-item{
+            padding: 0;
+            display: flex;
+            position: relative;
+            border-radius: 2rem;
+            box-shadow: 1rem 0 3rem 1rem $negro-sombra;
+            overflow: hidden;
+            img{
+                width: 100%;
+                object-fit: cover;
+                transition: 0.5s ease;
+            }
+            &:hover img{
+                transform: scale(1.1);
+            }
+            .portfolio-layer{
+                @include flex($direction: column, $justify: center, $align: center);
+                @include container-size($height: 100%, $width: 100%);
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background: linear-gradient(rgba(0, 0, 0, 0.4), #000);
+                text-align: center;
+                padding: 0 2rem;
+                transform: translateY(120%);
+                transition: 0.5s ease;
+                h3{
+                    @include fonts($family: ('Poppins', sans-serif), $align: center, $size: map-get($tamaño-font, main-h3), $weight: bold, $color: $azul);
+                }
+                p{
+                    @include fonts($family: ('Poppins', sans-serif), $align: center, $size: map-get($tamaño-font, main-p), $weight: lighter, $color: white);
+                }
+                a{
+                    @include inline-flex($justify: center, $align: center);
+                    @include container-size($height: 5rem, $width: 5rem);
+                    border-radius: 50%;
+                    i{
+                        @include fonts($size: map-get($tamaño-font, portfolio-icons), $color: $azul);
+                    }
+                }
+            }
+            &:hover .portfolio-layer{
+                transform: translateY(0%);
+            }
+        }
+    }
+}
