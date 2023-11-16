@@ -454,7 +454,8 @@ main {
   .home {
     padding-left: 1rem;
     padding-right: 1rem;
-    justify-content: center; }
+    justify-content: center;
+    min-height: 80vh; }
     .home .home-content h1 {
       text-align: center; }
     .home .home-content h3 {
