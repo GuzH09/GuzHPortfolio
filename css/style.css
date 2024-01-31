@@ -513,14 +513,18 @@ main {
     padding: 4rem 2rem 6rem; }
     .portfolio h2 {
       font-size: 2rem; }
-    .portfolio .portfolio-container .portfolio-item .portfolio-layer h3 {
-      font-size: 1rem; }
-    .portfolio .portfolio-container .portfolio-item .portfolio-layer p {
-      font-size: 1rem; }
+    .portfolio .portfolio-container .portfolio-item {
+      border-radius: 10px; }
+      .portfolio .portfolio-container .portfolio-item .portfolio-layer h3 {
+        font-size: 1rem; }
+      .portfolio .portfolio-container .portfolio-item .portfolio-layer p {
+        font-size: 1rem; }
   .footer {
-    padding: 2rem 2rem; }
+    padding: 2rem 2rem;
+    justify-content: right; }
     .footer p {
-      font-size: 1rem; }
+      font-size: 1rem;
+      text-align: center; }
   .footer-iconTop a i {
     font-size: 2rem; } }
 

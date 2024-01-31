@@ -166,6 +166,7 @@
         }
         .portfolio-container{
             .portfolio-item{
+                border-radius: 10px;
                 .portfolio-layer{
                     h3{
                         font-size: map-get($tamaño-font, responsive-main-h3);
@@ -179,8 +180,10 @@
     }
     .footer{
         padding: 2rem 2rem;
+        justify-content: right;
         p{
             font-size: map-get($tamaño-font, responsive-footer-p);
+            text-align: center;
         }
     }
     .footer-iconTop{
