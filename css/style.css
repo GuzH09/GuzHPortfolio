@@ -180,6 +180,8 @@ main {
     .home .home-content p #bold-text {
       color: #88d2fd;
       font-weight: bold; }
+  .home .home-content .skills img {
+    margin-bottom: 0.5rem; }
   .home .home-content .boton-primario {
     font-weight: bold;
     color: #1f242d;
@@ -290,6 +292,7 @@ main {
     justify-content: center;
     gap: 2.5rem; }
     .portfolio .portfolio-container .portfolio-item {
+      height: 16rem;
       padding: 0;
       display: flex;
       position: relative;
@@ -341,6 +344,13 @@ main {
             color: #88d2fd; }
       .portfolio .portfolio-container .portfolio-item:hover .portfolio-layer {
         transform: translateY(0%); }
+  .portfolio p {
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: lighter;
+    color: white;
+    margin: 2rem 0 3rem; }
 
 /*--------------------------------------------------------------
 # Main - Contact

@@ -21,6 +21,9 @@
                 font-weight: bold;
             }
         }
+        .skills img {
+            @include container-size($margin-bottom: 0.5rem);
+        }
         @import "./components/bootstrap-btn";
         .social-media{
             a{

@@ -12,6 +12,7 @@
         justify-content: center;
         gap: 2.5rem;
         .portfolio-item{
+            @include container-size($height: 16rem);
             padding: 0;
             display: flex;
             position: relative;
@@ -56,5 +57,9 @@
                 transform: translateY(0%);
             }
         }
+    }
+    p {
+        @include fonts($family: ('Poppins', sans-serif) , $align:center, $size: map-get($tamaño-font, main-p), $weight: lighter, $color: white);
+        margin: 2rem 0 3rem;
     }
 }
