@@ -1,0 +1,42 @@
+<button 
+  id="scrollToTopBtn"
+  aria-label="Scroll to top button"
+  class={`
+  z-10 fixed bottom-5 right-5 lg:bottom-10 lg:right-14 
+  flex justify-center items-center 
+  size-10 lg:size-16 
+  opacity-0 invisible 
+  rounded-full border-[0.2rem]
+  bg-[#88d2fd] border-[#88d2fd]/60 text-slate-500/90
+  lg:bg-transparent lg:border-[#88d2fd]/90 lg:text-[#88d2fd]/90 
+  hover:shadow-[0_0_1rem_rgb(136,210,253,0.9)] hover:bg-[#88d2fd]/90 hover:text-white 
+  transition duration-500 
+  `}
+>
+  <i class="fa-sharp fa-solid fa-arrow-up"/>
+</>
+
+<script>
+  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+  // Show button when scrolled down 600 pixels from the top
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 600) {
+      scrollToTopBtn.classList.replace('opacity-0', 'opacity-100');
+      scrollToTopBtn.classList.replace('invisible', 'visible');
+    } else {
+      scrollToTopBtn.classList.replace('opacity-100', 'opacity-0');
+      setTimeout(() => {
+        scrollToTopBtn.classList.replace('visible', 'invisible');
+      }, 200)
+    }
+  });
+
+  // Scroll to the top of the page when the button is clicked
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // Smooth scrolling effect
+    });
+  });
+</script>

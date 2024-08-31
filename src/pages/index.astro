@@ -1,0 +1,20 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Home from '@/components/Home.astro';
+import About from '@/components/About.astro';
+import Portfolio from '@/components/Portfolio.astro';
+import ArrowBtn from '@/components/ArrowBtn.astro';
+---
+
+<Layout 
+  title="Portfolio de Hernan Otero - Desarrollador y Programador Web"
+  description='Portfolio Web de Hernan Agustin Otero, desarrollador y programador web full-stack'
+  canonical=''
+>
+  <main>
+    <ArrowBtn/>
+    <Home id="home"/>
+    <About id="about"/>
+    <Portfolio id="portfolio"/>
+  </main>
+</Layout>

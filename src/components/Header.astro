@@ -1,0 +1,103 @@
+<header 
+  class={`
+  z-20 sticky top-0 
+  md:flex md:justify-between md:items-center md:bg-[#1f242d] 
+  `}
+>
+  <div 
+    class={`
+    flex justify-between items-center z-10 bg-[#1f242d] 
+    w-full h-full 
+    px-4 py-2 
+    sm:px-10 sm:py-4 
+    md:px-0 md:pl-12 
+    lg:pl-24 
+    xl:py-5 xl:pl-24 xl:min-h-[10vh] 
+    2xl:py-5 2xl:pl-40 2xl:min-h[10vh] 
+    `}
+  >
+    <a href="#" class="flex items-center gap-2 xl:gap-4">
+      <img 
+        src="./img/logo.webp" 
+        alt="GuzH Logo" 
+        class="w-12 xl:w-14"
+      >
+      <h1 class="text-xl hidden md:block">GuzH</h1>
+    </a>
+
+    <button id="menuToggle" class="text-white text-2xl md:hidden">
+      <i class="fa-solid fa-bars" id="menuIcon"></i>
+    </button>
+  </div>
+
+  <div>
+    <nav 
+      id="navbar" 
+      class={`
+      bg-[#1f242d] transform -translate-y-full transition duration-300
+      absolute top-full left-0 right-0 
+      py-6 px-4 -z-10 
+      text-center shadow-[0_10px_25px_#171a21_inset]
+      md:flex md:flex-row md:gap-x-14 md:text-xl md:py-0 md:bg-transparent md:pr-12 md:static md:shadow-none md:translate-y-0
+      lg:pr-24
+      xl:pr-24
+      2xl:pr-40
+      `}
+    >
+      <a id="scrollToHomeBtn" href="#" class="block text-xl pb-6 md:pb-0">Home</a>
+      <a id="scrollToAboutBtn" href="#about" class="block text-xl pb-6 md:pb-0">About</a>
+      <a id="scrollToPortfolioBtn" href="#portfolio" class="block text-xl md:pb-0">Portfolio</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // JavaScript to handle the navbar toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navbar = document.getElementById('navbar');
+  const menuIcon = document.getElementById('menuIcon');
+  const scrollToHomeBtn = document.getElementById('scrollToHomeBtn');
+  const scrollToAboutBtn = document.getElementById('scrollToAboutBtn');
+  const scrollToPortfolioBtn = document.getElementById('scrollToPortfolioBtn');
+
+  menuToggle.addEventListener('click', () => {
+    navbar.classList.toggle('-translate-y-full');
+    if (menuIcon.classList.contains('fa-bars')) {
+      menuIcon.classList.replace('fa-bars','fa-xmark');
+    } else {
+      menuIcon.classList.replace('fa-xmark','fa-bars');
+    }
+  });
+
+  // Scroll to the top of the page when the button is clicked
+  scrollToHomeBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // Smooth scrolling effect
+    });
+  });
+
+  // Scroll to the center of the about section when the button is clicked
+  scrollToAboutBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    // Get the href attribute of the about button
+    const aboutSection = document.querySelector('#about');
+    const aboutSectionTop = aboutSection.getBoundingClientRect().top + window.scrollY;
+    const offset = window.innerHeight / 2 - aboutSection.clientHeight / 2;  // Adjust the offset for centering
+
+    // Smoothly scroll to the center of the about section
+    window.scrollTo({
+      top: aboutSectionTop - offset,
+      behavior: 'smooth'
+    });
+  });
+
+  // Scroll to the center of the about section when the button is clicked
+  scrollToPortfolioBtn.addEventListener('click', () => {
+    document.querySelector('#portfolio').scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  });
+</script>

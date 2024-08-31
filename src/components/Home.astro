@@ -1,0 +1,142 @@
+---
+import DownloadBtn from "@/components/DownloadBtn.astro";
+import SocialBtn from "@/components/SocialBtn.astro";
+---
+
+<section 
+  class={`
+  flex flex-col justify-center items-center pt-6 
+  sm:pt-2 
+  lg:pt-8 lg:min-h-[80vh] lg:justify-start 
+  xl:flex-row xl:justify-between xl:items-start xl:pt-12 xl:min-h-[90vh] xl:max-w-screen-2xl 
+  2xl:justify-between 2xl:items-top 2xl:pt-36 2xl:min-h-[90vh] 2xl:max-w-screen-2xl 
+  `}
+  {...Astro.props}
+>
+  <div class="flex flex-col justify-center items-center xl:slide-in-left xl:block">
+    <h2 
+      class={`
+      font-semibold 
+      text-4xl text-center mb-8 
+      sm:text-5xl sm:text-center sm:mb-14 
+      md:mb-8 
+      lg:text-6xl lg:mb-10 
+      xl:text-4xl xl:text-left xl:mb-4 
+      2xl:text-6xl 2xl:mb-4 
+      `}
+    >
+      Hernan Agustin Otero
+    </h2>
+    <h3 
+      class={`
+      font-normal 
+      text-xl text-center mb-8 
+      sm:text-3xl sm:text-center sm:mb-14 
+      md:mb-8 
+      lg:text-4xl lg:text-left lg:mb-10 
+      xl:text-2xl xl:mb-4
+      2xl:text-4xl 2xl:mb-4
+      `}
+    >
+      Full-Stack Development
+    </h3>
+
+    <div 
+      class={`
+      hidden overflow-hidden rounded-lg shadow-[1rem_0_3rem_#171a21] 
+      md:block md:mb-8 md:w-[45rem] md:h-96 
+      lg:slide-in-right lg:mb-10 
+      xl:hidden
+      `}
+    >
+      <img 
+        class="w-full h-full object-cover"
+        src="./img/background-main-image.jpg" 
+        alt="Web Development Photo" 
+        />
+    </div>
+
+    <img 
+      src="https://skillicons.dev/icons?i=js,nodejs,express,html,css,bootstrap,sass,react,tailwind"
+      class={`
+      w-[298.8px] pb-2 
+      sm:w-auto sm:pb-4 
+      lg:w-auto lg:pb-2 
+      `}
+      />
+    <img 
+      src="https://skillicons.dev/icons?i=mongodb,firebase,mysql,postgres,python,bots,discordjs"
+      class={`
+      w-[231.3px] pb-8 
+      sm:w-auto sm:pb-14 
+      md:pb-8 
+      lg:w-auto lg:pb-10 
+      xl:pb-4 
+      2xl:pb-4 
+      `}
+      />
+
+    <nav 
+      class={`
+      w-full 
+      flex flex-col justify-center items-center mb-8 
+      sm:mb-14 sm:gap-4 
+      md:mb-8 
+      lg:mb-10 
+      xl:flex xl:flex-row xl:justify-start xl:mb-4
+      2xl:flex 2xl:flex-row 2xl:justify-start 2xl:gap-2 2xl:mb-4
+      `}
+    >
+      <DownloadBtn 
+        class="mb-4 sm:mb-0 lg:mr-2"
+        href="https://drive.google.com/file/d/121ofMlm3dQxTpisJQGiaEPjrUDX4H95K/view?usp=sharing" 
+        ariaLabel="Download English CV"
+      >
+        Download CV [ENG]
+      </DownloadBtn>
+      <DownloadBtn 
+        class="lg:mr-2 lg:mb-0"
+        href="https://drive.google.com/file/d/1VhzO-xxnJ6CwOBgpbCPm7XqWvs9nrR46/view?usp=sharing" 
+        ariaLabel="Download CV"
+      >
+        Download CV
+      </DownloadBtn>
+    </nav>
+    
+    <nav 
+      class={`
+      flex gap-2 mb-8 
+      sm:gap-6 sm:mb-14 
+      lg:mb-10 lg:gap-2
+      `}
+    >
+      <SocialBtn 
+        class="size-12 lg:size-12 xl:mr-4"
+        href="https://github.com/GuzH09" 
+      >
+        <i class="fa-brands fa-github text-xl" />
+      </SocialBtn>
+      <SocialBtn 
+        class="size-12 lg:mr-4 lg:size-12"
+        href="https://www.linkedin.com/in/hernan-agustin-otero-dev/" 
+      >
+        <i class="fa-brands fa-linkedin-in text-xl" />
+      </SocialBtn>
+    </nav>
+  </div>
+
+  <div 
+    class={`
+    hidden 
+    overflow-hidden rounded-lg shadow-[1rem_0_3rem_#171a21] 
+    xl:w-[36rem] xl:h-72 xl:block xl:slide-in-right
+    2xl:w-[45rem] 2xl:h-96
+    `}
+  >
+    <img 
+      class="w-full h-full object-cover" 
+      src="./img/background-main-image.jpg" 
+      alt="Web Development Photo" 
+      />
+  </div>
+</section>

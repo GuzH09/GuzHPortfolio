@@ -1,0 +1,74 @@
+---
+import DownloadBtn from "@/components/DownloadBtn.astro";
+import SocialBtn from "@/components/SocialBtn.astro";
+import PortfolioItem from "./PortfolioItem.astro";
+---
+
+<section class="flex flex-col items-center pt-20 lg:pt-40 lg:pb-40 xl:pb-60" {...Astro.props}>
+  <h2 class="text-center text-4xl lg:text-6xl font-normal pb-8 text-[#88d2fd] xl:text-5xl 2xl:text-6xl">Latest Web Development Projects</h2>
+  <div 
+    class={`
+    grid grid-cols-1 gap-3 text-center pb-16 sm:gap-6 
+    lg:grid-cols-2 lg:w-[900px] lg:pb-40 
+    xl:grid-cols-3 xl:w-auto xl:pb-40
+    2xl:grid-cols-3 2xl:w-auto 2xl:pb-40 
+    `}
+  >
+    <PortfolioItem
+      class="lg:w-[420px] xl:w-auto 2xl:w-auto"
+      src="./img/project3.webp"
+      alt="My side-project"
+      title="League Pro Data"
+      description="Side-project done with friends built with ReactJs."
+      link="https://www.leagueprodata.com"
+    />
+    <PortfolioItem
+      class="lg:w-[420px] xl:w-auto 2xl:w-auto"
+      src="./img/project1.webp"
+      alt="My side-project"
+      title="La Casita de Yoga"
+      description="Web Development using HTML5, CSS3, and BOOTSTRAP."
+      link="https://lacasitadeyoga.vercel.app/"
+    />
+    <PortfolioItem
+      class="lg:w-[420px] xl:w-auto 2xl:w-auto"
+      src="./img/project2.webp"
+      alt="My side-project"
+      title="Beer Ecommerce"
+      description="Web Development using HTML5, TAILWIND, and Javascript."
+      link="https://jsbeerecommerce.vercel.app/"
+    />
+    <PortfolioItem
+      class="lg:w-[420px] xl:w-auto 2xl:w-auto"
+      src="./img/project4.webp"
+      alt="My side-project"
+      title="Tech Ecommerce"
+      description="Full Stack project using MERN Stack."
+      link="https://reacttechecommerce.vercel.app/"
+    />
+  </div>
+
+  <h2 class="text-center text-4xl font-normal pb-8 text-[#88d2fd] lg:text-6xl xl:text-5xl 2xl:text-6xl">Data Analysis & Visualization</h2>
+  <div class="flex flex-col justify-center gap-3 text-center pb-8 sm:gap-6 lg:w-[1300px] lg:flex-row xl:w-auto 2xl:w-auto">
+    <PortfolioItem
+      class="lg:w-[420px] xl:w-[420px] 2xl:w-auto"
+      src="./img/projectdata1.webp"
+      alt="Streamlit data visualization"
+      title="Streamlit Dashboards"
+      description="Interactive dashboard for data visualization."
+    />
+    <PortfolioItem
+      class="lg:w-[420px] xl:w-[420px] 2xl:w-auto"
+      src="./img/projectdata2.webp"
+      alt="Looker studio data visualization"
+      title="Looker Studio Dashboards"
+      description="Interactive dashboard for data visualization."
+    />
+  </div>
+  <p class="text-center text-sm lg:text-xl xl:text-lg">Self-taught work with Streamlit, LookerStudio, and Discord Bots in Python and Javascript.</p>
+  
+</section>
+
+
+
+

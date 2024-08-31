@@ -1,17 +1,18 @@
 {
-  "name": "guzhportfolio",
-  "version": "1.0.0",
-  "description": "My own portfolio",
-  "main": "index.js",
+  "name": "astroportfolio",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build-css": "node-sass --include-path scss ./scss/style.scss ./css/style.css",
-    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "node-sass": "^9.0.0",
-    "nodemon": "^3.0.1"
+  "dependencies": {
+    "@astrojs/tailwind": "^5.1.0",
+    "@fontsource/poppins": "^5.0.15",
+    "astro": "^4.14.5",
+    "tailwindcss": "^3.4.10"
   }
 }

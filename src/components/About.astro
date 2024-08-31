@@ -1,0 +1,68 @@
+---
+import DownloadBtn from "./DownloadBtn.astro";
+---
+
+<section 
+  class={`
+  flex flex-col justify-center items-center 
+
+  xl:min-h-[70vh] xl:gap-40 xl:flex-row
+  `} 
+  {...Astro.props}
+>
+<!-- h-[163.8px] w-[240px] -->
+  <div 
+    class={`
+    w-8/12 mb-6
+    rounded-xl overflow-hidden shadow-[1rem_0_3rem_#171a21]
+    xl:h-[273px] xl:w-[400px] xl:mb-0
+    `}
+  >
+    <img 
+      src="./img/personal-photo.jpg"
+      class="w-full h-full object-cover"
+      alt="Personal photo"
+    />
+  </div>
+
+  <div class="lg:w-[900px] text-center xl:text-left">
+    <h2 class="text-4xl font-normal pb-4 text-[#88d2fd] sm:text-5xl lg:text-6xl xl:text-5xl">About Me</h2>
+    <p class="mb-4 text-sm sm:text-base lg:text-xl xl:text-base 2xl:text-base">
+      I am a 25 years old Full Stack Developer from Rio Negro, Argentina 🧉, 
+      and since I was a child I have been passionate about 
+      <span class="text-[#88d2fd]/90 font-semibold">technology</span>.
+      My journey into the tech world has been shaped by a diverse range of experiences:
+    </p>
+    <p class="mb-4 text-sm sm:text-base lg:text-xl xl:text-base 2xl:text-base">
+      Initially, I pursued two years of studies in both 
+      <span class="text-[#88d2fd]/90 font-semibold">Systems Engineering</span> 
+      and <span class="text-[#88d2fd]/90 font-semibold">Psychology</span> 
+      before facing personal challenges that led to a pause in my formal education.
+    </p>
+    <p class="mb-4 text-sm sm:text-base lg:text-xl xl:text-base 2xl:text-base">
+      Subsequently, I immersed myself in 
+      <span class="text-[#88d2fd]/90 font-semibold">Esports</span>, 
+      leveraging <span class="text-[#88d2fd]/90 font-semibold">self-taught tools</span> 
+      to provide <span class="text-[#88d2fd]/90 font-semibold">applications, websites, and statistical analysis</span> 
+      to professional Esports teams. This culminated in my tenure at Infinity Esports, 
+      a prominent organization in the Latin American Esports scene.
+    </p>
+    <p class="mb-4 text-sm sm:text-base lg:text-xl xl:text-base 2xl:text-base">
+      Currently, my focus is on building a career as a 
+      <span class="text-[#88d2fd]/90 font-semibold">Full Stack Developer</span>. 
+      Leveraging my academic background, supplemented by relevant coursework including training at Coderhouse, 
+      as well as both freelance and self-taught studies, 
+      I am actively pursuing opportunities to further enhance my skills and contribute meaningfully to the tech industry.
+    </p>
+    <p class="mb-6 text-sm sm:text-base lg:text-xl xl:text-base 2xl:text-base">
+      For more information, visit my GitHub profile.
+    </p>
+    <DownloadBtn 
+      class="lg:text-xl xl:text-base 2xl:text-base"
+      href="https://github.com/GuzH09" 
+      ariaLabel="Read more"
+    >
+      Read More
+    </DownloadBtn>
+  </div>
+</section>
