@@ -11,6 +11,7 @@ import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/700.css';
 import '@fontsource/poppins/800.css';
 import '@fontsource/poppins/900.css';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
 	title: string
@@ -29,8 +30,9 @@ const { title, description, canonical } = Astro.props
       description={description}
       title={title}
     />
+    <ViewTransitions />
   </head>
-  <body>
+  <body transition:name="initial">
     <Header />
       <slot />
     <Footer/>
