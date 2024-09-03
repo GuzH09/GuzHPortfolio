@@ -11,8 +11,13 @@ const { href, class: additionalClasses } = Astro.props
   class={`
   ${additionalClasses} 
   inline-flex justify-center items-center 
-  rounded-full dark:border-[#88d2fd]/90 border-[0.2rem] dark:text-[#88d2fd]/90
-  dark:hover:bg-[#88d2fd]/90 dark:hover:text-white dark:hover:shadow-[0_0_1rem_rgb(136,210,253,0.9)] 
+  text-slate-800/90 hover:text-[#88d2fd]
+  dark:text-[#88d2fd]/90 dark:hover:text-white 
+  rounded-full border-[0.2rem] 
+  border-[#1f242d]/70 hover:bg-slate-800/90 
+  dark:border-[#88d2fd]/90 dark:hover:bg-[#88d2fd]/90 
+  hover:shadow-[0_0_1rem_rgb(136,210,253,0.9)]
+  dark:hover:shadow-[0_0_1rem_rgb(136,210,253,0.9)] 
   transition duration-500
   `}
   href={href}
