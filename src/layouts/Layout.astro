@@ -11,6 +11,7 @@ import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/700.css';
 import '@fontsource/poppins/800.css';
 import '@fontsource/poppins/900.css';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
 	title: string
@@ -22,15 +23,16 @@ const { title, description, canonical } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <SEO 
       canonical={canonical}
       description={description}
       title={title}
     />
+    <ViewTransitions />
   </head>
-  <body>
+  <body transition:name="initial">
     <Header />
       <slot />
     <Footer/>
@@ -41,6 +43,8 @@ const { title, description, canonical } = Astro.props
 <style is:global>
   :root {
 	  color-scheme: light dark;
+    --main-bg-gradient-dark: linear-gradient(0deg, #526D82 0%, #1f242d 100%);
+    --main-bg-gradient-light: linear-gradient(0deg, #9394a5 0%, #f1f5f9 100%);
   }
 
   html {
@@ -48,12 +52,20 @@ const { title, description, canonical } = Astro.props
     scroll-behavior: smooth; /* Enables smooth scrolling for all anchor links */
   }
 
+  html.dark {
+    --main-bg-gradient: var(--main-bg-gradient-dark);
+  }
+
+  html.light {
+    --main-bg-gradient: var(--main-bg-gradient-light);
+  }
+
   body {
     
   }
 
   main {
-    background: linear-gradient(0deg, #526D82 0%, #1f242d 100%);
+    background: var(--main-bg-gradient); /* Uses the dynamic background */
     padding-left: 1rem;
     padding-right: 1rem;
   }

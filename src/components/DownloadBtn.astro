@@ -12,9 +12,14 @@ const { href, ariaLabel, class: additionalClasses } = Astro.props
   class={`
   ${additionalClasses} 
   p-2 
-  font-semibold text-[#1f242d] bg-[#88d2fd]/90 
-  rounded-md border-[#88d2fd]/95 border-[2px] 
-  hover:shadow-[0_0_1rem_rgb(136,210,253,0.9)] hover:text-white 
+  font-semibold 
+  text-white hover:text-[#88d2fd] 
+  dark:text-[#1f242d] dark:hover:text-white 
+  rounded-md border-[2px]
+  border-[#1f242d]/5 bg-slate-800/90
+  dark:border-[#88d2fd]/95 dark:bg-[#88d2fd]/90
+  hover:shadow-[0_0_1rem_rgb(136,210,253,0.9)] 
+  dark:hover:shadow-[0_0_1rem_rgb(136,210,253,0.9)] 
   transition duration-500 
   `}
   href={href}
