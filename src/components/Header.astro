@@ -1,12 +1,12 @@
 <header 
   class={`
   z-20 sticky top-0 
-  md:flex md:justify-between md:items-center md:bg-[#1f242d] 
+  md:flex md:justify-between md:items-center dark:md:bg-[#1f242d] md:bg-slate-100
   `}
 >
   <div 
     class={`
-    flex justify-between items-center z-10 bg-[#1f242d] 
+    flex justify-between items-center z-10 dark:bg-[#1f242d] bg-slate-100
     w-full h-full 
     px-4 py-2 
     sm:px-10 sm:py-4 
@@ -16,17 +16,18 @@
     2xl:py-5 2xl:pl-40 2xl:min-h[10vh] 
     `}
   >
-    <a href="#" class="flex items-center gap-2 xl:gap-4">
+    <a href="#" class="relative flex items-center gap-2 xl:gap-4">
+      <div class="absolute top-0 left-0 w-12 h-12 xl:w-14 xl:h-14 dark:bg-gradient-radial-dark bg-gradient-radial-light"></div>
       <img 
         src="./img/logo.webp" 
         alt="GuzH Logo" 
-        class="w-12 xl:w-14"
+        class="w-12 xl:w-14" 
       >
-      <h1 class="text-xl hidden md:block">GuzH</h1>
+      <h1 class="text-xl hidden md:block dark:text-white text-slate-800">GuzH</h1>
     </a>
 
-    <button id="menuToggle" class="text-white text-2xl md:hidden">
-      <i class="fa-solid fa-bars" id="menuIcon"></i>
+    <button id="menuToggle" class="text-2xl md:hidden">
+      <i class="fa-solid fa-bars dark:text-white text-slate-800" id="menuIcon"></i>
     </button>
   </div>
 
@@ -34,7 +35,7 @@
     <nav 
       id="navbar" 
       class={`
-      bg-[#1f242d] transform -translate-y-full transition duration-300
+      bg-slate-100 dark:bg-[#1f242d] transform -translate-y-full transition duration-300
       absolute top-full left-0 right-0 
       py-6 px-4 -z-10 
       text-center shadow-[0_10px_25px_#171a21_inset]
@@ -44,9 +45,14 @@
       2xl:pr-40
       `}
     >
-      <a id="scrollToHomeBtn" href="#" class="block text-xl pb-6 md:pb-0">Home</a>
-      <a id="scrollToAboutBtn" href="#about" class="block text-xl pb-6 md:pb-0">About</a>
-      <a id="scrollToPortfolioBtn" href="#portfolio" class="block text-xl md:pb-0">Portfolio</a>
+      <!-- New Dark/Light Mode Toggle Button -->
+      <button id="themeToggle" class="text-xl">
+        <i id="themeIcon" class="fa-solid fa-moon dark:text-white text-slate-800"></i> <!-- Default to moon icon -->
+      </button>
+
+      <a id="scrollToHomeBtn" href="#" class="block text-xl pb-6 md:pb-0 dark:text-white text-slate-800">Home</a>
+      <a id="scrollToAboutBtn" href="#about" class="block text-xl pb-6 md:pb-0 dark:text-white text-slate-800">About</a>
+      <a id="scrollToPortfolioBtn" href="#portfolio" class="block text-xl md:pb-0 dark:text-white text-slate-800">Portfolio</a> 
     </nav>
   </div>
 </header>
@@ -59,6 +65,8 @@
   const scrollToHomeBtn = document.getElementById('scrollToHomeBtn');
   const scrollToAboutBtn = document.getElementById('scrollToAboutBtn');
   const scrollToPortfolioBtn = document.getElementById('scrollToPortfolioBtn');
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
 
   menuToggle.addEventListener('click', () => {
     navbar.classList.toggle('-translate-y-full');
@@ -100,4 +108,29 @@
       block: 'start',
     });
   });
+
+  // Theme toggle logic
+  const toggleTheme = () => {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.replace('dark','light');
+      themeIcon.classList.replace('fa-moon', 'fa-sun');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.classList.replace('light','dark');
+      themeIcon.classList.replace('fa-sun', 'fa-moon');
+      localStorage.setItem('theme', 'dark');
+    }
+  };
+
+  // Check for saved user theme preference
+  if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.replace('light','dark');
+    themeIcon.classList.replace('fa-sun', 'fa-moon');
+  } else {
+    document.documentElement.classList.replace('dark','light');
+    themeIcon.classList.replace('fa-moon', 'fa-sun');
+  }
+
+  // Add event listener for theme toggle
+  themeToggle.addEventListener('click', toggleTheme);
 </script>
