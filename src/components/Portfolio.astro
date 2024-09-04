@@ -5,7 +5,8 @@ import PortfolioItem from "./PortfolioItem.astro";
 ---
 
 <section class="flex flex-col items-center pt-20 lg:pt-40 lg:pb-40 xl:pb-60" {...Astro.props}>
-  <h2 class="text-center text-4xl lg:text-6xl font-normal pb-8 text-white dark:text-[#88d2fd] xl:text-5xl 2xl:text-6xl">Latest Web Development Projects</h2>
+  <h2 class="text-center text-4xl lg:text-6xl font-normal pb-8 text-white dark:text-[#88d2fd] xl:text-5xl 2xl:text-6xl" data-lang="eng">Latest Web Development Projects</h2>
+  <h2 class="text-center text-4xl lg:text-6xl font-normal pb-8 text-white dark:text-[#88d2fd] xl:text-5xl 2xl:text-6xl" data-lang="es">Últimos Proyectos de Desarrollo Web</h2>
   <div 
     class={`
     grid grid-cols-1 gap-3 text-center pb-16 sm:gap-6 
@@ -48,7 +49,8 @@ import PortfolioItem from "./PortfolioItem.astro";
     />
   </div>
 
-  <h2 class="text-center text-4xl font-normal pb-8 text-white dark:text-[#88d2fd] lg:text-6xl xl:text-5xl 2xl:text-6xl">Data Analysis & Visualization</h2>
+  <h2 class="text-center text-4xl font-normal pb-8 text-white dark:text-[#88d2fd] lg:text-6xl xl:text-5xl 2xl:text-6xl" data-lang="eng">Data Analysis & Visualization</h2>
+  <h2 class="text-center text-4xl font-normal pb-8 text-white dark:text-[#88d2fd] lg:text-6xl xl:text-5xl 2xl:text-6xl" data-lang="es">Visualización y Análisis de Datos</h2>
   <div class="flex flex-col justify-center gap-3 text-center pb-8 sm:gap-6 lg:w-[1300px] lg:flex-row xl:w-auto 2xl:w-auto">
     <PortfolioItem
       class="lg:w-[420px] xl:w-[420px] 2xl:w-auto"

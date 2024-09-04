@@ -3,9 +3,10 @@ interface Props {
 	href: string
   ariaLabel: string
   class?: string
+  dataLang?: string
 }
 
-const { href, ariaLabel, class: additionalClasses } = Astro.props
+const { href, ariaLabel, class: additionalClasses, dataLang } = Astro.props
 ---
 
 <a
@@ -26,6 +27,7 @@ const { href, ariaLabel, class: additionalClasses } = Astro.props
   target="_blank"
   rel="noopener noreferrer"
   aria-label={ariaLabel}
+  data-lang={dataLang}
 >
   <slot />
 </a>

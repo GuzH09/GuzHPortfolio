@@ -3,6 +3,9 @@ declare global {
   interface Document {
     startViewTransition: (callback: () => void) => void;
   }
+  interface Element {
+    style: any
+  }
 }
 ---
 
@@ -25,11 +28,11 @@ declare global {
     `}
   >
     <a id="scrollToHomeBtn" href="#" class="relative flex items-center gap-2 xl:gap-4">
-      <div class="absolute top-0 left-0 w-12 h-12 xl:w-14 xl:h-14 dark:bg-gradient-radial-dark bg-gradient-radial-light"></div>
+      <div class="absolute top-0 left-0 size-12 xl:size-14 dark:bg-gradient-radial-dark bg-gradient-radial-light"></div>
       <img 
         src="./img/logo.webp" 
         alt="GuzH Logo" 
-        class="w-12 xl:w-14" 
+        class="size-12 xl:size-14" 
       >
       <h1 class="text-xl hidden md:block dark:text-white text-slate-800">GuzH</h1>
     </a>
@@ -39,7 +42,7 @@ declare global {
     </button>
   </div>
 
-  <div>
+  <div class="w-full">
     <nav 
       id="navbar" 
       class={`
@@ -47,20 +50,41 @@ declare global {
       absolute top-full left-0 right-0 
       py-6 px-4 -z-10 
       text-center shadow-[0_10px_25px_#171a21_inset]
-      md:flex md:flex-row md:gap-x-14 md:text-xl md:py-0 md:bg-transparent md:pr-12 md:static md:shadow-none md:translate-y-0
+      md:flex md:flex-row md:justify-end md:gap-x-14 md:text-xl md:py-0 md:bg-transparent md:pr-12 md:static md:shadow-none md:translate-y-0
       lg:pr-24 md:transition-none
       xl:pr-24
       2xl:pr-40
       `}
     >
-      <!-- New Dark/Light Mode Toggle Button -->
-      <button id="themeToggle" class="block w-full text-xl pb-6 md:pb-0 dark:text-white text-slate-800">
+      <!-- Eng/Esp Mode Toggle Button -->
+      <button id="languageToggle" class="flex justify-center w-full md:block md:size-7 pb-6 md:pb-0" data-lang="eng">
+        <img 
+          src="./img/eng.avif" 
+          alt="UK Flag" 
+          class="size-7 object-cover" 
+        >
+      </button>
+      
+      <button id="languageToggle" class="flex justify-center w-full md:block md:size-7 pb-6 md:pb-0" data-lang="es">
+        <img 
+          src="./img/esp.avif" 
+          alt="ESP Flag" 
+          class="size-7 object-cover" 
+        >
+      </button>
+      
+      <!-- Dark/Light Mode Toggle Button -->
+      <button id="themeToggle" class="block w-full md:w-auto text-xl pb-6 md:pb-0 dark:text-white text-slate-800">
         <i id="themeIcon" class="fa-solid fa-moon"></i> <!-- Default to moon icon -->
       </button>
 
-      <a id="scrollToHomeBtn" href="#" class="block text-xl pb-6 md:pb-0 dark:text-white text-slate-800">Home</a>
-      <a id="scrollToAboutBtn" href="#about" class="block text-xl pb-6 md:pb-0 dark:text-white text-slate-800">About</a>
-      <a id="scrollToPortfolioBtn" href="#portfolio" class="block text-xl md:pb-0 dark:text-white text-slate-800">Portfolio</a> 
+      <a id="scrollToHomeBtn" href="#" class="block text-xl pb-6 md:pb-0 dark:text-white text-slate-800 whitespace-nowrap" data-lang="eng">Home</a>
+      <a id="scrollToAboutBtn" href="#about" class="block text-xl pb-6 md:pb-0 dark:text-white text-slate-800 whitespace-nowrap" data-lang="eng">About</a>
+      <a id="scrollToPortfolioBtn" href="#portfolio" class="block text-xl md:pb-0 dark:text-white text-slate-800 whitespace-nowrap" data-lang="eng">Portfolio</a> 
+
+      <a id="scrollToHomeBtn" href="#" class="block text-xl pb-6 md:pb-0 dark:text-white text-slate-800 whitespace-nowrap" data-lang="es">Inicio</a>
+      <a id="scrollToAboutBtn" href="#about" class="block text-xl pb-6 md:pb-0 dark:text-white text-slate-800 whitespace-nowrap" data-lang="es">Sobre Mi</a>
+      <a id="scrollToPortfolioBtn" href="#portfolio" class="block text-xl md:pb-0 dark:text-white text-slate-800 whitespace-nowrap" data-lang="es">Portfolio</a> 
     </nav>
   </div>
 </header>
@@ -73,8 +97,11 @@ declare global {
   const scrollToHomeBtn = document.querySelectorAll('[id=scrollToHomeBtn]');
   const scrollToAboutBtn = document.getElementById('scrollToAboutBtn');
   const scrollToPortfolioBtn = document.getElementById('scrollToPortfolioBtn');
+
   const themeToggle = document.getElementById('themeToggle');
   const themeIcon = document.getElementById('themeIcon');
+
+  const languageToggle = document.querySelectorAll('[id=languageToggle]');
 
   menuToggle.addEventListener('click', () => {
     navbar.classList.toggle('-translate-y-full');
@@ -145,4 +172,38 @@ declare global {
     document.documentElement.classList.replace('dark','light');
     themeIcon.classList.replace('fa-moon', 'fa-sun');
   }
+
+  // Retrieve the saved language preference from localStorage or default to 'eng'
+  let currentLanguage = localStorage.getItem('language') || 'eng';
+
+  // Initialize elements with data-lang and store their original display style
+  document.querySelectorAll('[data-lang]').forEach((el) => {
+    el.setAttribute('data-original-display', getComputedStyle(el).display);
+  });
+
+  for (let i = 0; i < languageToggle.length; i++) {
+    // Attach click event listener to the button
+    languageToggle[i].addEventListener('click', () => {
+      document.startViewTransition(() => {
+        currentLanguage = currentLanguage === 'eng' ? 'es' : 'eng';
+        localStorage.setItem('language', currentLanguage); // Save preference in localStorage
+        updatePageContent(currentLanguage); // Function to change page content based on language
+      })
+    });
+  }
+
+  // Function to update page content based on the selected language
+  function updatePageContent(language) {
+    const allElements = document.querySelectorAll('[data-lang]');
+    allElements.forEach((el) => {
+      if (el.getAttribute('data-lang') === language.toLowerCase()) {
+        el.style.display = el.getAttribute('data-original-display');
+      } else {
+        el.style.display = 'none';
+      }
+    });
+  }
+
+  // Initialize the content based on the saved language
+  updatePageContent(currentLanguage);
 </script>
