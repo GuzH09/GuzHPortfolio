@@ -1,6 +1,11 @@
 ---
 import DownloadBtn from "@/components/DownloadBtn.astro";
 import SocialBtn from "@/components/SocialBtn.astro";
+import { getLangFromUrl } from '../i18n/utils';
+import { getEntry } from 'astro:content';
+
+const lang = getLangFromUrl(Astro.url);
+const contentText = await getEntry('home', `${lang}/home`);
 ---
 
 <section 
@@ -37,23 +42,8 @@ import SocialBtn from "@/components/SocialBtn.astro";
       xl:text-2xl xl:mb-4
       2xl:text-4xl 2xl:mb-4
       `}
-      data-lang="eng"
     >
-      Full-Stack Development
-    </h3>
-    <h3 
-      class={`
-      font-normal 
-      text-xl text-center mb-8 dark:text-white text-slate-800
-      sm:text-3xl sm:text-center sm:mb-14 
-      md:mb-8 
-      lg:text-4xl lg:text-left lg:mb-10 
-      xl:text-2xl xl:mb-4
-      2xl:text-4xl 2xl:mb-4
-      `}
-      data-lang="es"
-    >
-      Desarrollador Full-Stack
+      {contentText.data.role}
     </h3>
 
     <div 
@@ -105,37 +95,18 @@ import SocialBtn from "@/components/SocialBtn.astro";
       <DownloadBtn 
         class="mb-4 sm:mb-0 lg:mr-2"
         href="https://drive.google.com/file/d/1M5NKDKTJqBcgikiT5b3BVrdrCrhvh7X1/view?usp=drive_link" 
-        ariaLabel="Download English CV"
-        dataLang="eng"
+        ariaLabel=`${contentText.data.downloadButton1}`
       >
-        Download CV [ENG]
+      {contentText.data.downloadButton1}
       </DownloadBtn>
       <DownloadBtn 
         class="lg:mr-2 lg:mb-0"
         href="https://drive.google.com/file/d/1Z9V156WNv3Y18nyfD1uWHcWnhBm7TSHi/view?usp=drive_link" 
-        ariaLabel="Download CV"
-        dataLang="eng"
+        ariaLabel=`${contentText.data.downloadButton2}`
       >
-        Download CV
-      </DownloadBtn>
-      <DownloadBtn 
-        class="mb-4 sm:mb-0 lg:mr-2"
-        href="https://drive.google.com/file/d/1M5NKDKTJqBcgikiT5b3BVrdrCrhvh7X1/view?usp=drive_link" 
-        ariaLabel="Download English CV"
-        dataLang="es"
-      >
-        Descargar CV [ENG]
-      </DownloadBtn>
-      <DownloadBtn 
-        class="lg:mr-2 lg:mb-0"
-        href="https://drive.google.com/file/d/1Z9V156WNv3Y18nyfD1uWHcWnhBm7TSHi/view?usp=drive_link" 
-        ariaLabel="Download CV"
-        dataLang="es"
-      >
-        Descargar CV
+      {contentText.data.downloadButton2}
       </DownloadBtn>
     </nav>
-    
     <nav 
       class={`
       flex gap-2 mb-8 

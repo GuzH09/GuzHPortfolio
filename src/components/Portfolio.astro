@@ -1,12 +1,14 @@
 ---
-import DownloadBtn from "@/components/DownloadBtn.astro";
-import SocialBtn from "@/components/SocialBtn.astro";
 import PortfolioItem from "./PortfolioItem.astro";
+import { getLangFromUrl } from '../i18n/utils';
+import { getEntry } from 'astro:content';
+
+const lang = getLangFromUrl(Astro.url);
+const contentText = await getEntry('portfolio', `${lang}/portfolio`);
 ---
 
 <section class="flex flex-col items-center pt-20 lg:pt-40 lg:pb-40 xl:pb-60" {...Astro.props}>
-  <h2 class="text-center text-4xl lg:text-6xl font-normal pb-8 text-white dark:text-[#88d2fd] xl:text-5xl 2xl:text-6xl" data-lang="eng">Latest Web Development Projects</h2>
-  <h2 class="text-center text-4xl lg:text-6xl font-normal pb-8 text-white dark:text-[#88d2fd] xl:text-5xl 2xl:text-6xl" data-lang="es">Últimos Proyectos de Desarrollo Web</h2>
+  <h2 class="text-center text-4xl lg:text-6xl font-normal pb-8 text-white dark:text-[#88d2fd] xl:text-5xl 2xl:text-6xl">{contentText.data.title}</h2>
   <div 
     class={`
     grid grid-cols-1 gap-3 text-center pb-16 sm:gap-6 
@@ -17,60 +19,55 @@ import PortfolioItem from "./PortfolioItem.astro";
   >
     <PortfolioItem
       class="lg:w-[420px] xl:w-auto 2xl:w-auto"
-      src="./img/project3.webp"
-      alt="My side-project"
-      title="League Pro Data"
-      description="Side-project done with friends built with ReactJs."
-      link="https://www.leagueprodata.com"
+      src={contentText.data.projects[0].image}
+      alt={contentText.data.projects[0].title}
+      title={contentText.data.projects[0].title}
+      description={contentText.data.projects[0].description}
+      link={contentText.data.projects[0].link}
     />
     <PortfolioItem
       class="lg:w-[420px] xl:w-auto 2xl:w-auto"
-      src="./img/project1.webp"
-      alt="My side-project"
-      title="La Casita de Yoga"
-      description="Web Development using HTML5, CSS3, and BOOTSTRAP."
-      link="https://lacasitadeyoga.vercel.app/"
+      src={contentText.data.projects[1].image}
+      alt={contentText.data.projects[1].title}
+      title={contentText.data.projects[1].title}
+      description={contentText.data.projects[1].description}
+      link={contentText.data.projects[1].link}
     />
     <PortfolioItem
       class="lg:w-[420px] xl:w-auto 2xl:w-auto"
-      src="./img/project2.webp"
-      alt="My side-project"
-      title="Beer Ecommerce"
-      description="Web Development using HTML5, TAILWIND, and Javascript."
-      link="https://jsbeerecommerce.vercel.app/"
+      src={contentText.data.projects[2].image}
+      alt={contentText.data.projects[2].title}
+      title={contentText.data.projects[2].title}
+      description={contentText.data.projects[2].description}
+      link={contentText.data.projects[2].link}
     />
     <PortfolioItem
       class="lg:w-[420px] xl:w-auto 2xl:w-auto"
-      src="./img/project4.webp"
-      alt="My side-project"
-      title="Tech Ecommerce"
-      description="Full Stack project using MERN Stack."
-      link="https://reacttechecommerce.vercel.app/"
+      src={contentText.data.projects[3].image}
+      alt={contentText.data.projects[3].title}
+      title={contentText.data.projects[3].title}
+      description={contentText.data.projects[3].description}
+      link={contentText.data.projects[3].link}
     />
   </div>
 
-  <h2 class="text-center text-4xl font-normal pb-8 text-white dark:text-[#88d2fd] lg:text-6xl xl:text-5xl 2xl:text-6xl" data-lang="eng">Data Analysis & Visualization</h2>
-  <h2 class="text-center text-4xl font-normal pb-8 text-white dark:text-[#88d2fd] lg:text-6xl xl:text-5xl 2xl:text-6xl" data-lang="es">Visualización y Análisis de Datos</h2>
+  <h2 class="text-center text-4xl font-normal pb-8 text-white dark:text-[#88d2fd] lg:text-6xl xl:text-5xl 2xl:text-6xl">{contentText.data.title2}</h2>
   <div class="flex flex-col justify-center gap-3 text-center pb-8 sm:gap-6 lg:w-[1300px] lg:flex-row xl:w-auto 2xl:w-auto">
     <PortfolioItem
       class="lg:w-[420px] xl:w-[420px] 2xl:w-auto"
-      src="./img/projectdata1.webp"
-      alt="Streamlit data visualization"
-      title="Streamlit Dashboards"
-      description="Interactive dashboard for data visualization."
+      src={contentText.data.projects2[0].image}
+      alt={contentText.data.projects2[0].title}
+      title={contentText.data.projects2[0].title}
+      description={contentText.data.projects2[0].description}
     />
     <PortfolioItem
       class="lg:w-[420px] xl:w-[420px] 2xl:w-auto"
-      src="./img/projectdata2.webp"
-      alt="Looker studio data visualization"
-      title="Looker Studio Dashboards"
-      description="Interactive dashboard for data visualization."
+      src={contentText.data.projects2[1].image}
+      alt={contentText.data.projects2[1].title}
+      title={contentText.data.projects2[1].title}
+      description={contentText.data.projects2[1].description}
     />
   </div>
-  <p class="text-center text-sm lg:text-xl xl:text-lg text-slate-800/90 dark:text-white">Self-taught work with Streamlit, LookerStudio, and Discord Bots in Python and Javascript.</p>
-  
+
+  <p class="text-center text-sm lg:text-xl xl:text-lg text-slate-800/90 dark:text-white">{contentText.data.title3}</p>
 </section>
-
-
-
-

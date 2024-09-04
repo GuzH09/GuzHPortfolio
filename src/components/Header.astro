@@ -1,4 +1,6 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
 declare global {
   interface Document {
     startViewTransition: (callback: () => void) => void;
@@ -7,6 +9,10 @@ declare global {
     style: any
   }
 }
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 ---
 
 <header 
@@ -24,7 +30,7 @@ declare global {
     md:px-0 md:pl-12 
     lg:pl-24 
     xl:py-5 xl:pl-24 xl:min-h-[10vh] 
-    2xl:py-5 2xl:pl-40 2xl:min-h[10vh] 
+    2xl:py-5 2xl:pl-40 2xl:min-h-[10vh] 
     `}
   >
     <a id="scrollToHomeBtn" href="#" class="relative flex items-center gap-2 xl:gap-4">
@@ -57,34 +63,33 @@ declare global {
       `}
     >
       <!-- Eng/Esp Mode Toggle Button -->
-      <button id="languageToggle" class="flex justify-center w-full md:block md:size-7 pb-6 md:pb-0" data-lang="eng">
-        <img 
-          src="./img/eng.avif" 
-          alt="UK Flag" 
-          class="size-7 object-cover" 
-        >
-      </button>
-      
-      <button id="languageToggle" class="flex justify-center w-full md:block md:size-7 pb-6 md:pb-0" data-lang="es">
-        <img 
-          src="./img/esp.avif" 
-          alt="ESP Flag" 
-          class="size-7 object-cover" 
-        >
-      </button>
+      { lang === 'en' 
+      ? 
+        <a href="/es" hreflang="es" class="flex justify-center w-full md:block md:size-7 pb-6 md:pb-0">
+          <img 
+            src="./img/eng.avif" 
+            alt="UK Flag" 
+            class="size-7 object-cover" 
+          >
+        </a>
+      : 
+        <a href="/en" hreflang="en" class="flex justify-center w-full md:block md:size-7 pb-6 md:pb-0">
+          <img 
+            src="./img/esp.avif" 
+            alt="ESP Flag" 
+            class="size-7 object-cover" 
+          >
+        </a>
+      }
       
       <!-- Dark/Light Mode Toggle Button -->
-      <button id="themeToggle" class="block w-full md:w-auto text-xl pb-6 md:pb-0 dark:text-white text-slate-800">
+      <button id="themeToggle" class="block w-full md:w-auto text-xl pb-6 md:pb-0 dark:text-white text-slate-800" transition:persist>
         <i id="themeIcon" class="fa-solid fa-moon"></i> <!-- Default to moon icon -->
       </button>
 
-      <a id="scrollToHomeBtn" href="#" class="block text-xl pb-6 md:pb-0 dark:text-white text-slate-800 whitespace-nowrap" data-lang="eng">Home</a>
-      <a id="scrollToAboutBtn" href="#about" class="block text-xl pb-6 md:pb-0 dark:text-white text-slate-800 whitespace-nowrap" data-lang="eng">About</a>
-      <a id="scrollToPortfolioBtn" href="#portfolio" class="block text-xl md:pb-0 dark:text-white text-slate-800 whitespace-nowrap" data-lang="eng">Portfolio</a> 
-
-      <a id="scrollToHomeBtn" href="#" class="block text-xl pb-6 md:pb-0 dark:text-white text-slate-800 whitespace-nowrap" data-lang="es">Inicio</a>
-      <a id="scrollToAboutBtn" href="#about" class="block text-xl pb-6 md:pb-0 dark:text-white text-slate-800 whitespace-nowrap" data-lang="es">Sobre Mi</a>
-      <a id="scrollToPortfolioBtn" href="#portfolio" class="block text-xl md:pb-0 dark:text-white text-slate-800 whitespace-nowrap" data-lang="es">Portfolio</a> 
+      <a id="scrollToHomeBtn" href="#" class="block text-xl pb-6 md:pb-0 dark:text-white text-slate-800 whitespace-nowrap">{t('nav.home')}</a>
+      <a id="scrollToAboutBtn" href="#about" class="block text-xl pb-6 md:pb-0 dark:text-white text-slate-800 whitespace-nowrap">{t('nav.about')}</a>
+      <a id="scrollToPortfolioBtn" href="#portfolio" class="block text-xl md:pb-0 dark:text-white text-slate-800 whitespace-nowrap">{t('nav.portfolio')}</a>
     </nav>
   </div>
 </header>
@@ -100,8 +105,6 @@ declare global {
 
   const themeToggle = document.getElementById('themeToggle');
   const themeIcon = document.getElementById('themeIcon');
-
-  const languageToggle = document.querySelectorAll('[id=languageToggle]');
 
   menuToggle.addEventListener('click', () => {
     navbar.classList.toggle('-translate-y-full');
@@ -123,7 +126,6 @@ declare global {
       });
     });
   }
-  
 
   // Scroll to the center of the about section when the button is clicked
   scrollToAboutBtn.addEventListener('click', (event) => {
@@ -142,10 +144,17 @@ declare global {
   });
 
   // Scroll to the center of the about section when the button is clicked
-  scrollToPortfolioBtn.addEventListener('click', () => {
-    document.querySelector('#portfolio').scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
+  scrollToPortfolioBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    // Get the href attribute of the portfolio button
+    const portfolioSection = document.querySelector('#portfolio');
+    const portfolioSectionTop = portfolioSection.getBoundingClientRect().top + window.scrollY;
+
+    // Smoothly scroll to the center of the about section
+    window.scrollTo({
+      top: portfolioSectionTop,
+      behavior: 'smooth'
     });
   });
 
@@ -173,37 +182,4 @@ declare global {
     themeIcon.classList.replace('fa-moon', 'fa-sun');
   }
 
-  // Retrieve the saved language preference from localStorage or default to 'eng'
-  let currentLanguage = localStorage.getItem('language') || 'eng';
-
-  // Initialize elements with data-lang and store their original display style
-  document.querySelectorAll('[data-lang]').forEach((el) => {
-    el.setAttribute('data-original-display', getComputedStyle(el).display);
-  });
-
-  for (let i = 0; i < languageToggle.length; i++) {
-    // Attach click event listener to the button
-    languageToggle[i].addEventListener('click', () => {
-      document.startViewTransition(() => {
-        currentLanguage = currentLanguage === 'eng' ? 'es' : 'eng';
-        localStorage.setItem('language', currentLanguage); // Save preference in localStorage
-        updatePageContent(currentLanguage); // Function to change page content based on language
-      })
-    });
-  }
-
-  // Function to update page content based on the selected language
-  function updatePageContent(language) {
-    const allElements = document.querySelectorAll('[data-lang]');
-    allElements.forEach((el) => {
-      if (el.getAttribute('data-lang') === language.toLowerCase()) {
-        el.style.display = el.getAttribute('data-original-display');
-      } else {
-        el.style.display = 'none';
-      }
-    });
-  }
-
-  // Initialize the content based on the saved language
-  updatePageContent(currentLanguage);
 </script>

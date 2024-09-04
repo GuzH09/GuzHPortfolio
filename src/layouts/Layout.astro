@@ -11,34 +11,34 @@ import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/700.css';
 import '@fontsource/poppins/800.css';
 import '@fontsource/poppins/900.css';
-import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
 	title: string
 	description: string
 	canonical?: string
+  lang:string
 }
 
-const { title, description, canonical } = Astro.props
+const { title, description, canonical, lang } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang={lang} class="dark">
   <head>
     <SEO 
       canonical={canonical}
       description={description}
       title={title}
     />
-    <ViewTransitions />
+    <script src="https://kit.fontawesome.com/d84373c6ce.js" crossorigin="anonymous" is:inline></script>
   </head>
   <body transition:name="initial">
     <Header />
       <slot />
-    <Footer/>
+    <Footer />
   </body>
 </html>
-<script src="https://kit.fontawesome.com/d84373c6ce.js" crossorigin="anonymous"></script>
+
 
 <style is:global>
   :root {
