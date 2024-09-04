@@ -79,12 +79,30 @@ const t = useTranslations(lang);
   const scrollToAboutBtn = document.getElementById('scrollToAboutBtn');
   const scrollToPortfolioBtn = document.getElementById('scrollToPortfolioBtn');
 
-  menuToggle.addEventListener('click', () => {
-    navbar.classList.toggle('-translate-y-full');
-    if (menuIcon.classList.contains('fa-bars')) {
-      menuIcon.classList.replace('fa-bars','fa-xmark');
+  function closeNavbarOnClickOutside(event) {
+    if (!navbar.contains(event.target) && event.target !== menuToggle) {
+      closeNavbar();
+    }
+  }
+
+  function openNavbar() {
+    navbar.classList.remove('-translate-y-full');
+    menuIcon.classList.replace('fa-bars', 'fa-xmark');
+    document.addEventListener('click', closeNavbarOnClickOutside);
+  }
+
+  function closeNavbar() {
+    navbar.classList.add('-translate-y-full');
+    menuIcon.classList.replace('fa-xmark', 'fa-bars');
+    document.removeEventListener('click', closeNavbarOnClickOutside);
+  }
+
+  menuToggle.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevent the event from propagating to the document
+    if (navbar.classList.contains('-translate-y-full')) {
+      openNavbar();
     } else {
-      menuIcon.classList.replace('fa-xmark','fa-bars');
+      closeNavbar();
     }
   });
 
