@@ -1,0 +1,39 @@
+---
+interface Props {
+  iconClass: string;
+}
+
+const { iconClass } = Astro.props
+---
+
+<button id="themeToggle" class="block w-full md:w-auto text-xl pb-6 md:pb-0 dark:text-white text-slate-800">
+  <i id="themeIcon" class={`fa-solid ${iconClass}`}></i> <!-- Dynamic icon class -->
+</button>
+
+<script>
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+
+  // Check for saved user theme preference
+  if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.replace('light','dark');
+    themeIcon.classList.replace('fa-sun','fa-moon');
+  } else {
+    document.documentElement.classList.replace('dark','light');
+    themeIcon.classList.replace('fa-moon', 'fa-sun');
+  }
+
+  themeToggle.addEventListener('click', () => {
+    document.startViewTransition(() => {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.replace('dark', 'light');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.classList.replace('light', 'dark');
+        themeIcon.classList.replace('fa-sun', 'fa-moon');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  });
+</script>

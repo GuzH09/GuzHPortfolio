@@ -1,0 +1,20 @@
+---
+interface Props {
+  href: string;
+  hreflang: string;
+  imgSrc: string;
+  imgAlt: string;
+}
+
+const { href, hreflang, imgSrc, imgAlt} = Astro.props
+---
+<a 
+  href={href} 
+  hreflang={hreflang} 
+  class="flex justify-center w-full md:block md:size-7 pb-6 md:pb-0"
+>
+  <img 
+    src={imgSrc} 
+    alt={imgAlt} 
+    class="size-7 object-cover">
+</a>

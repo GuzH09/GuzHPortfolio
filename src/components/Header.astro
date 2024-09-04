@@ -1,5 +1,8 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import Logo from './Logo.astro';
+import LanguageToggle from './LanguageToggle.astro';
+import ThemeToggle from './ThemeToggle.astro';
 
 declare global {
   interface Document {
@@ -32,16 +35,7 @@ const t = useTranslations(lang);
     2xl:py-5 2xl:pl-40 2xl:min-h-[10vh] 
     `}
   >
-    <a id="scrollToHomeBtn" href="#" class="relative flex items-center gap-2 xl:gap-4">
-      <div class="absolute top-0 left-0 size-12 xl:size-14 dark:bg-gradient-radial-dark bg-gradient-radial-light"></div>
-      <img 
-        src="./img/logo.webp" 
-        alt="GuzH Logo" 
-        class="size-12 xl:size-14" 
-      >
-      <h1 class="text-xl hidden md:block dark:text-white text-slate-800">GuzH</h1>
-    </a>
-
+    <Logo logoSrc="./img/logo.webp" logoAlt="GuzH Logo" title="GuzH" />
     <button id="menuToggle" class="text-2xl md:hidden">
       <i class="fa-solid fa-bars dark:text-white text-slate-800" id="menuIcon"></i>
     </button>
@@ -61,19 +55,13 @@ const t = useTranslations(lang);
       2xl:pr-40
       `}
     >
-      <!-- Eng/Esp Mode Toggle Button -->
-      <a href={t('nav.toggle.href')} hreflang={t('nav.toggle.hreflang')} class="flex justify-center w-full md:block md:size-7 pb-6 md:pb-0">
-        <img 
-          src={t('nav.toggle.src')}
-          alt={t('nav.toggle.alt')} 
-          class="size-7 object-cover" 
-        >
-      </a>
-      
-      <!-- Dark/Light Mode Toggle Button -->
-      <button id="themeToggle" class="block w-full md:w-auto text-xl pb-6 md:pb-0 dark:text-white text-slate-800" transition:persist>
-        <i id="themeIcon" class="fa-solid fa-moon"></i> <!-- Default to moon icon -->
-      </button>
+      <LanguageToggle
+        href={t('nav.toggle.href')} 
+        hreflang={t('nav.toggle.hreflang')} 
+        imgSrc={t('nav.toggle.src')} 
+        imgAlt={t('nav.toggle.alt')}
+      />
+      <ThemeToggle iconClass="fa-moon" />
 
       <a id="scrollToHomeBtn" href="#" class="block text-xl pb-6 md:pb-0 dark:text-white text-slate-800 whitespace-nowrap">{t('nav.home')}</a>
       <a id="scrollToAboutBtn" href="#about" class="block text-xl pb-6 md:pb-0 dark:text-white text-slate-800 whitespace-nowrap">{t('nav.about')}</a>
@@ -90,18 +78,6 @@ const t = useTranslations(lang);
   const scrollToHomeBtn = document.querySelectorAll('[id=scrollToHomeBtn]');
   const scrollToAboutBtn = document.getElementById('scrollToAboutBtn');
   const scrollToPortfolioBtn = document.getElementById('scrollToPortfolioBtn');
-
-  const themeToggle = document.getElementById('themeToggle');
-  const themeIcon = document.getElementById('themeIcon');
-
-  // Check for saved user theme preference
-  if (localStorage.getItem('theme') === 'dark') {
-    document.documentElement.classList.replace('light','dark');
-    themeIcon.classList.replace('fa-sun','fa-moon');
-  } else {
-    document.documentElement.classList.replace('dark','light');
-    themeIcon.classList.replace('fa-moon', 'fa-sun');
-  }
 
   menuToggle.addEventListener('click', () => {
     navbar.classList.toggle('-translate-y-full');
@@ -153,20 +129,5 @@ const t = useTranslations(lang);
       top: portfolioSectionTop,
       behavior: 'smooth'
     });
-  });
-
-  // Add event listener for theme toggle
-  themeToggle.addEventListener('click', () => {
-    document.startViewTransition(() => {
-      if (document.documentElement.classList.contains('dark')) {
-        document.documentElement.classList.replace('dark','light');
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
-        localStorage.setItem('theme', 'light');
-      } else {
-        document.documentElement.classList.replace('light','dark');
-        themeIcon.classList.replace('fa-sun', 'fa-moon');
-        localStorage.setItem('theme', 'dark');
-      }
-    })
   });
 </script>
