@@ -4,70 +4,42 @@ import { getLangFromUrl } from '../i18n/utils';
 import { getEntry } from 'astro:content';
 
 const lang = getLangFromUrl(Astro.url);
-const contentText = await getEntry('portfolio', `${lang}/portfolio`);
+const contentData = await getEntry('portfolio', `${lang}/portfolio`);
 ---
 
 <section class="flex flex-col items-center pt-20 lg:pt-40 lg:pb-40 xl:pb-60" {...Astro.props}>
-  <h2 class="text-center text-4xl lg:text-6xl font-normal pb-8 text-white dark:text-[#88d2fd] xl:text-5xl 2xl:text-6xl">{contentText.data.title}</h2>
+  <h2 class="text-center text-4xl lg:text-6xl font-normal pb-8 text-white dark:text-[#88d2fd] xl:text-5xl 2xl:text-6xl">{contentData.data.title}</h2>
   <div 
-    class={`
+    class={` 
     grid grid-cols-1 gap-3 text-center pb-16 sm:gap-6 
     lg:grid-cols-2 lg:w-[900px] lg:pb-40 
-    xl:grid-cols-3 xl:w-auto xl:pb-40
+    xl:grid-cols-3 xl:w-auto xl:pb-40 
     2xl:grid-cols-3 2xl:w-auto 2xl:pb-40 
     `}
   >
-    <PortfolioItem
-      class="lg:w-[420px] xl:w-auto 2xl:w-auto"
-      src={contentText.data.projects[0].image}
-      alt={contentText.data.projects[0].title}
-      title={contentText.data.projects[0].title}
-      description={contentText.data.projects[0].description}
-      link={contentText.data.projects[0].link}
-    />
-    <PortfolioItem
-      class="lg:w-[420px] xl:w-auto 2xl:w-auto"
-      src={contentText.data.projects[1].image}
-      alt={contentText.data.projects[1].title}
-      title={contentText.data.projects[1].title}
-      description={contentText.data.projects[1].description}
-      link={contentText.data.projects[1].link}
-    />
-    <PortfolioItem
-      class="lg:w-[420px] xl:w-auto 2xl:w-auto"
-      src={contentText.data.projects[2].image}
-      alt={contentText.data.projects[2].title}
-      title={contentText.data.projects[2].title}
-      description={contentText.data.projects[2].description}
-      link={contentText.data.projects[2].link}
-    />
-    <PortfolioItem
-      class="lg:w-[420px] xl:w-auto 2xl:w-auto"
-      src={contentText.data.projects[3].image}
-      alt={contentText.data.projects[3].title}
-      title={contentText.data.projects[3].title}
-      description={contentText.data.projects[3].description}
-      link={contentText.data.projects[3].link}
-    />
+    {contentData.data.projects.map((project) => (
+      <PortfolioItem
+        class="lg:w-[420px] xl:w-auto 2xl:w-auto"
+        src={project.image}
+        alt={project.title}
+        title={project.title}
+        description={project.description}
+        link={project.link}
+      />
+    ))}
   </div>
 
-  <h2 class="text-center text-4xl font-normal pb-8 text-white dark:text-[#88d2fd] lg:text-6xl xl:text-5xl 2xl:text-6xl">{contentText.data.title2}</h2>
+  <h2 class="text-center text-4xl font-normal pb-8 text-white dark:text-[#88d2fd] lg:text-6xl xl:text-5xl 2xl:text-6xl">{contentData.data.title2}</h2>
   <div class="flex flex-col justify-center gap-3 text-center pb-8 sm:gap-6 lg:w-[1300px] lg:flex-row xl:w-auto 2xl:w-auto">
-    <PortfolioItem
-      class="lg:w-[420px] xl:w-[420px] 2xl:w-auto"
-      src={contentText.data.projects2[0].image}
-      alt={contentText.data.projects2[0].title}
-      title={contentText.data.projects2[0].title}
-      description={contentText.data.projects2[0].description}
-    />
-    <PortfolioItem
-      class="lg:w-[420px] xl:w-[420px] 2xl:w-auto"
-      src={contentText.data.projects2[1].image}
-      alt={contentText.data.projects2[1].title}
-      title={contentText.data.projects2[1].title}
-      description={contentText.data.projects2[1].description}
-    />
+    {contentData.data.projects2.map((project) => (
+      <PortfolioItem
+        class="lg:w-[420px] xl:w-[420px] 2xl:w-auto"
+        src={project.image}
+        alt={project.title}
+        title={project.title}
+        description={project.description}
+      />
+    ))}
   </div>
-
-  <p class="text-center text-sm lg:text-xl xl:text-lg text-slate-800/90 dark:text-white">{contentText.data.title3}</p>
+  <p class="text-center text-sm lg:text-xl xl:text-lg text-slate-800/90 dark:text-white">{contentData.data.title3}</p>
 </section>
