@@ -41,6 +41,9 @@ const t = useTranslations(lang);
     </button>
   </div>
 
+  <!-- Overlay element for click shielding -->
+  <div id="overlay" class="hidden fixed inset-0 bg-transparent -z-20"></div>
+
   <div class="w-full">
     <nav 
       id="navbar" 
@@ -75,26 +78,21 @@ const t = useTranslations(lang);
   const menuToggle = document.getElementById('menuToggle');
   const navbar = document.getElementById('navbar');
   const menuIcon = document.getElementById('menuIcon');
+  const overlay = document.getElementById('overlay');
   const scrollToHomeBtn = document.querySelectorAll('[id=scrollToHomeBtn]');
   const scrollToAboutBtn = document.getElementById('scrollToAboutBtn');
   const scrollToPortfolioBtn = document.getElementById('scrollToPortfolioBtn');
 
-  function closeNavbarOnClickOutside(event) {
-    if (!navbar.contains(event.target) && event.target !== menuToggle) {
-      closeNavbar();
-    }
-  }
-
   function openNavbar() {
     navbar.classList.remove('-translate-y-full');
     menuIcon.classList.replace('fa-bars', 'fa-xmark');
-    document.addEventListener('click', closeNavbarOnClickOutside);
+    overlay.classList.remove('hidden'); // Show overlay
   }
 
   function closeNavbar() {
     navbar.classList.add('-translate-y-full');
     menuIcon.classList.replace('fa-xmark', 'fa-bars');
-    document.removeEventListener('click', closeNavbarOnClickOutside);
+    overlay.classList.add('hidden'); // Hide overlay
   }
 
   menuToggle.addEventListener('click', (event) => {
@@ -104,6 +102,12 @@ const t = useTranslations(lang);
     } else {
       closeNavbar();
     }
+  });
+
+  // Prevent clicks on the overlay from reaching the content below
+  overlay.addEventListener('click', (event) => {
+    event.stopPropagation(); // Stop clicks from propagating
+    closeNavbar(); // Close the navbar if clicked on the overlay
   });
 
   for (let i = 0; i < scrollToHomeBtn.length; i++) {
