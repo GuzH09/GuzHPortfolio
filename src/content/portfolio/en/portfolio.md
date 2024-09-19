@@ -6,7 +6,7 @@ projects:
     link: "https://www.leagueprodata.com"
     image: "./img/project3.webp"
   - title: "La Casita de Yoga"
-    description: "Web Development using HTML5, CSS3, and BOOTSTRAP."
+    description: "Web Development using ASTRO, and TAILWIND."
     link: "https://lacasitadeyoga.vercel.app/"
     image: "./img/project1.webp"
   - title: "Beer Ecommerce"
