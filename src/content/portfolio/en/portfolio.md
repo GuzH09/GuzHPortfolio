@@ -10,7 +10,7 @@ projects:
     link: "https://lacasitadeyoga.vercel.app/"
     image: "./img/project1.webp"
   - title: "Beer Ecommerce"
-    description: "Web Development using HTML5, TAILWIND, and Javascript."
+    description: "Web Development using ASTRO, TAILWIND, and Javascript."
     link: "https://jsbeerecommerce.vercel.app/"
     image: "./img/project2.webp"
   - title: "Tech Ecommerce"
