@@ -17,6 +17,10 @@ projects:
     description: "Full Stack project using MERN Stack."
     link: "https://reacttechecommerce.vercel.app/"
     image: "./img/project4.webp"
+  - title: "Astro Ecommerce"
+    description: "SSR With Astro Framework, Tailwind and React."
+    link: "https://astro-ecommerce-orcin.vercel.app/"
+    image: "./img/project5.webp"
 
 title2: "Data Analysis & Visualization"
 projects2:
