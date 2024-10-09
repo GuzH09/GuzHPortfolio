@@ -19,7 +19,7 @@ projects:
     image: "./img/project4.webp"
   - title: "Astro Ecommerce"
     description: "Server Side Rendering con Astro, Tailwind y React."
-    link: "https://astro-ecommerce-orcin.vercel.app/"
+    link: "https://guzhstore-astro.vercel.app/"
     image: "./img/project5.webp"
 
 title2: "Visualización y Análisis de Datos"
