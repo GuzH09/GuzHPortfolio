@@ -4,15 +4,6 @@ import Logo from './Logo.astro';
 import LanguageToggle from './LanguageToggle.astro';
 import ThemeToggle from './ThemeToggle.astro';
 
-declare global {
-  interface Document {
-    startViewTransition: (callback: () => void) => void;
-  }
-  interface Element {
-    style: any
-  }
-}
-
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---

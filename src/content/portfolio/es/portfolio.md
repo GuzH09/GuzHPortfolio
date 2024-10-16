@@ -21,6 +21,10 @@ projects:
     description: "Server Side Rendering con Astro, Tailwind y React."
     link: "https://guzhstore-astro.vercel.app/"
     image: "./img/project5.webp"
+  - title: "Gauchos Inmortales"
+    description: "Pagina estatica con Astro, y Tailwind."
+    link: "https://gauchosinmortalesweb.vercel.app/"
+    image: "./img/project6.webp"
 
 title2: "Visualización y Análisis de Datos"
 projects2:

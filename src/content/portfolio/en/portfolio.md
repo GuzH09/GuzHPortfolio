@@ -21,6 +21,10 @@ projects:
     description: "SSR With Astro Framework, Tailwind and React."
     link: "https://guzhstore-astro.vercel.app/"
     image: "./img/project5.webp"
+  - title: "Gauchos Inmortales"
+    description: "Static Site With Astro Framework, and Tailwind."
+    link: "https://gauchosinmortalesweb.vercel.app/"
+    image: "./img/project6.webp"
 
 title2: "Data Analysis & Visualization"
 projects2:
