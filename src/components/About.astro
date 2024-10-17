@@ -1,26 +1,30 @@
 ---
+import Prose from './Prose.astro';
 import DownloadBtn from "./DownloadBtn.astro";
 import { getLangFromUrl } from '../i18n/utils';
 import { getEntry } from 'astro:content';
 
 const lang = getLangFromUrl(Astro.url);
 const contentText = await getEntry('about', `${lang}/about`);
+const { Content } = await contentText.render();
 ---
 
 <section 
   class={`
   flex flex-col justify-center items-center 
 
-  xl:min-h-[70vh] xl:gap-40 xl:flex-row
+  xl:min-h-[70vh] xl:gap-20 xl:flex-row
   `} 
   {...Astro.props}
 >
 <!-- h-[163.8px] w-[240px] -->
   <div 
     class={`
-    w-8/12 mb-6
     rounded-xl overflow-hidden shadow-[1rem_0_3rem_#171a21]
-    xl:h-[273px] xl:w-[400px] xl:mb-0
+    w-8/12 mb-6
+    lg:w-5/12
+    xl:w-7/12
+    xl:mb-0
     `}
   >
     <img 
@@ -30,46 +34,21 @@ const contentText = await getEntry('about', `${lang}/about`);
     />
   </div>
 
-  <div class="lg:w-[900px] text-center xl:text-left">
-    <!-- Content -->
-    <h2 class="text-4xl font-normal pb-4 text-white dark:text-[#88d2fd] sm:text-5xl lg:text-6xl xl:text-5xl">
+  <div class="lg:w-full text-center xl:text-left">
+    <h3 class="text-3xl font-normal text-white dark:text-[#88d2fd] sm:text-4xl md:text-3xl lg:text-3xl xl:text-3xl 2xl:text-4xl">
       {contentText.data.title}
-    </h2>
-    <p class="mb-4 text-sm sm:text-base lg:text-xl xl:text-base 2xl:text-base text-slate-800/90 dark:text-white">
-      {contentText.data.text1}
-      <span class="text-white dark:text-[#88d2fd]/90 font-semibold">{contentText.data.text2}</span>
-      {contentText.data.text3}
-    </p>
-    <p class="mb-4 text-sm sm:text-base lg:text-xl xl:text-base 2xl:text-base text-slate-800/90 dark:text-white">
-      {contentText.data.text4}
-      <span class="text-white dark:text-[#88d2fd]/90 font-semibold">{contentText.data.text5}</span>
-      {contentText.data.text6}
-      <span class="text-white dark:text-[#88d2fd]/90 font-semibold">{contentText.data.text7}</span>
-      {contentText.data.text8}
-    </p>
-    <p class="mb-4 text-sm sm:text-base lg:text-xl xl:text-base 2xl:text-base text-slate-800/90 dark:text-white">
-      {contentText.data.text9}
-      <span class="text-white dark:text-[#88d2fd]/90 font-semibold">{contentText.data.text10}</span>
-      {contentText.data.text11}
-      <span class="text-white dark:text-[#88d2fd]/90 font-semibold">{contentText.data.text12}</span>
-      {contentText.data.text13}
-      <span class="text-white dark:text-[#88d2fd]/90 font-semibold">{contentText.data.text14}</span>
-      {contentText.data.text15}
-    </p>
-    <p class="mb-6 text-sm sm:text-base lg:text-xl xl:text-base 2xl:text-base text-slate-800/90 dark:text-white">
-      {contentText.data.text16}
-      <span class="text-white dark:text-[#88d2fd]/90 font-semibold">{contentText.data.text17}</span>
-      {contentText.data.text18}
-    </p>
-    <p class="mb-6 text-sm sm:text-base lg:text-xl xl:text-base 2xl:text-base text-slate-800/90 dark:text-white">
-      {contentText.data.text19}
-    </p>
+    </h3>
+
+    <Prose>
+      <Content />
+    </Prose>
+    
     <DownloadBtn 
       class="lg:text-xl xl:text-base 2xl:text-base"
       href="https://github.com/GuzH09" 
-      ariaLabel=`${contentText.data.text20}`
+      ariaLabel=`${contentText.data.button}`
     >
-      {contentText.data.text20}
+      {contentText.data.button}
     </DownloadBtn>
   </div>
 </section>

@@ -1,23 +1,9 @@
 ---
-title: "About Me"
-text1: "I am a 25 years old Full Stack Developer from Rio Negro, Argentina 🧉, and since I was a child I have been passionate about "
-text2: "technology"
-text3: ". My journey into the tech world has been shaped by a diverse range of experiences:"
-text4: "Initially, I pursued two years of studies in both "
-text5: "Systems Engineering"
-text6: "and"
-text7: "Psychology"
-text8: "before facing personal challenges that led to a pause in my formal education."
-text9: "Subsequently, I immersed myself in "
-text10: "Esports"
-text11: ", leveraging"
-text12: "self-taught tools"
-text13: "to provide"
-text14: "applications, websites, and statistical analysis"
-text15: "to professional Esports teams. This culminated in my tenure at Infinity Esports, a prominent organization in the Latin American Esports scene."
-text16: "Currently, my focus is on building a career as a "
-text17: "Full Stack Developer"
-text18: ". Leveraging my academic background, supplemented by relevant courseworks, as well as both freelance and self-taught studies, I am actively pursuing opportunities to further enhance my skills and contribute meaningfully to the tech industry."
-text19: "For more information, visit my GitHub profile."
-text20: "Read More"
+title: About me
+button: Read More
 ---
+I am a 25 years old Full Stack Developer from Rio Negro, Argentina 🧉, and since I was a child I have been passionate about **technology**. My journey into the tech world has been shaped by a diverse range of experiences:  
+Initially, I pursued two years of studies in both __Systems Engineering__ and **Psychology** before facing personal challenges that led to a pause in my formal education.  
+Subsequently, I immersed myself in **Esports**, leveraging **self-taught tools** to provide **applications, websites, and statistical analysis** to professional Esports teams. This culminated in my tenure at Infinity Esports, a prominent organization in the Latin American Esports scene.  
+Currently, my focus is on building a career as a **Full Stack Developer**. Leveraging my academic background, supplemented by relevant courseworks, as well as both freelance and self-taught studies, I am actively pursuing opportunities to further enhance my skills and contribute meaningfully to the tech industry.  
+For more information, visit my GitHub profile.

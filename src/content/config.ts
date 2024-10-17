@@ -14,26 +14,7 @@ const aboutCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    text1: z.string(),
-    text2: z.string(),
-    text3: z.string(),
-    text4: z.string(),
-    text5: z.string(),
-    text6: z.string(),
-    text7: z.string(),
-    text8: z.string(),
-    text9: z.string(),
-    text10: z.string(),
-    text11: z.string(),
-    text12: z.string(),
-    text13: z.string(),
-    text14: z.string(),
-    text15: z.string(),
-    text16: z.string(),
-    text17: z.string(),
-    text18: z.string(),
-    text19: z.string(),
-    text20: z.string()
+    button: z.string(),
   })
 });
 

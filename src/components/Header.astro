@@ -11,7 +11,7 @@ const t = useTranslations(lang);
 <header 
   class={`
   z-20 sticky top-0 
-  md:flex md:justify-between md:items-center dark:md:bg-[#1f242d] md:bg-slate-100
+  md:flex md:justify-between md:items-center dark:md:bg-[#1f242d] md:bg-slate-100 
   `}
 >
   <div 
@@ -20,10 +20,11 @@ const t = useTranslations(lang);
     w-full h-full 
     px-4 py-2 
     sm:px-10 sm:py-4 
-    md:px-0 md:pl-12 
-    lg:pl-24 
-    xl:py-5 xl:pl-24 xl:min-h-[10vh] 
-    2xl:py-5 2xl:pl-40 2xl:min-h-[10vh] 
+
+    md:py-5 md:pl-0 md:min-h-[10vh] md:max-w-[360px] md:ml-auto md:pr-0 
+    lg:max-w-[480px]
+    xl:max-w-[600px]
+    2xl:max-w-[720px] 
     `}
   >
     <Logo logoSrc="./img/logo.webp" logoAlt="GuzH Logo" title="GuzH" />
@@ -35,18 +36,27 @@ const t = useTranslations(lang);
   <!-- Overlay element for click shielding -->
   <div id="overlay" class="hidden fixed inset-0 bg-transparent -z-20"></div>
 
-  <div class="w-full">
+  <div 
+    class={`
+    w-full 
+    md:pr-0 md:mr-auto md:max-w-[360px] 
+    lg:max-w-[480px] 
+    xl:max-w-[600px] 
+    2xl:max-w-[720px] 
+    `}
+  >
     <nav 
       id="navbar" 
       class={`
       bg-slate-100 dark:bg-[#1f242d] transform -translate-y-full transition duration-300 
       absolute top-full left-0 right-0 
-      py-6 px-4 -z-10 
+      py-6 -z-10 
       text-center shadow-[0_5px_25px_#334155] dark:shadow-[0_10px_25px_#171a21]
-      md:flex md:flex-row md:justify-end md:gap-x-14 md:text-xl md:py-0 md:bg-transparent md:pr-12 md:static md:shadow-none dark:md:shadow-none md:translate-y-0
-      lg:pr-24 md:transition-none
-      xl:pr-24
-      2xl:pr-40
+      md:flex md:flex-row md:justify-end 
+      md:gap-4 md:text-xl md:py-0 md:bg-transparent md:static md:shadow-none dark:md:shadow-none md:translate-y-0 md:transition-none
+      lg:gap-10
+      xl:gap-14
+      
       `}
     >
       <LanguageToggle
@@ -59,9 +69,9 @@ const t = useTranslations(lang);
       />
       <ThemeToggle iconClass="fa-moon" />
 
-      <a id="scrollToHomeBtn" href="#" class="block text-xl pb-6 md:pb-0 dark:text-white text-slate-800 whitespace-nowrap">{t('nav.home')}</a>
-      <a id="scrollToAboutBtn" href="#about" class="block text-xl pb-6 md:pb-0 dark:text-white text-slate-800 whitespace-nowrap">{t('nav.about')}</a>
-      <a id="scrollToPortfolioBtn" href="#portfolio" class="block text-xl md:pb-0 dark:text-white text-slate-800 whitespace-nowrap">{t('nav.portfolio')}</a>
+      <a id="scrollToHomeBtn" href="#" class="hover:drop-shadow-[0_0_8px_rgb(71,185,255,1)] dark:hover:drop-shadow-[0_0_8px_rgb(136,210,253,1)] block text-xl sm:text-2xl md:text-xl pb-6 md:pb-0 dark:text-white text-slate-800 whitespace-nowrap">{t('nav.home')}</a>
+      <a id="scrollToAboutBtn" href="#about" class="hover:drop-shadow-[0_0_8px_rgb(71,185,255,1)] dark:hover:drop-shadow-[0_0_8px_rgb(136,210,253,1)] block text-xl sm:text-2xl md:text-xl pb-6 md:pb-0 dark:text-white text-slate-800 whitespace-nowrap">{t('nav.about')}</a>
+      <a id="scrollToPortfolioBtn" href="#portfolio" class="hover:drop-shadow-[0_0_8px_rgb(71,185,255,1)] dark:hover:drop-shadow-[0_0_8px_rgb(136,210,253,1)] block text-xl sm:text-2xl md:text-xl md:pb-0 dark:text-white text-slate-800 whitespace-nowrap">{t('nav.portfolio')}</a>
     </nav>
   </div>
 </header>

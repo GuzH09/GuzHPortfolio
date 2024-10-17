@@ -11,40 +11,39 @@ const contentText = await getEntry('home', `${lang}/home`);
 <section 
   class={`
   flex flex-col justify-center items-center pt-6 
-  sm:pt-2 
+  sm:pt-6 
   lg:pt-8 lg:min-h-[80vh] lg:justify-start 
-  xl:flex-row xl:justify-between xl:items-start xl:pt-12 xl:min-h-[90vh] xl:max-w-screen-2xl 
-  2xl:justify-between 2xl:items-top 2xl:pt-36 2xl:min-h-[90vh] 2xl:max-w-screen-2xl 
+  xl:flex-row xl:justify-between xl:items-center xl:pt-0 xl:mb-12 xl:min-h-[80vh]
   `}
   {...Astro.props}
 >
-  <div class="flex flex-col justify-center items-center xl:slide-in-left xl:block">
-    <h2 
+  <div class="flex flex-col justify-center items-center xl:slide-in-left xl:block xl:w-full xl:animate-slide-in-left">
+    <h1 
       class={`
       font-semibold 
-      text-4xl text-center mb-8 dark:text-white text-slate-800
-      sm:text-5xl sm:text-center sm:mb-14 
-      md:mb-8 
-      lg:text-6xl lg:mb-10 
-      xl:text-4xl xl:text-left xl:mb-4 
+      text-5xl text-center mb-8 dark:text-white text-slate-800
+      sm:text-6xl sm:text-center sm:mb-14 
+      md:text-5xl md:mb-8 
+      lg:text-5xl lg:mb-10 
+      xl:text-5xl xl:text-left xl:mb-4 
       2xl:text-6xl 2xl:mb-4 
       `}
     >
       Hernan Agustin Otero
-    </h2>
-    <h3 
+    </h1>
+    <h2 
       class={`
       font-normal 
-      text-xl text-center mb-8 dark:text-white text-slate-800
-      sm:text-3xl sm:text-center sm:mb-14 
-      md:mb-8 
+      text-4xl text-center mb-8 dark:text-white text-slate-800
+      sm:text-5xl sm:text-center sm:mb-14 
+      md:text-4xl md:mb-8 
       lg:text-4xl lg:text-left lg:mb-10 
-      xl:text-2xl xl:mb-4
-      2xl:text-4xl 2xl:mb-4
+      xl:text-4xl xl:mb-4
+      2xl:text-5xl 2xl:mb-4
       `}
     >
       {contentText.data.role}
-    </h3>
+    </h2>
 
     <div 
       class={`
@@ -133,8 +132,8 @@ const contentText = await getEntry('home', `${lang}/home`);
     class={`
     hidden 
     overflow-hidden rounded-lg shadow-[1rem_0_3rem_#171a21] 
-    xl:w-[36rem] xl:h-72 xl:block xl:slide-in-right
-    2xl:w-[45rem] 2xl:h-96
+    xl:w-full xl:block xl:animate-slide-in-right
+    2xl:w-10/12
     `}
   >
     <img 
