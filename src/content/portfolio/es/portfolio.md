@@ -1,6 +1,14 @@
 ---
 title: 'Últimos Proyectos de Desarrollo Web'
 projects:
+  - title: 'Gauchos Inmortales'
+    description: 'Pagina estatica con Astro, y Tailwind.'
+    link: 'https://gauchosinmortalesweb.vercel.app/'
+    image: '../project6.webp'
+  - title: 'Astro Ecommerce'
+    description: 'Server Side Rendering con Astro, Tailwind y React.'
+    link: 'https://guzhstore-astro.vercel.app/'
+    image: '../project5.webp'
   - title: 'League Pro Data'
     description: 'Proyecto utilizando ReactJs en grupo con compañeros del rubro.'
     link: 'https://www.leagueprodata.com'
@@ -17,14 +25,6 @@ projects:
     description: 'Proyecto Full Stack utilizando el stack MERN.'
     link: 'https://reacttechecommerce.vercel.app/'
     image: '../project4.webp'
-  - title: 'Astro Ecommerce'
-    description: 'Server Side Rendering con Astro, Tailwind y React.'
-    link: 'https://guzhstore-astro.vercel.app/'
-    image: '../project5.webp'
-  - title: 'Gauchos Inmortales'
-    description: 'Pagina estatica con Astro, y Tailwind.'
-    link: 'https://gauchosinmortalesweb.vercel.app/'
-    image: '../project6.webp'
 
 title2: 'Visualización y Análisis de Datos'
 projects2:
