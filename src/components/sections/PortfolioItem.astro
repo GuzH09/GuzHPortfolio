@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
-  src: string;
+  src: ImageMetadata;
   alt: string;
   title: string;
   description: string;
@@ -18,7 +20,7 @@ const { src, alt, title, description, link, class: additionalClasses } = Astro.p
   shadow-[1rem_0_3rem_#171a21] 
   `}
 >
-  <img src={src} class="h-full w-full object-cover transition duration-300 ease-out group-hover:blur-sm" alt={alt} />
+  <Image src={src} class="h-full w-full object-cover transition duration-300 ease-out group-hover:blur-sm" alt={alt} />
   <div
     class={`
     bg-gradient-to-b from-[#171a21]/10 to-[#171a21cc]/90 

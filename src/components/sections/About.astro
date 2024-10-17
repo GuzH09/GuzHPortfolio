@@ -3,6 +3,8 @@ import Prose from '@/components/ui/Prose.astro';
 import DownloadBtn from '@/components/ui/DownloadBtn.astro';
 import { getLangFromUrl } from '@/i18n/utils';
 import { getEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import PersonalPhoto from '@/assets/personal-photo.jpg';
 
 const lang = getLangFromUrl(Astro.url);
 const contentText = await getEntry('about', `${lang}/about`);
@@ -27,7 +29,7 @@ const { Content } = await contentText.render();
     xl:mb-0
     `}
   >
-    <img src="./img/personal-photo.jpg" class="h-full w-full object-cover" alt="Personal photo" />
+    <Image src={PersonalPhoto} class="h-full w-full object-cover" alt="Personal photo" quality={'max'} />
   </div>
 
   <div class="text-center lg:w-full xl:text-left">

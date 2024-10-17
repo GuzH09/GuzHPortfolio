@@ -3,6 +3,8 @@ import DownloadBtn from '@/components/ui/DownloadBtn.astro';
 import SocialBtn from '@/components/ui/SocialBtn.astro';
 import { getLangFromUrl } from '@/i18n/utils';
 import { getEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import BackgroundImage from '@/assets/background-main-image.jpg';
 
 const lang = getLangFromUrl(Astro.url);
 const contentText = await getEntry('home', `${lang}/home`);
@@ -53,7 +55,7 @@ const contentText = await getEntry('home', `${lang}/home`);
       xl:hidden
       `}
     >
-      <img class="h-full w-full object-cover" src="./img/background-main-image.jpg" alt="Web Development Photo" />
+      <Image src={BackgroundImage} alt="Web Development Photo" class="h-full w-full object-cover" quality={'mid'} />
     </div>
 
     <img
@@ -126,6 +128,6 @@ const contentText = await getEntry('home', `${lang}/home`);
     2xl:w-10/12
     `}
   >
-    <img class="h-full w-full object-cover" src="./img/background-main-image.jpg" alt="Web Development Photo" />
+    <Image src={BackgroundImage} alt="Web Development Photo" class="h-full w-full object-cover" quality={'low'} />
   </div>
 </section>

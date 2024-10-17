@@ -1,6 +1,7 @@
 ---
 import PortfolioItem from './PortfolioItem.astro';
 import { getLangFromUrl } from '@/i18n/utils';
+import type { ImageMetadata } from 'astro';
 import { getEntry } from 'astro:content';
 
 const lang = getLangFromUrl(Astro.url);
@@ -23,7 +24,7 @@ const contentData = await getEntry('portfolio', `${lang}/portfolio`);
       contentData.data.projects.map((project) => (
         <PortfolioItem
           class="lg:w-[420px] xl:w-auto 2xl:w-auto"
-          src={project.image}
+          src={project.image as ImageMetadata}
           alt={project.title}
           title={project.title}
           description={project.description}
@@ -41,7 +42,7 @@ const contentData = await getEntry('portfolio', `${lang}/portfolio`);
       contentData.data.projects2.map((project) => (
         <PortfolioItem
           class="lg:w-[420px] xl:w-[420px] 2xl:w-auto"
-          src={project.image}
+          src={project.image as ImageMetadata}
           alt={project.title}
           title={project.title}
           description={project.description}
