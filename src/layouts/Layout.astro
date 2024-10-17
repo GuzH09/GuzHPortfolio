@@ -23,8 +23,19 @@ const { title, description, canonical, lang } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={lang} class="dark">
+<html lang={lang}>
   <head>
+    <script>
+      function getInitialTheme() {
+        const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        const savedTheme = localStorage.getItem('theme') || system;
+        return savedTheme;
+      }
+      const theme = getInitialTheme();
+      document.documentElement.classList.add(theme);
+      localStorage.setItem('theme', theme);
+    </script>
+
     <SEO canonical={canonical} description={description} title={title} lang={lang} />
     <script src="https://kit.fontawesome.com/d84373c6ce.js" crossorigin="anonymous"></script>
   </head>
