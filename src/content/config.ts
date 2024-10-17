@@ -6,8 +6,8 @@ const homeCollection = defineCollection({
     name: z.string(),
     role: z.string(),
     downloadButton1: z.string(),
-    downloadButton2: z.string()
-  })
+    downloadButton2: z.string(),
+  }),
 });
 
 const aboutCollection = defineCollection({
@@ -15,7 +15,7 @@ const aboutCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     button: z.string(),
-  })
+  }),
 });
 
 const portfolioCollection = defineCollection({
@@ -26,24 +26,24 @@ const portfolioCollection = defineCollection({
       z.object({
         title: z.string(),
         description: z.string(),
-        link: z.string().optional(),  // Optional because not all projects may have a link
-        image: z.string()
-      })
+        link: z.string().optional(), // Optional because not all projects may have a link
+        image: z.string(),
+      }),
     ),
-    title2: z.string(), 
+    title2: z.string(),
     projects2: z.array(
       z.object({
         title: z.string(),
         description: z.string(),
-        image: z.string()
-      })
+        image: z.string(),
+      }),
     ),
-    title3: z.string() 
-  })
+    title3: z.string(),
+  }),
 });
 
 export const collections = {
-  'home': homeCollection,
-  'about': aboutCollection,
-  'portfolio': portfolioCollection
+  home: homeCollection,
+  about: aboutCollection,
+  portfolio: portfolioCollection,
 };

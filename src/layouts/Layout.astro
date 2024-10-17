@@ -1,7 +1,7 @@
 ---
-import Header from '@/components/Header.astro';
-import Footer from '@/components/Footer.astro';
-import SEO from '@/components/SEO.astro';
+import Header from '@/components/layouts/Header.astro';
+import Footer from '@/components/layouts/Footer.astro';
+import SEO from '@/components/layouts/SEO.astro';
 import '@fontsource/poppins/100.css';
 import '@fontsource/poppins/200.css';
 import '@fontsource/poppins/300.css';
@@ -13,38 +13,32 @@ import '@fontsource/poppins/800.css';
 import '@fontsource/poppins/900.css';
 
 interface Props {
-	title: string
-	description: string
-	canonical?: string
-  lang:string
+  title: string;
+  description: string;
+  canonical?: string;
+  lang: string;
 }
 
-const { title, description, canonical, lang } = Astro.props
+const { title, description, canonical, lang } = Astro.props;
 ---
 
 <!doctype html>
 <html lang={lang} class="dark">
   <head>
-    <SEO 
-      canonical={canonical}
-      description={description}
-      title={title}
-      lang={lang}
-    />
+    <SEO canonical={canonical} description={description} title={title} lang={lang} />
     <script src="https://kit.fontawesome.com/d84373c6ce.js" crossorigin="anonymous"></script>
   </head>
   <body transition:name="initial">
     <Header />
-      <slot />
+    <slot />
     <Footer />
   </body>
 </html>
 
-
 <style is:global>
   :root {
-	  color-scheme: light dark;
-    --main-bg-gradient-dark: linear-gradient(0deg, #526D82 0%, #1f242d 100%);
+    color-scheme: light dark;
+    --main-bg-gradient-dark: linear-gradient(0deg, #526d82 0%, #1f242d 100%);
     --main-bg-gradient-light: linear-gradient(0deg, #9394a5 0%, #f1f5f9 100%);
   }
 
@@ -70,36 +64,41 @@ const { title, description, canonical, lang } = Astro.props
     padding-right: 1rem;
   }
 
-  @media (min-width: 640px) { /* Tailwind 'sm' breakpoint */
+  @media (min-width: 640px) {
+    /* Tailwind 'sm' breakpoint */
     main {
       padding-left: 2.5rem;
       padding-right: 2.5rem;
     }
   }
 
-  @media (min-width: 768px) { /* Tailwind 'md' breakpoint */
+  @media (min-width: 768px) {
+    /* Tailwind 'md' breakpoint */
     main {
       padding-left: 0;
       padding-right: 0;
-      margin-left:auto;
-      margin-right:auto;
+      margin-left: auto;
+      margin-right: auto;
       max-width: 720px;
     }
   }
 
-  @media (min-width: 1024px) { /* Tailwind 'lg' breakpoint */
+  @media (min-width: 1024px) {
+    /* Tailwind 'lg' breakpoint */
     main {
       max-width: 960px;
     }
   }
 
-  @media (min-width: 1280px) { /* Tailwind 'xl' breakpoint */
+  @media (min-width: 1280px) {
+    /* Tailwind 'xl' breakpoint */
     main {
       max-width: 1200px;
     }
   }
 
-  @media (min-width: 1536px) { /* Tailwind '2xl' breakpoint */
+  @media (min-width: 1536px) {
+    /* Tailwind '2xl' breakpoint */
     main {
       max-width: 1440px;
     }

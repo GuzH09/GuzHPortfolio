@@ -1,4 +1,4 @@
-<button 
+<button
   id="scrollToTopBtn"
   aria-label="Scroll to top button"
   class={`
@@ -19,8 +19,8 @@
   transition duration-500 
   `}
 >
-  <i class="fa-sharp fa-solid fa-arrow-up"/>
-</>
+  <i class="fa-sharp fa-solid fa-arrow-up"></i>
+</button>
 
 <script>
   const scrollToTopBtn = document.getElementById('scrollToTopBtn');
@@ -34,7 +34,7 @@
       scrollToTopBtn.classList.replace('opacity-100', 'opacity-0');
       setTimeout(() => {
         scrollToTopBtn.classList.replace('visible', 'invisible');
-      }, 200)
+      }, 200);
     }
   });
 
@@ -42,7 +42,7 @@
   scrollToTopBtn.addEventListener('click', () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth' // Smooth scrolling effect
+      behavior: 'smooth', // Smooth scrolling effect
     });
   });
 </script>

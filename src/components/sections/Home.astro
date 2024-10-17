@@ -1,14 +1,14 @@
 ---
-import DownloadBtn from "@/components/DownloadBtn.astro";
-import SocialBtn from "@/components/SocialBtn.astro";
-import { getLangFromUrl } from '../i18n/utils';
+import DownloadBtn from '@/components/ui/DownloadBtn.astro';
+import SocialBtn from '@/components/ui/SocialBtn.astro';
+import { getLangFromUrl } from '@/i18n/utils';
 import { getEntry } from 'astro:content';
 
 const lang = getLangFromUrl(Astro.url);
 const contentText = await getEntry('home', `${lang}/home`);
 ---
 
-<section 
+<section
   class={`
   flex flex-col justify-center items-center pt-6 
   sm:pt-6 
@@ -17,8 +17,8 @@ const contentText = await getEntry('home', `${lang}/home`);
   `}
   {...Astro.props}
 >
-  <div class="flex flex-col justify-center items-center xl:slide-in-left xl:block xl:w-full xl:animate-slide-in-left">
-    <h1 
+  <div class="xl:slide-in-left flex flex-col items-center justify-center xl:block xl:w-full xl:animate-slide-in-left">
+    <h1
       class={`
       font-semibold 
       text-5xl text-center mb-8 dark:text-white text-slate-800
@@ -31,7 +31,7 @@ const contentText = await getEntry('home', `${lang}/home`);
     >
       Hernan Agustin Otero
     </h1>
-    <h2 
+    <h2
       class={`
       font-normal 
       text-4xl text-center mb-8 dark:text-white text-slate-800
@@ -45,7 +45,7 @@ const contentText = await getEntry('home', `${lang}/home`);
       {contentText.data.role}
     </h2>
 
-    <div 
+    <div
       class={`
       hidden overflow-hidden rounded-lg shadow-[1rem_0_3rem_#171a21] 
       md:block md:mb-8 md:w-[45rem] md:h-96 
@@ -53,22 +53,18 @@ const contentText = await getEntry('home', `${lang}/home`);
       xl:hidden
       `}
     >
-      <img 
-        class="w-full h-full object-cover"
-        src="./img/background-main-image.jpg" 
-        alt="Web Development Photo" 
-        />
+      <img class="h-full w-full object-cover" src="./img/background-main-image.jpg" alt="Web Development Photo" />
     </div>
 
-    <img 
+    <img
       src="https://skillicons.dev/icons?i=js,nodejs,express,html,css,bootstrap,sass,react,tailwind"
       class={`
       w-[298.8px] pb-2 
       sm:w-auto sm:pb-4 
       lg:w-auto lg:pb-2 
       `}
-      />
-    <img 
+    />
+    <img
       src="https://skillicons.dev/icons?i=mongodb,firebase,mysql,postgres,python,astro,bots"
       class={`
       w-[231.3px] pb-8 
@@ -78,9 +74,9 @@ const contentText = await getEntry('home', `${lang}/home`);
       xl:pb-4 
       2xl:pb-4 
       `}
-      />
+    />
 
-    <nav 
+    <nav
       class={`
       w-full 
       flex flex-col justify-center items-center mb-8 
@@ -91,44 +87,38 @@ const contentText = await getEntry('home', `${lang}/home`);
       2xl:flex 2xl:flex-row 2xl:justify-start 2xl:gap-2 2xl:mb-4
       `}
     >
-      <DownloadBtn 
+      <DownloadBtn
         class="mb-4 sm:mb-0 lg:mr-2"
-        href="https://drive.google.com/file/d/1E9jnU_LyHUvXogtaeUNVv8YExkeqKaat/view?usp=sharing" 
+        href="https://drive.google.com/file/d/1E9jnU_LyHUvXogtaeUNVv8YExkeqKaat/view?usp=sharing"
         ariaLabel=`${contentText.data.downloadButton1}`
       >
-      {contentText.data.downloadButton1}
+        {contentText.data.downloadButton1}
       </DownloadBtn>
-      <DownloadBtn 
-        class="lg:mr-2 lg:mb-0"
-        href="https://drive.google.com/file/d/1HgAePtnD-PG_yBpq-Lnh6DF-ZIU9g5uC/view?usp=sharing" 
+      <DownloadBtn
+        class="lg:mb-0 lg:mr-2"
+        href="https://drive.google.com/file/d/1HgAePtnD-PG_yBpq-Lnh6DF-ZIU9g5uC/view?usp=sharing"
         ariaLabel=`${contentText.data.downloadButton2}`
       >
-      {contentText.data.downloadButton2}
+        {contentText.data.downloadButton2}
       </DownloadBtn>
     </nav>
-    <nav 
+    <nav
       class={`
       flex gap-2 mb-8 
       sm:gap-6 sm:mb-14 
       lg:mb-10 lg:gap-2
       `}
     >
-      <SocialBtn 
-        class="size-12 lg:size-12 xl:mr-4"
-        href="https://github.com/GuzH09" 
-      >
-        <i class="fa-brands fa-github text-xl" />
+      <SocialBtn class="size-12 lg:size-12 xl:mr-4" href="https://github.com/GuzH09">
+        <i class="fa-brands fa-github text-xl"></i>
       </SocialBtn>
-      <SocialBtn 
-        class="size-12 lg:mr-4 lg:size-12"
-        href="https://www.linkedin.com/in/hernan-agustin-otero-dev/" 
-      >
-        <i class="fa-brands fa-linkedin-in text-xl" />
+      <SocialBtn class="size-12 lg:mr-4 lg:size-12" href="https://www.linkedin.com/in/hernan-agustin-otero-dev/">
+        <i class="fa-brands fa-linkedin-in text-xl"></i>
       </SocialBtn>
     </nav>
   </div>
 
-  <div 
+  <div
     class={`
     hidden 
     overflow-hidden rounded-lg shadow-[1rem_0_3rem_#171a21] 
@@ -136,10 +126,6 @@ const contentText = await getEntry('home', `${lang}/home`);
     2xl:w-10/12
     `}
   >
-    <img 
-      class="w-full h-full object-cover" 
-      src="./img/background-main-image.jpg" 
-      alt="Web Development Photo" 
-      />
+    <img class="h-full w-full object-cover" src="./img/background-main-image.jpg" alt="Web Development Photo" />
   </div>
 </section>

@@ -1,13 +1,13 @@
 ---
 interface Props {
-	href: string
-  class?: string
+  href: string;
+  class?: string;
 }
 
-const { href, class: additionalClasses } = Astro.props
+const { href, class: additionalClasses } = Astro.props;
 ---
 
-<a 
+<a
   class={`
   ${additionalClasses} 
   inline-flex justify-center items-center 

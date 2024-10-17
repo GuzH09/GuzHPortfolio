@@ -1,7 +1,7 @@
 ---
-import Prose from './Prose.astro';
-import DownloadBtn from "./DownloadBtn.astro";
-import { getLangFromUrl } from '../i18n/utils';
+import Prose from '@/components/ui/Prose.astro';
+import DownloadBtn from '@/components/ui/DownloadBtn.astro';
+import { getLangFromUrl } from '@/i18n/utils';
 import { getEntry } from 'astro:content';
 
 const lang = getLangFromUrl(Astro.url);
@@ -9,16 +9,16 @@ const contentText = await getEntry('about', `${lang}/about`);
 const { Content } = await contentText.render();
 ---
 
-<section 
+<section
   class={`
   flex flex-col justify-center items-center 
 
   xl:min-h-[70vh] xl:gap-20 xl:flex-row
-  `} 
+  `}
   {...Astro.props}
 >
-<!-- h-[163.8px] w-[240px] -->
-  <div 
+  <!-- h-[163.8px] w-[240px] -->
+  <div
     class={`
     rounded-xl overflow-hidden shadow-[1rem_0_3rem_#171a21]
     w-8/12 mb-6
@@ -27,14 +27,10 @@ const { Content } = await contentText.render();
     xl:mb-0
     `}
   >
-    <img 
-      src="./img/personal-photo.jpg"
-      class="w-full h-full object-cover"
-      alt="Personal photo"
-    />
+    <img src="./img/personal-photo.jpg" class="h-full w-full object-cover" alt="Personal photo" />
   </div>
 
-  <div class="lg:w-full text-center xl:text-left">
+  <div class="text-center lg:w-full xl:text-left">
     <h3 class="text-3xl font-normal text-white dark:text-[#88d2fd] sm:text-4xl md:text-3xl lg:text-3xl xl:text-3xl 2xl:text-4xl">
       {contentText.data.title}
     </h3>
@@ -42,12 +38,8 @@ const { Content } = await contentText.render();
     <Prose>
       <Content />
     </Prose>
-    
-    <DownloadBtn 
-      class="lg:text-xl xl:text-base 2xl:text-base"
-      href="https://github.com/GuzH09" 
-      ariaLabel=`${contentText.data.button}`
-    >
+
+    <DownloadBtn class="lg:text-xl xl:text-base 2xl:text-base" href="https://github.com/GuzH09" ariaLabel=`${contentText.data.button}`>
       {contentText.data.button}
     </DownloadBtn>
   </div>

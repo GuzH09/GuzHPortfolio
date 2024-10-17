@@ -1,20 +1,21 @@
 ---
 interface Props {
-	title: string
-	description: string
-	canonical?: string
-	lang: string
+  title: string;
+  description: string;
+  canonical?: string;
+  lang: string;
 }
 
-const { title, description, canonical, lang } = Astro.props
+const { title, description, canonical, lang } = Astro.props;
 
 const determineCanonicalURL = () => {
-	if (Astro.url.host.includes("localhost")) return "http://localhost:4321"
-	return canonical || Astro.url.pathname
-}
+  if (Astro.url.host.includes('localhost')) return 'http://localhost:4321';
+  return canonical || Astro.url.pathname;
+};
 
-const canonicalURL = new URL(determineCanonicalURL(), Astro.site)
+const canonicalURL = new URL(determineCanonicalURL(), Astro.site);
 ---
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
 <title>{title}</title>
@@ -28,12 +29,12 @@ const canonicalURL = new URL(determineCanonicalURL(), Astro.site)
 <meta property="og:description" content={description} />
 <meta property="og:site_name" content="Portfolio de Hernan Otero" />
 
-<meta name="twitter:title" content="Hernan Otero - Desarrollador y Programador Web">
+<meta name="twitter:title" content="Hernan Otero - Desarrollador y Programador Web" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="description" content={description} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:site" content="/guzhotero" />
-<meta name="image" content="https://guzhotero.dev/img/socialphoto.png">
+<meta name="image" content="https://guzhotero.dev/img/socialphoto.png" />
 <meta name="og:image" content="https://guzhotero.dev/img/socialphoto.png" />
 <meta name="twitter:image" content="https://guzhotero.dev/img/socialphoto.png" />
 

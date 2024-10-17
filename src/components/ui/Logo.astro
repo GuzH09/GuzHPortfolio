@@ -1,0 +1,15 @@
+---
+interface Props {
+  logoSrc: string;
+  logoAlt: string;
+  title: string;
+}
+
+const { logoSrc, logoAlt, title } = Astro.props;
+---
+
+<a id="scrollToHomeBtn" href="#" class="relative flex items-center gap-2 xl:gap-4">
+  <div class="absolute left-0 top-0 size-12 bg-gradient-radial-light dark:bg-gradient-radial-dark xl:size-14"></div>
+  <img src={logoSrc} alt={logoAlt} class="size-12 xl:size-14" />
+  <h2 class="hidden text-xl text-slate-800 dark:text-white md:block">{title}</h2>
+</a>

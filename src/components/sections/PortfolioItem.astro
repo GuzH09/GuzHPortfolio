@@ -1,29 +1,25 @@
 ---
 interface Props {
-	src: string
-  alt: string
-  title: string
-  description: string
-  link?: string
-  class?: string
+  src: string;
+  alt: string;
+  title: string;
+  description: string;
+  link?: string;
+  class?: string;
 }
 
-const { src, alt, title, description, link, class: additionalClasses } = Astro.props
+const { src, alt, title, description, link, class: additionalClasses } = Astro.props;
 ---
 
-<div 
+<div
   class={`
   ${additionalClasses} 
   flex relative rounded-lg group overflow-hidden 
   shadow-[1rem_0_3rem_#171a21] 
   `}
 >
-  <img 
-    src={src}
-    class="w-full h-full object-cover transition ease-out duration-300 group-hover:blur-sm"
-    alt={alt} 
-  />
-  <div 
+  <img src={src} class="h-full w-full object-cover transition duration-300 ease-out group-hover:blur-sm" alt={alt} />
+  <div
     class={`
     bg-gradient-to-b from-[#171a21]/10 to-[#171a21cc]/90 
     px-2 w-full h-full 
@@ -36,6 +32,12 @@ const { src, alt, title, description, link, class: additionalClasses } = Astro.p
     <p class="lg:text-lg">
       {description}
     </p>
-    {link && <a href={link} target="_blank"><i class="lg:text-3xl 2xl:text-2xl fa-solid fa-arrow-up-right-from-square text-[#88d2fd]"></i></a>}
+    {
+      link && (
+        <a href={link} target="_blank">
+          <i class="fa-solid fa-arrow-up-right-from-square text-[#88d2fd] lg:text-3xl 2xl:text-2xl" />
+        </a>
+      )
+    }
   </div>
 </div>

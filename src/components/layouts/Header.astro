@@ -1,20 +1,20 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
-import Logo from './Logo.astro';
-import LanguageToggle from './LanguageToggle.astro';
-import ThemeToggle from './ThemeToggle.astro';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import Logo from '@/components/ui/Logo.astro';
+import LanguageToggle from '@/components/ui/LanguageToggle.astro';
+import ThemeToggle from '@/components/ui/ThemeToggle.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<header 
+<header
   class={`
   z-20 sticky top-0 
   md:flex md:justify-between md:items-center dark:md:bg-[#1f242d] md:bg-slate-100 
   `}
 >
-  <div 
+  <div
     class={`
     flex justify-between items-center z-10 dark:bg-[#1f242d] bg-slate-100
     w-full h-full 
@@ -29,14 +29,14 @@ const t = useTranslations(lang);
   >
     <Logo logoSrc="./img/logo.webp" logoAlt="GuzH Logo" title="GuzH" />
     <button id="menuToggle" class="text-2xl md:hidden">
-      <i class="fa-solid fa-bars dark:text-white text-slate-800" id="menuIcon"></i>
+      <i class="fa-solid fa-bars text-slate-800 dark:text-white" id="menuIcon"></i>
     </button>
   </div>
 
   <!-- Overlay element for click shielding -->
-  <div id="overlay" class="hidden fixed inset-0 bg-transparent -z-20"></div>
+  <div id="overlay" class="fixed inset-0 -z-20 hidden bg-transparent"></div>
 
-  <div 
+  <div
     class={`
     w-full 
     md:pr-0 md:mr-auto md:max-w-[360px] 
@@ -45,8 +45,8 @@ const t = useTranslations(lang);
     2xl:max-w-[720px] 
     `}
   >
-    <nav 
-      id="navbar" 
+    <nav
+      id="navbar"
       class={`
       bg-slate-100 dark:bg-[#1f242d] transform -translate-y-full transition duration-300 
       absolute top-full left-0 right-0 
@@ -60,18 +60,33 @@ const t = useTranslations(lang);
       `}
     >
       <LanguageToggle
-        href={t('nav.toggle.href')} 
-        hreflang={t('nav.toggle.hreflang')} 
-        imgSrcEn={t('nav.toggle.srcEn')} 
-        imgAltEn={t('nav.toggle.altEn')} 
-        imgSrcEs={t('nav.toggle.srcEs')} 
-        imgAltEs={t('nav.toggle.altEs')} 
+        href={t('nav.toggle.href')}
+        hreflang={t('nav.toggle.hreflang')}
+        imgSrcEn={t('nav.toggle.srcEn')}
+        imgAltEn={t('nav.toggle.altEn')}
+        imgSrcEs={t('nav.toggle.srcEs')}
+        imgAltEs={t('nav.toggle.altEs')}
       />
       <ThemeToggle iconClass="fa-moon" />
 
-      <a id="scrollToHomeBtn" href="#" class="hover:drop-shadow-[0_0_8px_rgb(71,185,255,1)] dark:hover:drop-shadow-[0_0_8px_rgb(136,210,253,1)] block text-xl sm:text-2xl md:text-xl pb-6 md:pb-0 dark:text-white text-slate-800 whitespace-nowrap">{t('nav.home')}</a>
-      <a id="scrollToAboutBtn" href="#about" class="hover:drop-shadow-[0_0_8px_rgb(71,185,255,1)] dark:hover:drop-shadow-[0_0_8px_rgb(136,210,253,1)] block text-xl sm:text-2xl md:text-xl pb-6 md:pb-0 dark:text-white text-slate-800 whitespace-nowrap">{t('nav.about')}</a>
-      <a id="scrollToPortfolioBtn" href="#portfolio" class="hover:drop-shadow-[0_0_8px_rgb(71,185,255,1)] dark:hover:drop-shadow-[0_0_8px_rgb(136,210,253,1)] block text-xl sm:text-2xl md:text-xl md:pb-0 dark:text-white text-slate-800 whitespace-nowrap">{t('nav.portfolio')}</a>
+      <a
+        id="scrollToHomeBtn"
+        href="#"
+        class="block whitespace-nowrap pb-6 text-xl text-slate-800 hover:drop-shadow-[0_0_8px_rgb(71,185,255,1)] dark:text-white dark:hover:drop-shadow-[0_0_8px_rgb(136,210,253,1)] sm:text-2xl md:pb-0 md:text-xl"
+        >{t('nav.home')}</a
+      >
+      <a
+        id="scrollToAboutBtn"
+        href="#about"
+        class="block whitespace-nowrap pb-6 text-xl text-slate-800 hover:drop-shadow-[0_0_8px_rgb(71,185,255,1)] dark:text-white dark:hover:drop-shadow-[0_0_8px_rgb(136,210,253,1)] sm:text-2xl md:pb-0 md:text-xl"
+        >{t('nav.about')}</a
+      >
+      <a
+        id="scrollToPortfolioBtn"
+        href="#portfolio"
+        class="block whitespace-nowrap text-xl text-slate-800 hover:drop-shadow-[0_0_8px_rgb(71,185,255,1)] dark:text-white dark:hover:drop-shadow-[0_0_8px_rgb(136,210,253,1)] sm:text-2xl md:pb-0 md:text-xl"
+        >{t('nav.portfolio')}</a
+      >
     </nav>
   </div>
 </header>
@@ -120,7 +135,7 @@ const t = useTranslations(lang);
 
       window.scrollTo({
         top: 0,
-        behavior: 'smooth' // Smooth scrolling effect
+        behavior: 'smooth', // Smooth scrolling effect
       });
     });
   }
@@ -132,12 +147,12 @@ const t = useTranslations(lang);
     // Get the href attribute of the about button
     const aboutSection = document.querySelector('#about');
     const aboutSectionTop = aboutSection.getBoundingClientRect().top + window.scrollY;
-    const offset = window.innerHeight / 2 - aboutSection.clientHeight / 2;  // Adjust the offset for centering
+    const offset = window.innerHeight / 2 - aboutSection.clientHeight / 2; // Adjust the offset for centering
 
     // Smoothly scroll to the center of the about section
     window.scrollTo({
       top: aboutSectionTop - offset,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   });
 
@@ -152,7 +167,7 @@ const t = useTranslations(lang);
     // Smoothly scroll to the center of the about section
     window.scrollTo({
       top: portfolioSectionTop,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   });
 </script>
