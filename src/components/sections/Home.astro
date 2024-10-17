@@ -5,6 +5,7 @@ import { getLangFromUrl } from '@/i18n/utils';
 import { getEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import BackgroundImage from '@/assets/background-main-image.jpg';
+import 'aos/dist/aos.css';
 
 const lang = getLangFromUrl(Astro.url);
 const contentText = await getEntry('home', `${lang}/home`);
@@ -19,7 +20,13 @@ const contentText = await getEntry('home', `${lang}/home`);
   `}
   {...Astro.props}
 >
-  <div class="xl:slide-in-left flex flex-col items-center justify-center xl:block xl:w-full xl:animate-slide-in-left">
+  <div
+    class="flex flex-col items-center justify-center xl:block xl:w-full"
+    data-aos="fade-up"
+    data-aos-delay="300"
+    data-aos-easing="ease-in"
+    data-aos-anchor-placement="center-bottom"
+  >
     <h1
       class={`
       font-semibold 
@@ -124,10 +131,21 @@ const contentText = await getEntry('home', `${lang}/home`);
     class={`
     hidden 
     overflow-hidden rounded-lg shadow-[1rem_0_3rem_#171a21] 
-    xl:w-full xl:block xl:animate-slide-in-right
+    xl:w-full xl:block
     2xl:w-10/12
     `}
+    data-aos="fade-up"
+    data-aos-delay="300"
+    data-aos-easing="ease-in"
+    data-aos-anchor-placement="center-bottom"
   >
     <Image src={BackgroundImage} alt="Web Development Photo" class="h-full w-full object-cover" quality={'low'} />
   </div>
 </section>
+
+<script>
+  import AOS from 'aos';
+  AOS.init({
+    disable: 'mobile',
+  });
+</script>

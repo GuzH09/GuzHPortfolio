@@ -8,7 +8,15 @@ const lang = getLangFromUrl(Astro.url);
 const contentData = await getEntry('portfolio', `${lang}/portfolio`);
 ---
 
-<section class="flex flex-col items-center pt-20 lg:pb-40 lg:pt-40 xl:pb-60" {...Astro.props}>
+<section
+  class="flex flex-col items-center pt-20 lg:pb-40 lg:pt-40 xl:pb-60"
+  {...Astro.props}
+  data-aos="fade-up"
+  data-aos-delay="300"
+  data-aos-easing="ease-in"
+  data-aos-once="true"
+  data-aos-anchor-placement="top-bottom"
+>
   <h3 class="pb-8 text-center text-3xl font-normal text-white dark:text-[#88d2fd] sm:text-4xl md:text-3xl lg:text-3xl xl:text-3xl 2xl:text-4xl">
     {contentData.data.title}
   </h3>
