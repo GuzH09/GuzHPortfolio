@@ -1,0 +1,17 @@
+---
+import { getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const contentData = await getEntry('portfolio', `es/portfolio`);
+  const PROJECTS = contentData.data.projects;
+
+  return PROJECTS.map((project) => {
+    return {
+      params: { project: project.slug },
+      props: { project },
+    };
+  });
+}
+
+const { project } = Astro.params;
+---
