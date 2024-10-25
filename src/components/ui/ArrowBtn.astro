@@ -23,26 +23,30 @@
 </button>
 
 <script>
-  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+  document.addEventListener('astro:page-load', () => {
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
-  // Show button when scrolled down 600 pixels from the top
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 600) {
-      scrollToTopBtn.classList.replace('opacity-0', 'opacity-100');
-      scrollToTopBtn.classList.replace('invisible', 'visible');
-    } else {
-      scrollToTopBtn.classList.replace('opacity-100', 'opacity-0');
-      setTimeout(() => {
-        scrollToTopBtn.classList.replace('visible', 'invisible');
-      }, 200);
+    if (scrollToTopBtn) {
+      // Show button when scrolled down 600 pixels from the top
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 600) {
+          scrollToTopBtn.classList.replace('opacity-0', 'opacity-100');
+          scrollToTopBtn.classList.replace('invisible', 'visible');
+        } else {
+          scrollToTopBtn.classList.replace('opacity-100', 'opacity-0');
+          setTimeout(() => {
+            scrollToTopBtn.classList.replace('visible', 'invisible');
+          }, 200);
+        }
+      });
+
+      // Scroll to the top of the page when the button is clicked
+      scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth', // Smooth scrolling effect
+        });
+      });
     }
-  });
-
-  // Scroll to the top of the page when the button is clicked
-  scrollToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth', // Smooth scrolling effect
-    });
   });
 </script>

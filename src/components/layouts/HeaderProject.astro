@@ -1,11 +1,10 @@
 ---
-import { getLangFromUrl, getPathFromUrl, useTranslations } from '@/i18n/utils';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import Logo from '@/components/ui/Logo.astro';
 import LanguageToggle from '@/components/ui/LanguageToggle.astro';
 import ThemeToggle from '@/components/ui/ThemeToggle.astro';
 
 const lang = getLangFromUrl(Astro.url);
-const path = getPathFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
@@ -28,7 +27,7 @@ const t = useTranslations(lang);
     2xl:max-w-[720px] 
     `}
   >
-    <Logo href={`/${lang}`} logoSrc="/img/logo.webp" logoAlt="GuzH Logo" title="GuzH" />
+    <Logo logoSrc="/img/logo.webp" logoAlt="GuzH Logo" title="GuzH" />
     <button id="menuToggle" class="text-2xl md:hidden">
       <i class="fa-solid fa-bars text-slate-800 dark:text-white" id="menuIcon"></i>
     </button>
@@ -61,7 +60,7 @@ const t = useTranslations(lang);
       `}
     >
       <LanguageToggle
-        href={`${t('nav.toggle.href')}/${path}`}
+        href={t('nav.toggle.href')}
         hreflang={t('nav.toggle.hreflang')}
         imgSrcEn={t('nav.toggle.srcEn')}
         imgAltEn={t('nav.toggle.altEn')}
@@ -71,19 +70,20 @@ const t = useTranslations(lang);
       <ThemeToggle iconClass="fa-moon" />
 
       <a
-        href={`/${lang}`}
+        id="scrollToHomeBtn"
+        href={'/' + lang}
         class="block whitespace-nowrap pb-6 text-xl text-slate-800 hover:drop-shadow-[0_0_8px_rgb(71,185,255,1)] dark:text-white dark:hover:drop-shadow-[0_0_8px_rgb(136,210,253,1)] sm:text-2xl md:pb-0 md:text-xl"
-        >{t('nav.home')}</a
+        >{t('nav.project.home')}</a
       >
       <a
         id="scrollToAboutBtn"
-        href={`/${lang}#about`}
+        href="/en#about"
         class="block whitespace-nowrap pb-6 text-xl text-slate-800 hover:drop-shadow-[0_0_8px_rgb(71,185,255,1)] dark:text-white dark:hover:drop-shadow-[0_0_8px_rgb(136,210,253,1)] sm:text-2xl md:pb-0 md:text-xl"
         >{t('nav.about')}</a
       >
       <a
         id="scrollToPortfolioBtn"
-        href={`/${lang}#portfolio`}
+        href="#portfolio"
         class="block whitespace-nowrap text-xl text-slate-800 hover:drop-shadow-[0_0_8px_rgb(71,185,255,1)] dark:text-white dark:hover:drop-shadow-[0_0_8px_rgb(136,210,253,1)] sm:text-2xl md:pb-0 md:text-xl"
         >{t('nav.portfolio')}</a
       >
@@ -98,9 +98,6 @@ const t = useTranslations(lang);
     const navbar = document.getElementById('navbar');
     const menuIcon = document.getElementById('menuIcon');
     const overlay = document.getElementById('overlay');
-    const scrollToHomeBtn = document.querySelectorAll('[id=scrollToHomeBtn]');
-    const scrollToAboutBtn = document.getElementById('scrollToAboutBtn');
-    const scrollToPortfolioBtn = document.getElementById('scrollToPortfolioBtn');
 
     function openNavbar() {
       navbar.classList.remove('-translate-y-full');
@@ -128,50 +125,5 @@ const t = useTranslations(lang);
       event.stopPropagation(); // Stop clicks from propagating
       closeNavbar(); // Close the navbar if clicked on the overlay
     });
-
-    for (let i = 0; i < scrollToHomeBtn.length; i++) {
-      // Scroll to the top of the page when the button is clicked
-      scrollToHomeBtn[i].addEventListener('click', (event) => {
-        event.preventDefault();
-
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth', // Smooth scrolling effect
-        });
-      });
-    }
-
-    // Scroll to the center of the about section when the button is clicked
-    if (!window.location.pathname.includes('projects')) {
-      scrollToAboutBtn.addEventListener('click', (event) => {
-        event.preventDefault();
-
-        // Get the href attribute of the about button
-        const aboutSection = document.querySelector('#about');
-        const aboutSectionTop = aboutSection.getBoundingClientRect().top + window.scrollY;
-        const offset = window.innerHeight / 2 - aboutSection.clientHeight / 2; // Adjust the offset for centering
-
-        // Smoothly scroll to the center of the about section
-        window.scrollTo({
-          top: aboutSectionTop - offset,
-          behavior: 'smooth',
-        });
-      });
-
-      // Scroll to the center of the about section when the button is clicked
-      scrollToPortfolioBtn.addEventListener('click', (event) => {
-        event.preventDefault();
-
-        // Get the href attribute of the portfolio button
-        const portfolioSection = document.querySelector('#portfolio');
-        const portfolioSectionTop = portfolioSection.getBoundingClientRect().top + window.scrollY;
-
-        // Smoothly scroll to the center of the about section
-        window.scrollTo({
-          top: portfolioSectionTop,
-          behavior: 'smooth',
-        });
-      });
-    }
   });
 </script>

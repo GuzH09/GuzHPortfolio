@@ -1,5 +1,6 @@
 ---
 import PortfolioItem from './PortfolioItem.astro';
+import PortfolioVisualization from './PortfolioVisualization.astro';
 import type { ImageMetadata } from 'astro';
 import { getLangFromUrl } from '@/i18n/utils';
 import { getEntry } from 'astro:content';
@@ -32,11 +33,12 @@ const contentData = await getEntry('portfolio', `${lang}/portfolio`);
       contentData.data.projects.map((project) => (
         <PortfolioItem
           class="lg:w-[420px] xl:w-auto 2xl:w-auto"
-          src={project.image as ImageMetadata}
+          src={project.images[0] as ImageMetadata}
           alt={project.title}
           title={project.title}
           description={project.description}
           link={project.link}
+          slug={'/' + lang + '/projects/' + project.slug}
         />
       ))
     }
@@ -45,10 +47,10 @@ const contentData = await getEntry('portfolio', `${lang}/portfolio`);
   <h3 class="pb-8 text-center text-3xl font-normal text-white dark:text-[#88d2fd] sm:text-4xl md:text-3xl lg:text-3xl xl:text-3xl 2xl:text-4xl">
     {contentData.data.title2}
   </h3>
-  <div class="flex flex-col justify-center gap-3 pb-8 text-center sm:gap-6 lg:w-full lg:flex-row xl:w-auto 2xl:w-auto">
+  <div class="flex flex-col justify-center gap-3 text-center sm:gap-6 md:pb-8 lg:w-full lg:flex-row xl:w-auto 2xl:w-auto">
     {
       contentData.data.projects2.map((project) => (
-        <PortfolioItem
+        <PortfolioVisualization
           class="lg:w-[420px] xl:w-[420px] 2xl:w-auto"
           src={project.image as ImageMetadata}
           alt={project.title}

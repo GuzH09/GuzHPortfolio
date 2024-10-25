@@ -28,9 +28,18 @@ const portfolioCollection = defineCollection({
           title: z.string(),
           description: z.string(),
           link: z.string().optional(), // Optional because not all projects may have a link
-          image: image(),
-          image2: image(),
-          image3: image(),
+          images: z.array(image()),
+          details: z
+            .object({
+              summary: z.string(),
+              characteristics: z.array(z.string()),
+              performance: z.array(z.string()),
+              technologies: z.array(z.string()),
+              release: z.string(),
+              latestupdate: z.string(),
+              github: z.string().optional(),
+            })
+            .optional(),
           slug: z.string(),
         }),
       ),

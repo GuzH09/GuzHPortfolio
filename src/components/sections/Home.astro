@@ -145,7 +145,10 @@ const contentText = await getEntry('home', `${lang}/home`);
 
 <script>
   import AOS from 'aos';
-  AOS.init({
-    disable: 'mobile',
+
+  document.addEventListener('astro:page-load', () => {
+    AOS.init({
+      disable: 'mobile',
+    });
   });
 </script>

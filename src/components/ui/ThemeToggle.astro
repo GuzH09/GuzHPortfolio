@@ -12,43 +12,38 @@ const { iconClass } = Astro.props;
 </button>
 
 <script>
-  const themeToggle = document.getElementById('themeToggle');
-  const themeIcon = document.getElementById('themeIcon');
+  document.addEventListener('astro:page-load', () => {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
 
-  const storageTheme = localStorage.getItem('theme');
-  let savedTheme = storageTheme;
-  if (savedTheme === 'dark') {
-    document.documentElement.classList.replace('light', 'dark');
-    themeIcon.classList.replace('fa-sun', 'fa-moon');
-  } else {
-    document.documentElement.classList.replace('dark', 'light');
-    themeIcon.classList.replace('fa-moon', 'fa-sun');
-  }
+    const storageTheme = localStorage.getItem('theme');
+    let savedTheme = storageTheme;
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+      themeIcon.classList.replace('fa-sun', 'fa-moon');
+    } else {
+      document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
+      themeIcon.classList.replace('fa-moon', 'fa-sun');
+    }
 
-  // Check for saved user theme preference
-  if (localStorage.getItem('theme') === 'dark') {
-    document.documentElement.classList.replace('light', 'dark');
-    themeIcon.classList.replace('fa-sun', 'fa-moon');
-  } else {
-    document.documentElement.classList.replace('dark', 'light');
-    themeIcon.classList.replace('fa-moon', 'fa-sun');
-  }
+    themeToggle.addEventListener('click', () => {
+      document.startViewTransition(() => {
+        const newTheme = savedTheme === 'light' ? 'dark' : 'light';
+        savedTheme = newTheme;
+        localStorage.setItem('theme', newTheme);
 
-  themeToggle.addEventListener('click', () => {
-    document.startViewTransition(() => {
-      const newTheme = savedTheme === 'light' ? 'dark' : 'light';
-      savedTheme = newTheme;
-      localStorage.setItem('theme', newTheme);
-
-      if (newTheme === 'dark') {
-        document.documentElement.classList.replace('light', 'dark');
-        themeIcon.classList.replace('fa-sun', 'fa-moon');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.documentElement.classList.replace('dark', 'light');
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
-        localStorage.setItem('theme', 'light');
-      }
+        if (newTheme === 'dark') {
+          document.documentElement.classList.replace('light', 'dark');
+          themeIcon.classList.replace('fa-sun', 'fa-moon');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          document.documentElement.classList.replace('dark', 'light');
+          themeIcon.classList.replace('fa-moon', 'fa-sun');
+          localStorage.setItem('theme', 'light');
+        }
+      });
     });
   });
 </script>

@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  title: string;
+  description: string;
+  link?: string;
+  class?: string;
+  slug?: string;
+}
+
+const { src, alt, title, description, link, slug, class: additionalClasses } = Astro.props;
+---
+
+<div
+  class={`
+  ${additionalClasses} 
+  flex relative rounded-lg group overflow-hidden 
+  shadow-[1rem_0_3rem_#171a21]
+  `}
+>
+  <Image src={src} class="h-full w-full object-cover transition duration-300 ease-out md:group-hover:blur-sm" alt={alt} />
+  <div
+    class={`
+    bg-gradient-to-b from-[#171a21]/10 to-[#171a21cc]/90 
+    px-2 w-full h-full 
+    z-10 absolute bottom-0 left-0 
+    flex flex-col items-center justify-center gap-3 
+    transform translate-y-full md:group-hover:translate-y-0 transition ease-in duration-300 
+    `}
+  >
+    <h4 class="text-3xl font-semibold text-[#88d2fd] sm:text-4xl md:text-3xl lg:text-3xl xl:text-2xl 2xl:text-3xl">{title}</h4>
+    <p class="lg:text-lg">
+      {description}
+    </p>
+
+    {
+      link && (
+        <a class="flex flex-row items-center justify-center gap-2" href={link} target="_blank">
+          <p class="underline">Visit Site</p>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[#88d2fd] lg:text-3xl 2xl:text-2xl" />
+        </a>
+      )
+    }
+    {
+      slug && (
+        <a class="flex flex-row items-center justify-center gap-2" href={slug}>
+          <p class="underline">Site Details</p>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[#88d2fd] lg:text-3xl 2xl:text-2xl" />
+        </a>
+      )
+    }
+  </div>
+</div>
+
+<div class="flex flex-col items-center justify-center gap-8 pb-8 md:hidden">
+  <div>
+    <h4 class="text-xl font-semibold text-[#88d2fd] sm:text-4xl md:text-3xl lg:text-3xl xl:text-2xl 2xl:text-3xl">{title}</h4>
+    <p class="text-sm lg:text-lg">
+      {description}
+    </p>
+  </div>
+  <div class="flex flex-row items-center justify-center">
+    {
+      link && (
+        <a class="flex flex-row items-center justify-center gap-2" href={link} target="_blank">
+          <p class="underline">Visit Site</p>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[#88d2fd] lg:text-3xl 2xl:text-2xl" />
+        </a>
+      )
+    }
+    {
+      slug && (
+        <a class="flex flex-row items-center justify-center gap-2" href={slug}>
+          <p class="underline">Site Details</p>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[#88d2fd] lg:text-3xl 2xl:text-2xl" />
+        </a>
+      )
+    }
+  </div>
+</div>
