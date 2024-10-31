@@ -153,36 +153,6 @@ projects:
       latestupdate: '08.24'
     slug: 'techecommerce'
 
-  - title: 'Beer Ecommerce'
-    description: 'Desarrollo Web utilizando ASTRO, TAILWIND, y Javascript.'
-    link: 'https://jsbeerecommerce.vercel.app/'
-    images:
-      - '@/assets/projects/beerecommerce/project1.webp'
-      - '@/assets/projects/beerecommerce/project2.webp'
-      - '@/assets/projects/beerecommerce/project3.webp'
-    details:
-      summary: 'Sitio Web estático que emula un e-commerce realizado como excusa para mejorar mis habilidades en Tailwind. En principio fue realizado utilizando HTML, Javascript y Tailwind. Luego, fue migrado a Astro con Tailwind.'
-      characteristics:
-        - '4 Paginas mas pagina 404.'
-        - 'Totalmente responsive.'
-        - 'Integra SweetAlert y Toastify para notificaciones.'
-        - 'Utiliza Astro Endpoints.'
-      performance:
-        - '92 SEO'
-        - '100 Practices'
-        - '86 Performance'
-        - '87 Accessibility'
-      technologies:
-        - 'html'
-        - 'css'
-        - 'js'
-        - 'tailwind'
-        - 'astro'
-      release: '12.23'
-      latestupdate: '09.24'
-      github: 'https://github.com/GuzH09/JsBeerEcommerce'
-    slug: 'beerecommerce'
-
   - title: 'La Casita de Yoga'
     description: 'Desarrollo Web utilizando ASTRO, y TAILWIND.'
     link: 'https://lacasitadeyoga.vercel.app/'
