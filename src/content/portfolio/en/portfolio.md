@@ -18,9 +18,9 @@ projects:
         - 'Includes lite-youtube-embed for YouTube videos.'
       performance:
         - '92 SEO'
-        - '100 Practices'
+        - '96 Practices'
         - '100 Performance'
-        - '97 Accessibility'
+        - '86 Accessibility'
       technologies:
         - 'html'
         - 'css'
