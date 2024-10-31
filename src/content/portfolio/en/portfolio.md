@@ -1,6 +1,36 @@
 ---
 title: 'Latest Web Development Projects'
 projects:
+  - title: 'Pomberito'
+    description: 'Static Site With Astro Framework, and Tailwind.'
+    link: 'https://pomberitoweb.vercel.app/'
+    images:
+      - '@/assets/projects/pomberito/project1.webp'
+      - '@/assets/projects/pomberito/project2.webp'
+      - '@/assets/projects/pomberito/project3.webp'
+    details:
+      summary: 'Unofficial static website for "Pomberito" an Argentine indie video game developed by Lara The Pitbull. Made with HTML, JavaScript, and Tailwind. It is fully responsive and includes YouTube embeds, and a Carousel without affecting performance. All elements were designed to resemble the game UI.'
+      characteristics:
+        - 'Home and 404 page.'
+        - 'Fully responsive.'
+        - 'Developed in Spanish and English.'
+        - 'Includes Flowbite for Carousel effects.'
+        - 'Includes lite-youtube-embed for YouTube videos.'
+      performance:
+        - '92 SEO'
+        - '100 Practices'
+        - '100 Performance'
+        - '97 Accessibility'
+      technologies:
+        - 'html'
+        - 'css'
+        - 'js'
+        - 'astro'
+        - 'tailwind'
+      release: '11.24'
+      latestupdate: '11.24'
+    slug: 'pomberito'
+
   - title: 'The Path Into The Abyss'
     description: 'Static Site With Astro Framework, and Tailwind.'
     link: 'https://thepathintotheabyssweb.vercel.app/'
@@ -9,7 +39,7 @@ projects:
       - '@/assets/projects/thepathintotheabyss/project2.webp'
       - '@/assets/projects/thepathintotheabyss/project3.webp'
     details:
-      summary: 'Unofficial static website for "The Path Into The Abyss," an Argentine video game in development by Matias Rispau, based on the Argentine movie "The Abyss". Contains a Parallax Effect at the Home page developed purely with CSS. Made with HTML, JavaScript, and Tailwind. It is fully responsive and includes YouTube embeds, without affecting performance.'
+      summary: 'Unofficial static website for "The Path Into The Abyss", an Argentine video game in development by Matias Rispau, based on the Argentine movie "The Abyss". Contains a Parallax Effect at the Home page developed purely with CSS. Made with HTML, JavaScript, and Tailwind. It is fully responsive and includes YouTube embeds, without affecting performance.'
       characteristics:
         - '3 pages plus 404 page.'
         - 'Fully responsive.'
@@ -122,36 +152,6 @@ projects:
       release: '07.24'
       latestupdate: '08.24'
     slug: 'techecommerce'
-
-  - title: 'Beer Ecommerce'
-    description: 'Web Development using ASTRO, TAILWIND, and Javascript.'
-    link: 'https://jsbeerecommerce.vercel.app/'
-    images:
-      - '@/assets/projects/beerecommerce/project1.webp'
-      - '@/assets/projects/beerecommerce/project2.webp'
-      - '@/assets/projects/beerecommerce/project3.webp'
-    details:
-      summary: 'Static website simulating an e-commerce, created as an exercise to improve my skills with Tailwind. Initially developed using HTML, JavaScript, and Tailwind, then migrated to Astro with Tailwind.'
-      characteristics:
-        - '4 pages plus 404 page.'
-        - 'Fully responsive.'
-        - 'Includes SweetAlert and Toastify for notifications.'
-        - 'Uses Astro Endpoints.'
-      performance:
-        - '92 SEO'
-        - '100 Practices'
-        - '86 Performance'
-        - '87 Accessibility'
-      technologies:
-        - 'html'
-        - 'css'
-        - 'js'
-        - 'tailwind'
-        - 'astro'
-      release: '12.23'
-      latestupdate: '09.24'
-      github: 'https://github.com/GuzH09/JsBeerEcommerce'
-    slug: 'beerecommerce'
 
   - title: 'La Casita de Yoga'
     description: 'Web Development using ASTRO, and TAILWIND.'

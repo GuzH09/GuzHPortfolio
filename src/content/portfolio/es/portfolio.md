@@ -1,6 +1,36 @@
 ---
 title: 'Últimos Proyectos de Desarrollo Web'
 projects:
+  - title: 'Pomberito'
+    description: 'Pagina estatica con Astro, y Tailwind.'
+    link: 'https://pomberitoweb.vercel.app/'
+    images:
+      - '@/assets/projects/pomberito/project1.webp'
+      - '@/assets/projects/pomberito/project2.webp'
+      - '@/assets/projects/pomberito/project3.webp'
+    details:
+      summary: 'Sitio Web estatico no-oficial para "Pomberito", videojuego Indie Argentino desarrollado por Lara The Pitbull. Utiliza HTML, Javascript y Tailwind. Es totalmente responsive y contiene tanto embeds de Youtube, como efectos de Carousel y Lightbox sin afectar el rendimiento. Todos los elementos fueron diseñados replicando la interfaz gráfica del videojuego.'
+      characteristics:
+        - 'Home y 404 page.'
+        - 'Totalmente responsive.'
+        - 'Desarrollada en Español e Ingles.'
+        - 'Integra Flowbite para efectos de Carousel.'
+        - 'Integra lite-youtube-embed para videos de Youtube.'
+      performance:
+        - '92 SEO'
+        - '100 Practices'
+        - '100 Performance'
+        - '97 Accessibility'
+      technologies:
+        - 'html'
+        - 'css'
+        - 'js'
+        - 'astro'
+        - 'tailwind'
+      release: '11.24'
+      latestupdate: '11.24'
+    slug: 'pomberito'
+
   - title: 'The Path Into The Abyss'
     description: 'Pagina estatica con Astro, y Tailwind.'
     link: 'https://thepathintotheabyssweb.vercel.app/'
