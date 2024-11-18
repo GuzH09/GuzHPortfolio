@@ -17,6 +17,8 @@ export const ui = {
     'nav.toggle.href': '/es',
     'nav.toggle.hreflang': 'es',
     'nav.project.home': 'Back to Home',
+    'portfolio.button.site': 'Visit Site',
+    'portfolio.button.details': 'Site Details',
   },
   es: {
     'nav.home': 'Inicio',
@@ -24,5 +26,7 @@ export const ui = {
     'nav.toggle.href': '/en',
     'nav.toggle.hreflang': 'en',
     'nav.project.home': 'Volver al Inicio',
+    'portfolio.button.site': 'Visitar Sitio',
+    'portfolio.button.details': 'Detalles',
   },
 } as const;

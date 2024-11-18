@@ -1,5 +1,9 @@
 ---
 import { Image } from 'astro:assets';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 interface Props {
   src: ImageMetadata;
@@ -39,7 +43,7 @@ const { src, alt, title, description, link, slug, class: additionalClasses } = A
     {
       link && (
         <a class="flex flex-row items-center justify-center gap-2" href={link} target="_blank">
-          <p class="underline">Visit Site</p>
+          <p class="underline">{t('portfolio.button.site')}</p>
           <i class="fa-solid fa-arrow-up-right-from-square text-[#88d2fd] lg:text-base 2xl:text-2xl" />
         </a>
       )
@@ -47,7 +51,7 @@ const { src, alt, title, description, link, slug, class: additionalClasses } = A
     {
       slug && (
         <a class="flex flex-row items-center justify-center gap-2" href={slug}>
-          <p class="underline">Site Details</p>
+          <p class="underline">{t('portfolio.button.details')}</p>
           <i class="fa-solid fa-arrow-up-right-from-square text-[#88d2fd] lg:text-base 2xl:text-2xl" />
         </a>
       )
@@ -59,7 +63,7 @@ const { src, alt, title, description, link, slug, class: additionalClasses } = A
   {
     link && (
       <a class="flex flex-row items-center justify-center gap-2" href={link} target="_blank">
-        <p class="underline">Visit Site</p>
+        <p class="underline">{t('portfolio.button.site')}</p>
         <i class="fa-solid fa-arrow-up-right-from-square text-[#88d2fd] lg:text-3xl 2xl:text-2xl" />
       </a>
     )
@@ -67,7 +71,7 @@ const { src, alt, title, description, link, slug, class: additionalClasses } = A
   {
     slug && (
       <a class="flex flex-row items-center justify-center gap-2" href={slug}>
-        <p class="underline">Site Details</p>
+        <p class="underline">{t('portfolio.button.details')}</p>
         <i class="fa-solid fa-arrow-up-right-from-square text-[#88d2fd] lg:text-3xl 2xl:text-2xl" />
       </a>
     )
