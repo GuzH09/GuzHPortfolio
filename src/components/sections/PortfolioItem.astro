@@ -36,14 +36,14 @@ const { src, alt, title, description, link, slug, class: additionalClasses } = A
     `}
   >
     <h4 class="text-3xl font-semibold text-[#88d2fd] sm:text-4xl md:text-3xl lg:text-2xl xl:text-2xl 2xl:text-3xl">{title}</h4>
-    <p class="lg:text-base">
+    <p class="text-white lg:text-base">
       {description}
     </p>
 
     {
       link && (
         <a class="flex flex-row items-center justify-center gap-2" href={link} target="_blank">
-          <p class="underline">{t('portfolio.button.site')}</p>
+          <p class="text-white underline">{t('portfolio.button.site')}</p>
           <i class="fa-solid fa-arrow-up-right-from-square text-[#88d2fd] lg:text-base 2xl:text-2xl" />
         </a>
       )
@@ -51,7 +51,7 @@ const { src, alt, title, description, link, slug, class: additionalClasses } = A
     {
       slug && (
         <a class="flex flex-row items-center justify-center gap-2" href={slug}>
-          <p class="underline">{t('portfolio.button.details')}</p>
+          <p class="text-white underline">{t('portfolio.button.details')}</p>
           <i class="fa-solid fa-arrow-up-right-from-square text-[#88d2fd] lg:text-base 2xl:text-2xl" />
         </a>
       )
@@ -63,7 +63,7 @@ const { src, alt, title, description, link, slug, class: additionalClasses } = A
   {
     link && (
       <a class="flex flex-row items-center justify-center gap-2" href={link} target="_blank">
-        <p class="underline">{t('portfolio.button.site')}</p>
+        <p class="text-white underline">{t('portfolio.button.site')}</p>
         <i class="fa-solid fa-arrow-up-right-from-square text-[#88d2fd] lg:text-3xl 2xl:text-2xl" />
       </a>
     )
@@ -71,7 +71,7 @@ const { src, alt, title, description, link, slug, class: additionalClasses } = A
   {
     slug && (
       <a class="flex flex-row items-center justify-center gap-2" href={slug}>
-        <p class="underline">{t('portfolio.button.details')}</p>
+        <p class="text-white underline">{t('portfolio.button.details')}</p>
         <i class="fa-solid fa-arrow-up-right-from-square text-[#88d2fd] lg:text-3xl 2xl:text-2xl" />
       </a>
     )
