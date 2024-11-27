@@ -1,6 +1,35 @@
 ---
 title: 'Últimos Proyectos de Desarrollo Web'
 projects:
+  - title: 'Play Safe AR'
+    description: 'Pagina estatica con Astro, y Tailwind.'
+    link: 'https://playsafe.ar/'
+    images:
+      - '@/assets/projects/playsafe/project1.webp'
+      - '@/assets/projects/playsafe/project2.webp'
+      - '@/assets/projects/playsafe/project3.webp'
+    details:
+      summary: 'Play Safe es un sitio web estático dedicado al cuidado deportivo, la prevención de lesiones, la mejora del rendimiento y productos de calidad para atletas. Desarrollado con HTML, JavaScript y Tailwind CSS, está integrado perfectamente con Sanity CMS para una gestión de contenido sencilla y eficiente. El sitio utiliza Webhooks y GitHub Actions para activar automáticamente las reconstrucciones cada vez que se actualiza el contenido en Sanity CMS, asegurando que los cambios se reflejen en tiempo real.'
+      characteristics:
+        - 'Landing Page.'
+        - 'Totalmente responsive.'
+        - 'SanityCMS Incluido.'
+        - 'Animaciones con Scroll.'
+      performance:
+        - '100 SEO'
+        - '96 Practices'
+        - '97 Performance'
+        - '100 Accessibility'
+      technologies:
+        - 'html'
+        - 'css'
+        - 'js'
+        - 'astro'
+        - 'tailwind'
+      release: '11.24'
+      latestupdate: '11.24'
+    slug: 'playsafe'
+
   - title: 'Pomberito'
     description: 'Pagina estatica con Astro, y Tailwind.'
     link: 'https://pomberitoweb.vercel.app/'

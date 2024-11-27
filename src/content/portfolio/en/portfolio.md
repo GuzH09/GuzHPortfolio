@@ -1,6 +1,35 @@
 ---
 title: 'Latest Web Development Projects'
 projects:
+  - title: 'Play Safe AR'
+    description: 'Static Site With Astro Framework, and Tailwind.'
+    link: 'https://playsafe.ar/'
+    images:
+      - '@/assets/projects/playsafe/project1.webp'
+      - '@/assets/projects/playsafe/project2.webp'
+      - '@/assets/projects/playsafe/project3.webp'
+    details:
+      summary: 'Play Safe is a fully responsive static website dedicated to sports care, injury prevention, performance improvement, and quality products for athletes. Built with HTML, JavaScript, and Tailwind CSS, it is seamlessly integrated with Sanity CMS to allow effortless content management. The site leverages Webhooks and GitHub Actions to automatically trigger rebuilds whenever content is updated in Sanity CMS, ensuring that changes are reflected in real time.'
+      characteristics:
+        - 'Landing Page.'
+        - 'Fully responsive.'
+        - 'SanityCMS Included.'
+        - 'Scroll animations.'
+      performance:
+        - '100 SEO'
+        - '96 Practices'
+        - '97 Performance'
+        - '100 Accessibility'
+      technologies:
+        - 'html'
+        - 'css'
+        - 'js'
+        - 'astro'
+        - 'tailwind'
+      release: '11.24'
+      latestupdate: '11.24'
+    slug: 'playsafe'
+
   - title: 'Pomberito'
     description: 'Static Site With Astro Framework, and Tailwind.'
     link: 'https://pomberitoweb.vercel.app/'
