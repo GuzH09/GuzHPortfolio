@@ -2,13 +2,13 @@
 import Prose from '@/components/ui/Prose.astro';
 import DownloadBtn from '@/components/ui/DownloadBtn.astro';
 import { getLangFromUrl } from '@/i18n/utils';
-import { getEntry } from 'astro:content';
+import { getEntry, render } from 'astro:content';
 import { Image } from 'astro:assets';
 import PersonalPhoto from '@/assets/personal-photo.jpg';
 
 const lang = getLangFromUrl(Astro.url);
 const contentText = await getEntry('about', `${lang}/about`);
-const { Content } = await contentText.render();
+const { Content } = await render(contentText);
 ---
 
 <section
