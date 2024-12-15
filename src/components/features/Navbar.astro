@@ -1,0 +1,22 @@
+---
+import Logo from '@/components/ui/Logo.astro';
+import MobileNavbar from '@/components/features/Navbar/MobileNavbar.astro';
+
+import { getLangFromUrl } from '@/i18n/utils';
+import DesktopNavbar from './Navbar/DesktopNavbar.astro';
+
+const lang = getLangFromUrl(Astro.url);
+---
+
+<nav
+  class={`
+    flex justify-between items-center bg-transparent 
+    mx-auto w-full min-h-14
+    2xl:min-h-12
+    `}
+>
+  <Logo href={`/${lang}`} logoSrc="/img/logo.webp" logoAlt="GuzH Logo" title="GuzH" />
+
+  <DesktopNavbar />
+  <MobileNavbar />
+</nav>

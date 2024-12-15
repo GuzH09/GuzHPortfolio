@@ -1,0 +1,158 @@
+---
+import LanguageToggle from '@/components/ui/LanguageToggle.astro';
+import ThemeToggle from '@/components/ui/ThemeToggle.astro';
+
+import { getLangFromUrl, getPathFromUrl, useTranslations } from '@/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const path = getPathFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="hidden flex-row items-center gap-8 lg:flex">
+  <div class="flex flex-row gap-4">
+    <!-- Anchor Links -->
+    <a
+      href={`/${lang}`}
+      class="hover-underline-animation center block whitespace-nowrap pb-6 text-xl text-slate-800 after:bg-[hsla(202,97%,24%,0.5)] dark:text-white after:dark:bg-[hsla(202,97%,76%,0.5)] sm:text-2xl md:pb-0 md:text-xl"
+      >{t('nav.home')}</a
+    >
+    <a
+      id="scrollToAboutBtn"
+      href={`/${lang}#about`}
+      class="hover-underline-animation center block whitespace-nowrap pb-6 text-xl text-slate-800 after:bg-[hsla(202,97%,24%,0.5)] dark:text-white after:dark:bg-[hsla(202,97%,76%,0.5)] sm:text-2xl md:pb-0 md:text-xl"
+      >{t('nav.about')}</a
+    >
+    <a
+      id="scrollToPortfolioBtn"
+      href={`/${lang}#portfolio`}
+      class="hover-underline-animation center block whitespace-nowrap text-xl text-slate-800 after:bg-[hsla(202,97%,24%,0.5)] dark:text-white after:dark:bg-[hsla(202,97%,76%,0.5)] sm:text-2xl md:pb-0 md:text-xl"
+      >{t('nav.portfolio')}</a
+    >
+  </div>
+
+  <span aria-hidden="true" class="h-5 border-r-2 border-black/30 dark:border-white/30"></span>
+
+  <LanguageToggle
+    href={`${t('nav.toggle.href')}/${path}`}
+    hreflang={t('nav.toggle.hreflang')}
+    imgSrcEn={t('nav.toggle.srcEn')}
+    imgAltEn={t('nav.toggle.altEn')}
+    imgSrcEs={t('nav.toggle.srcEs')}
+    imgAltEs={t('nav.toggle.altEs')}
+  />
+  <ThemeToggle iconid="themeIconDesktop" buttonid="themeToggleDesktop" iconname="fa-moon" arialabel="Toggle Theme" />
+</div>
+
+<style>
+  .hover-underline-animation {
+    display: inline-block;
+    position: relative;
+  }
+  .hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    transition: transform 0.25s ease-out;
+  }
+  .hover-underline-animation:hover::after {
+    transform: scaleX(1);
+  }
+  .hover-underline-animation.center::after {
+    transform-origin: bottom center;
+  }
+  .hover-underline-animation.center:hover::after {
+    transform-origin: bottom center;
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    // Theme Toggle
+    const themeToggleDesktop = document.getElementById('themeToggleDesktop');
+    const themeIconDesktop = document.getElementById('themeIconDesktop');
+    const storageTheme = localStorage.getItem('theme');
+    let savedTheme = storageTheme;
+
+    const scrollToHomeBtn = document.querySelectorAll('[id=scrollToHomeBtn]');
+    const scrollToAboutBtn = document.getElementById('scrollToAboutBtn');
+    const scrollToPortfolioBtn = document.getElementById('scrollToPortfolioBtn');
+
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+      themeIconDesktop.classList.replace('fa-sun', 'fa-moon');
+    } else {
+      document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
+      themeIconDesktop.classList.replace('fa-moon', 'fa-sun');
+    }
+
+    themeToggleDesktop.addEventListener('click', () => {
+      document.startViewTransition(() => {
+        const newTheme = savedTheme === 'light' ? 'dark' : 'light';
+        savedTheme = newTheme;
+        localStorage.setItem('theme', newTheme);
+
+        if (newTheme === 'dark') {
+          document.documentElement.classList.replace('light', 'dark');
+          themeIconDesktop.classList.replace('fa-sun', 'fa-moon');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          document.documentElement.classList.replace('dark', 'light');
+          themeIconDesktop.classList.replace('fa-moon', 'fa-sun');
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    });
+
+    for (let i = 0; i < scrollToHomeBtn.length; i++) {
+      // Scroll to the top of the page when the button is clicked
+      scrollToHomeBtn[i].addEventListener('click', (event) => {
+        event.preventDefault();
+
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth', // Smooth scrolling effect
+        });
+      });
+    }
+
+    // Scroll to the center of the about section when the button is clicked
+    if (!window.location.pathname.includes('projects')) {
+      scrollToAboutBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        // Get the href attribute of the about button
+        const aboutSection = document.querySelector('#about');
+        const aboutSectionTop = aboutSection.getBoundingClientRect().top + window.scrollY;
+        const offset = window.innerHeight / 2 - aboutSection.clientHeight / 2; // Adjust the offset for centering
+
+        // Smoothly scroll to the center of the about section
+        window.scrollTo({
+          top: aboutSectionTop - offset,
+          behavior: 'smooth',
+        });
+      });
+
+      // Scroll to the center of the about section when the button is clicked
+      scrollToPortfolioBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        // Get the href attribute of the portfolio button
+        const portfolioSection = document.querySelector('#portfolio');
+        const portfolioSectionTop = portfolioSection.getBoundingClientRect().top + window.scrollY;
+
+        // Smoothly scroll to the center of the about section
+        window.scrollTo({
+          top: portfolioSectionTop,
+          behavior: 'smooth',
+        });
+      });
+    }
+  });
+</script>

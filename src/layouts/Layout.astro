@@ -2,6 +2,7 @@
 import Header from '@/components/layouts/Header.astro';
 import Footer from '@/components/layouts/Footer.astro';
 import SEO from '@/components/layouts/SEO.astro';
+import BackgroundImage from '@/components/features/BackgroundImage.astro';
 import { ViewTransitions } from 'astro:transitions';
 import '@fontsource/poppins/100.css';
 import '@fontsource/poppins/200.css';
@@ -42,6 +43,7 @@ const { title, description, canonical, lang } = Astro.props;
     <ViewTransitions />
   </head>
   <body transition:name="initial">
+    <BackgroundImage />
     <Header />
     <slot />
     <Footer />
@@ -51,8 +53,18 @@ const { title, description, canonical, lang } = Astro.props;
 <style is:global>
   :root {
     color-scheme: light dark;
-    --main-bg-gradient-dark: linear-gradient(0deg, #526d82 0%, #1f242d 100%);
-    --main-bg-gradient-light: linear-gradient(0deg, #9394a5 0%, #f1f5f9 100%);
+    --twoxl-width: 1440px;
+    --xl-width: 1200px;
+    --lg-width: 960px;
+    --main-bg-dark: hsl(219, 18%, 15%);
+    --main-bg-light: hsl(219, 18%, 85%);
+    --herotext-fill: hsl(217, 33%, 17%);
+    --herotext-stroke: hsl(217, 33%, 17%);
+  }
+
+  .dark {
+    --herotext-fill: white;
+    --herotext-stroke: white;
   }
 
   html {
@@ -61,18 +73,27 @@ const { title, description, canonical, lang } = Astro.props;
   }
 
   html.dark {
-    --main-bg-gradient: var(--main-bg-gradient-dark);
+    --main-bg: var(--main-bg-dark);
   }
 
   html.light {
-    --main-bg-gradient: var(--main-bg-gradient-light);
+    --main-bg: var(--main-bg-light);
   }
 
   body {
-    background: var(--main-bg-gradient); /* Uses the dynamic background */
+    background: var(--main-bg); /* Uses the dynamic background */
   }
 
   main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  nav {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+  }
+  footer section {
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -83,37 +104,84 @@ const { title, description, canonical, lang } = Astro.props;
       padding-left: 2.5rem;
       padding-right: 2.5rem;
     }
+    nav {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+      padding-top: 1rem;
+    }
+    footer section {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
   }
 
   @media (min-width: 768px) {
     /* Tailwind 'md' breakpoint */
     main {
-      padding-left: 0;
-      padding-right: 0;
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 720px;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+    nav {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+      padding-top: 1rem;
+    }
+    footer section {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     /* Tailwind 'lg' breakpoint */
     main {
-      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 0rem;
+      padding-right: 0rem;
+      max-width: var(--lg-width);
+    }
+    nav {
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 0rem;
+      padding-right: 0rem;
+      padding-top: 1rem;
+      max-width: var(--lg-width);
+    }
+    footer section {
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+      max-width: var(--lg-width);
     }
   }
 
   @media (min-width: 1280px) {
     /* Tailwind 'xl' breakpoint */
     main {
-      max-width: 1200px;
+      max-width: var(--xl-width);
+    }
+    nav {
+      max-width: var(--xl-width);
+    }
+    .footer-width {
+      max-width: var(--xl-width);
     }
   }
 
+  /* Tailwind '2xl' breakpoint */
   @media (min-width: 1536px) {
-    /* Tailwind '2xl' breakpoint */
     main {
-      max-width: 1440px;
+      max-width: var(--twoxl-width);
+    }
+    nav {
+      padding-top: 0.75rem;
+      max-width: var(--twoxl-width);
+    }
+    footer section {
+      max-width: var(--twoxl-width);
     }
   }
 </style>

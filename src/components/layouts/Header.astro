@@ -1,177 +1,32 @@
 ---
-import { getLangFromUrl, getPathFromUrl, useTranslations } from '@/i18n/utils';
-import Logo from '@/components/ui/Logo.astro';
-import LanguageToggle from '@/components/ui/LanguageToggle.astro';
-import ThemeToggle from '@/components/ui/ThemeToggle.astro';
-
-const lang = getLangFromUrl(Astro.url);
-const path = getPathFromUrl(Astro.url);
-const t = useTranslations(lang);
+import Navbar from '@/components/features/Navbar.astro';
 ---
 
 <header
-  class={`
-  z-20 sticky top-0 
-  md:flex md:justify-between md:items-center dark:md:bg-[#1f242d] md:bg-slate-100 
+  class={`z-20 fixed top-0 w-full
   `}
 >
-  <div
-    class={`
-    flex justify-between items-center z-10 dark:bg-[#1f242d] bg-slate-100
-    w-full h-full 
-    px-4 py-2 
-    sm:px-10 sm:py-4 
+  <Navbar />
 
-    md:py-5 md:pl-0 md:min-h-[10vh] md:max-w-[360px] md:ml-auto md:pr-0 
-    lg:max-w-[480px]
-    xl:max-w-[600px]
-    2xl:max-w-[720px] 
+  <!-- Header Mask Blur Effect -->
+  <span
+    aria-hidden="true"
+    class={`
+    pointer-events-all header-mask
+    absolute left-0 top-0 -z-10 block 
+    h-28 w-full overflow-hidden backdrop-blur-md 
+    bg-[hsl(202,60%,85%)] bg-opacity-[0.7]
+    dark:bg-[hsl(202,85%,15%)] dark:bg-opacity-[0.2]
+    xl:h-40
+    2xl:h-48
     `}
   >
-    <Logo href={`/${lang}`} logoSrc="/img/logo.webp" logoAlt="GuzH Logo" title="GuzH" />
-    <button id="menuToggle" class="text-2xl md:hidden">
-      <i class="fa-solid fa-bars text-slate-800 dark:text-white" id="menuIcon"></i>
-    </button>
-  </div>
-
-  <!-- Overlay element for click shielding -->
-  <div id="overlay" class="fixed inset-0 -z-20 hidden bg-transparent"></div>
-
-  <div
-    class={`
-    w-full 
-    md:pr-0 md:mr-auto md:max-w-[360px] 
-    lg:max-w-[480px] 
-    xl:max-w-[600px] 
-    2xl:max-w-[720px] 
-    `}
-  >
-    <nav
-      id="navbar"
-      class={`
-      bg-slate-100 dark:bg-[#1f242d] transform -translate-y-full transition duration-300 
-      absolute top-full left-0 right-0 
-      py-6 -z-10 
-      text-center shadow-[0_5px_25px_#334155] dark:shadow-[0_10px_25px_#171a21]
-      md:flex md:flex-row md:justify-end 
-      md:gap-4 md:text-xl md:py-0 md:bg-transparent md:static md:shadow-none dark:md:shadow-none md:translate-y-0 md:transition-none
-      lg:gap-10
-      xl:gap-14
-      
-      `}
-    >
-      <LanguageToggle
-        href={`${t('nav.toggle.href')}/${path}`}
-        hreflang={t('nav.toggle.hreflang')}
-        imgSrcEn={t('nav.toggle.srcEn')}
-        imgAltEn={t('nav.toggle.altEn')}
-        imgSrcEs={t('nav.toggle.srcEs')}
-        imgAltEs={t('nav.toggle.altEs')}
-      />
-      <ThemeToggle iconClass="fa-moon" />
-
-      <a
-        href={`/${lang}`}
-        class="block whitespace-nowrap pb-6 text-xl text-slate-800 hover:drop-shadow-[0_0_8px_rgb(71,185,255,1)] dark:text-white dark:hover:drop-shadow-[0_0_8px_rgb(136,210,253,1)] sm:text-2xl md:pb-0 md:text-xl"
-        >{t('nav.home')}</a
-      >
-      <a
-        id="scrollToAboutBtn"
-        href={`/${lang}#about`}
-        class="block whitespace-nowrap pb-6 text-xl text-slate-800 hover:drop-shadow-[0_0_8px_rgb(71,185,255,1)] dark:text-white dark:hover:drop-shadow-[0_0_8px_rgb(136,210,253,1)] sm:text-2xl md:pb-0 md:text-xl"
-        >{t('nav.about')}</a
-      >
-      <a
-        id="scrollToPortfolioBtn"
-        href={`/${lang}#portfolio`}
-        class="block whitespace-nowrap text-xl text-slate-800 hover:drop-shadow-[0_0_8px_rgb(71,185,255,1)] dark:text-white dark:hover:drop-shadow-[0_0_8px_rgb(136,210,253,1)] sm:text-2xl md:pb-0 md:text-xl"
-        >{t('nav.portfolio')}</a
-      >
-    </nav>
-  </div>
+  </span>
 </header>
 
-<script>
-  document.addEventListener('astro:page-load', () => {
-    // JavaScript to handle the navbar toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navbar = document.getElementById('navbar');
-    const menuIcon = document.getElementById('menuIcon');
-    const overlay = document.getElementById('overlay');
-    const scrollToHomeBtn = document.querySelectorAll('[id=scrollToHomeBtn]');
-    const scrollToAboutBtn = document.getElementById('scrollToAboutBtn');
-    const scrollToPortfolioBtn = document.getElementById('scrollToPortfolioBtn');
-
-    function openNavbar() {
-      navbar.classList.remove('-translate-y-full');
-      menuIcon.classList.replace('fa-bars', 'fa-xmark');
-      overlay.classList.remove('hidden'); // Show overlay
-    }
-
-    function closeNavbar() {
-      navbar.classList.add('-translate-y-full');
-      menuIcon.classList.replace('fa-xmark', 'fa-bars');
-      overlay.classList.add('hidden'); // Hide overlay
-    }
-
-    menuToggle.addEventListener('click', (event) => {
-      event.stopPropagation(); // Prevent the event from propagating to the document
-      if (navbar.classList.contains('-translate-y-full')) {
-        openNavbar();
-      } else {
-        closeNavbar();
-      }
-    });
-
-    // Prevent clicks on the overlay from reaching the content below
-    overlay.addEventListener('click', (event) => {
-      event.stopPropagation(); // Stop clicks from propagating
-      closeNavbar(); // Close the navbar if clicked on the overlay
-    });
-
-    for (let i = 0; i < scrollToHomeBtn.length; i++) {
-      // Scroll to the top of the page when the button is clicked
-      scrollToHomeBtn[i].addEventListener('click', (event) => {
-        event.preventDefault();
-
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth', // Smooth scrolling effect
-        });
-      });
-    }
-
-    // Scroll to the center of the about section when the button is clicked
-    if (!window.location.pathname.includes('projects')) {
-      scrollToAboutBtn.addEventListener('click', (event) => {
-        event.preventDefault();
-
-        // Get the href attribute of the about button
-        const aboutSection = document.querySelector('#about');
-        const aboutSectionTop = aboutSection.getBoundingClientRect().top + window.scrollY;
-        const offset = window.innerHeight / 2 - aboutSection.clientHeight / 2; // Adjust the offset for centering
-
-        // Smoothly scroll to the center of the about section
-        window.scrollTo({
-          top: aboutSectionTop - offset,
-          behavior: 'smooth',
-        });
-      });
-
-      // Scroll to the center of the about section when the button is clicked
-      scrollToPortfolioBtn.addEventListener('click', (event) => {
-        event.preventDefault();
-
-        // Get the href attribute of the portfolio button
-        const portfolioSection = document.querySelector('#portfolio');
-        const portfolioSectionTop = portfolioSection.getBoundingClientRect().top + window.scrollY;
-
-        // Smoothly scroll to the center of the about section
-        window.scrollTo({
-          top: portfolioSectionTop,
-          behavior: 'smooth',
-        });
-      });
-    }
-  });
-</script>
+<style>
+  .header-mask {
+    -webkit-mask: linear-gradient(180deg, #000, transparent);
+    mask: linear-gradient(180deg, #000, transparent);
+  }
+</style>

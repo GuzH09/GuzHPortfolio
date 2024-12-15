@@ -6,15 +6,18 @@
   flex justify-center items-center 
   size-10 lg:size-16 
   opacity-0 invisible 
-  rounded-full border-[0.2rem] 
-  border-[#1f242d]/50 lg:border-[#1f242d]/70
-  bg-[#1f242d] hover:bg-slate-800/90 lg:bg-transparent
-  hover:text-[#88d2fd] text-white lg:text-slate-800/90
+  rounded-full border-[0.2rem] hover:scale-110
 
-  dark:border-[#88d2fd]/60 dark:lg:border-[#88d2fd]/90 
-  dark:bg-[#88d2fd] dark:hover:bg-[#88d2fd]/90 dark:lg:bg-transparent 
-  dark:text-slate-500/90 dark:hover:text-white dark:lg:text-[#88d2fd]/90 
+  border-[hsla(200,100%,70%,0.8)] bg-[hsla(217,33%,17%,1)] text-white
+  dark:border-[#88d2fd]/70 dark:bg-neutral-900/90 dark:text-white
 
+  lg:border-transparent lg:bg-[hsla(217,33%,17%,1)] lg:text-white
+  dark:lg:border-[#88d2fd]/50 dark:lg:bg-neutral-900/30 dark:lg:text-white
+
+  hover:bg-slate-800/90 hover:text-[#88d2fd]
+  dark:hover:text-[#88d2fd] 
+
+  dark:shadow-[0_0_15px_rgb(0,0,0,0.5)] 
   hover:shadow-[0_0_1rem_rgb(136,210,253,0.9)] 
   transition duration-500 
   `}

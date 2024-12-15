@@ -1,0 +1,26 @@
+---
+interface Props {
+  buttonid: string;
+  iconid: string;
+  icontitle: string;
+  iconname: string;
+  arialabel?: string;
+  ariacontrols?: string;
+  ariaexpanded?: boolean;
+  class?: string;
+}
+
+const { buttonid, iconid, icontitle, iconname, arialabel, ariacontrols, ariaexpanded, class: additionalClasses } = Astro.props;
+import { Icon } from 'astro-icon/components';
+---
+
+<aside
+  aria-label={arialabel}
+  aria-controls={ariacontrols}
+  aria-expanded={ariaexpanded}
+  class={`flex h-14 w-full items-center justify-end ${additionalClasses ? additionalClasses : ''}`}
+>
+  <button type="button" id={buttonid} class="text-2xl">
+    <Icon id={iconid} name={iconname} title={icontitle} size="32" class={`stroke-slate-800  dark:stroke-white`} />
+  </button>
+</aside>

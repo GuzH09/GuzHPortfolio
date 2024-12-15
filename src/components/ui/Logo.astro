@@ -9,8 +9,17 @@ interface Props {
 const { logoSrc, href, logoAlt, title } = Astro.props;
 ---
 
-<a href={href} class="relative flex items-center gap-2 xl:gap-4">
-  <div class="absolute left-0 top-0 size-12 bg-gradient-radial-light dark:bg-gradient-radial-dark xl:size-14"></div>
-  <img src={logoSrc} alt={logoAlt} class="size-12 xl:size-14" />
-  <h2 class="hidden text-xl text-slate-800 dark:text-white md:block">{title}</h2>
+<a href={href} class="relative flex items-center gap-2 transition duration-500 hover:scale-105">
+  <img
+    src={logoSrc}
+    alt={logoAlt}
+    height="48"
+    width="48"
+    class={`
+      rounded-full
+      bg-transparent
+      dark:bg-[hsla(202,97%,76%,0.5)]
+    `}
+  />
+  <h2 class="text-xl text-slate-800 dark:text-white">{title}</h2>
 </a>

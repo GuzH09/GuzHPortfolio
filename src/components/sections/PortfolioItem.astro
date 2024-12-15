@@ -21,11 +21,17 @@ const { src, alt, title, description, link, slug, class: additionalClasses } = A
 <div
   class={`
   ${additionalClasses} 
-  flex relative rounded-lg group overflow-hidden 
-  shadow-[1rem_0_3rem_#171a21]
+  flex relative rounded-lg group overflow-hidden border-4
+  border-[hsla(202,97%,24%,0.7)]
+  dark:border-[hsla(202,97%,76%,0.3)]
+  shadow-[0_0_15px_rgb(0,0,0,0.5)]
   `}
 >
-  <Image src={src} class="h-full w-full object-cover transition duration-300 ease-out md:group-hover:blur-sm" alt={alt} />
+  <Image
+    src={src}
+    class="h-full w-full object-cover brightness-90 transition duration-500 ease-out md:group-hover:blur-sm md:group-hover:brightness-50"
+    alt={alt}
+  />
   <div
     class={`
     bg-gradient-to-b from-[#171a21]/10 to-[#171a21cc]/90 
@@ -35,7 +41,9 @@ const { src, alt, title, description, link, slug, class: additionalClasses } = A
     transform translate-y-full md:group-hover:translate-y-0 transition ease-in duration-300 
     `}
   >
-    <h4 class="text-3xl font-semibold text-[#88d2fd] sm:text-4xl md:text-3xl lg:text-2xl xl:text-2xl 2xl:text-3xl">{title}</h4>
+    <h4 class="text-3xl font-semibold text-[#88d2fd] sm:text-4xl md:text-3xl lg:text-2xl xl:text-2xl 2xl:text-3xl">
+      {title}
+    </h4>
     <p class="text-white lg:text-base">
       {description}
     </p>
@@ -63,16 +71,16 @@ const { src, alt, title, description, link, slug, class: additionalClasses } = A
   {
     link && (
       <a class="flex flex-row items-center justify-center gap-2" href={link} target="_blank">
-        <p class="text-white underline">{t('portfolio.button.site')}</p>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[#88d2fd] lg:text-3xl 2xl:text-2xl" />
+        <p class="text-[hsl(217,33%,17%)] underline dark:text-white">{t('portfolio.button.site')}</p>
+        <i class="fa-solid fa-arrow-up-right-from-square text-[hsla(202,97%,24%,0.7)] dark:text-[#88d2fd] lg:text-3xl 2xl:text-2xl" />
       </a>
     )
   }
   {
     slug && (
       <a class="flex flex-row items-center justify-center gap-2" href={slug}>
-        <p class="text-white underline">{t('portfolio.button.details')}</p>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[#88d2fd] lg:text-3xl 2xl:text-2xl" />
+        <p class="text-[hsl(217,33%,17%)] underline dark:text-white">{t('portfolio.button.details')}</p>
+        <i class="fa-solid fa-arrow-up-right-from-square text-[hsla(202,97%,24%,0.7)] dark:text-[#88d2fd] lg:text-3xl 2xl:text-2xl" />
       </a>
     )
   }

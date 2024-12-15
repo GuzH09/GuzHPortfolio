@@ -4,6 +4,7 @@ import Home from '@/components/sections/Home.astro';
 import About from '@/components/sections/About.astro';
 import Portfolio from '@/components/sections/Portfolio.astro';
 import ArrowBtn from '@/components/ui/ArrowBtn.astro';
+import 'aos/dist/aos.css';
 ---
 
 <Layout
@@ -19,3 +20,13 @@ import ArrowBtn from '@/components/ui/ArrowBtn.astro';
     <Portfolio id="portfolio" />
   </main>
 </Layout>
+
+<script>
+  import AOS from 'aos';
+
+  document.addEventListener('astro:page-load', () => {
+    AOS.init({
+      disable: 'mobile',
+    });
+  });
+</script>

@@ -11,7 +11,18 @@ interface Props {
 const { href, hreflang, imgSrcEn, imgSrcEs, imgAltEn, imgAltEs } = Astro.props;
 ---
 
-<a href={href} hreflang={hreflang} class="flex w-full justify-center gap-2 pb-6 md:h-7 md:w-16 md:pb-0">
+<a
+  href={href}
+  hreflang={hreflang}
+  class={`
+    rounded-md px-3 py-2 border-2
+    flex w-full justify-center gap-2
+    bg-[hsla(217,33%,17%,1)] border-transparent
+    dark:bg-neutral-900/60 dark:border-[#88d2fd]/70
+    lg:bg-transparent lg:dark:bg-transparent
+    lg:border-0
+  `}
+>
   <img src={imgSrcEn} alt={imgAltEn} class={`size-7 object-cover ${hreflang === 'es' ? '' : 'grayscale'}`} />
   <img src={imgSrcEs} alt={imgAltEs} class={`size-7 object-cover ${hreflang === 'en' ? '' : 'grayscale'}`} />
 </a>

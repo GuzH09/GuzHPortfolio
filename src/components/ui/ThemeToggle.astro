@@ -1,49 +1,28 @@
 ---
 interface Props {
-  iconClass: string;
+  buttonid: string;
+  iconid: string;
+  iconname: string;
+  arialabel: string;
+  class?: string;
 }
 
-const { iconClass } = Astro.props;
+const { iconname, iconid, arialabel, buttonid, class: additionalClasses } = Astro.props;
 ---
 
-<button id="themeToggle" class="block w-full pb-6 text-xl text-slate-800 dark:text-white md:w-auto md:pb-0">
-  <i id="themeIcon" class={`fa-solid ${iconClass} min-w-[20px]`}></i>
-  <!-- Dynamic icon class -->
+<button
+  aria-label={arialabel}
+  id={buttonid}
+  class={`
+  ${additionalClasses ? additionalClasses : ''}
+  block text-xl hover:scale-105 px-3 py-2 rounded-md border-2
+  text-white bg-[hsla(217,33%,17%,1)] border-transparent hover:text-[hsla(200,100%,50%,1)]
+  dark:text-white dark:bg-neutral-900/60 dark:border-[#88d2fd]/70 dark:hover:text-[#88d2fd]
+
+  lg:bg-transparent lg:dark:bg-transparent lg:text-[hsla(217,33%,17%,1)]
+  lg:border-0 lg:px-0 lg:py-0
+  lg:min-h-7 lg:min-w-7
+  `}
+>
+  <i id={iconid} class={`fa-solid ${iconname} min-w-[20px]`}></i>
 </button>
-
-<script>
-  document.addEventListener('astro:page-load', () => {
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-
-    const storageTheme = localStorage.getItem('theme');
-    let savedTheme = storageTheme;
-    if (savedTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
-      themeIcon.classList.replace('fa-sun', 'fa-moon');
-    } else {
-      document.documentElement.classList.add('light');
-      document.documentElement.classList.remove('dark');
-      themeIcon.classList.replace('fa-moon', 'fa-sun');
-    }
-
-    themeToggle.addEventListener('click', () => {
-      document.startViewTransition(() => {
-        const newTheme = savedTheme === 'light' ? 'dark' : 'light';
-        savedTheme = newTheme;
-        localStorage.setItem('theme', newTheme);
-
-        if (newTheme === 'dark') {
-          document.documentElement.classList.replace('light', 'dark');
-          themeIcon.classList.replace('fa-sun', 'fa-moon');
-          localStorage.setItem('theme', 'dark');
-        } else {
-          document.documentElement.classList.replace('dark', 'light');
-          themeIcon.classList.replace('fa-moon', 'fa-sun');
-          localStorage.setItem('theme', 'light');
-        }
-      });
-    });
-  });
-</script>
