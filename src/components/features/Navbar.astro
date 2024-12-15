@@ -1,10 +1,8 @@
 ---
 import Logo from '@/components/ui/Logo.astro';
 import MobileNavbar from '@/components/features/Navbar/MobileNavbar.astro';
-
-import { getLangFromUrl } from '@/i18n/utils';
 import DesktopNavbar from './Navbar/DesktopNavbar.astro';
-
+import { getLangFromUrl } from '@/i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 ---
 
