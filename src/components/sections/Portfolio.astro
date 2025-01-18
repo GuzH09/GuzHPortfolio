@@ -26,7 +26,7 @@ const contentData = await getEntry('portfolio', `${lang}/portfolio`);
   <h3
     class="pb-8 text-center text-3xl font-bold text-[hsl(217,33%,17%)] dark:text-white sm:text-4xl md:text-3xl lg:text-3xl xl:text-3xl 2xl:text-4xl"
   >
-    {contentData.data.title}
+    {contentData.data.web.title}
   </h3>
   <div
     class={` 
@@ -37,7 +37,7 @@ const contentData = await getEntry('portfolio', `${lang}/portfolio`);
     `}
   >
     {
-      contentData.data.projects.map((project) => (
+      contentData.data.web.projects.map((project) => (
         <PortfolioItem
           class="lg:w-[420px] xl:w-auto 2xl:w-auto"
           src={project.images[0] as ImageMetadata}
@@ -54,11 +54,39 @@ const contentData = await getEntry('portfolio', `${lang}/portfolio`);
   <h3
     class="pb-8 text-center text-3xl font-bold text-[hsl(217,33%,17%)] dark:text-white sm:text-4xl md:text-3xl lg:text-3xl xl:text-3xl 2xl:text-4xl"
   >
-    {contentData.data.title2}
+    {contentData.data.mobile.title}
+  </h3>
+  <div
+    class={` 
+    grid grid-cols-1 gap-3 text-center pb-16 sm:gap-6 
+    lg:grid-cols-2 lg:w-full lg:pb-40 lg:justify-items-center
+    xl:grid-cols-3 xl:w-auto xl:pb-40 
+    2xl:grid-cols-3 2xl:w-auto 2xl:pb-40 2xl:gap-14
+    `}
+  >
+    {
+      contentData.data.mobile.projects.map((project) => (
+        <PortfolioItem
+          class="lg:w-[420px] xl:w-auto 2xl:w-auto"
+          src={project.images[0] as ImageMetadata}
+          alt={project.title}
+          title={project.title}
+          description={project.description}
+          link={project.link}
+          slug={'/' + lang + '/projects/' + project.slug}
+        />
+      ))
+    }
+  </div>
+
+  <h3
+    class="pb-8 text-center text-3xl font-bold text-[hsl(217,33%,17%)] dark:text-white sm:text-4xl md:text-3xl lg:text-3xl xl:text-3xl 2xl:text-4xl"
+  >
+    {contentData.data.data.title}
   </h3>
   <div class="flex flex-col justify-center gap-3 text-center sm:gap-6 md:pb-8 lg:w-full lg:flex-row xl:w-auto 2xl:w-auto">
     {
-      contentData.data.projects2.map((project) => (
+      contentData.data.data.projects.map((project) => (
         <PortfolioVisualization
           class="lg:w-[420px] xl:w-[420px] 2xl:w-auto"
           src={project.image as ImageMetadata}
@@ -70,6 +98,6 @@ const contentData = await getEntry('portfolio', `${lang}/portfolio`);
     }
   </div>
   <p class="text-center text-xs text-slate-800/90 dark:text-white sm:text-sm md:text-xs lg:text-xs xl:text-xs 2xl:text-sm">
-    {contentData.data.title3}
+    {contentData.data.data.title2}
   </p>
 </section>
