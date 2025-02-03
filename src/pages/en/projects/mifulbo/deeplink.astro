@@ -1,12 +1,36 @@
----
-import Layout from '@/layouts/Layout.astro';
----
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting to MiFulbo</title>
+    <script is:inline>
+      // Obtener el token_hash de la URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const token = urlParams.get('token_hash');
 
-<Layout
-  title="Hernan Otero Web Portfolio - Programmer and Web Developer"
-  description="Hernan Agustin Otero Web Portfolio, Programmer and Web Developer"
-  canonical="https://guzhotero.dev/en"
-  lang="en"
->
-  <main></main>
-</Layout>
+      // Redirección automática con fallback
+      function redirectToApp() {
+        if (token) {
+          // Intentar abrir la app
+          window.location.href = `mifulbo://?token_hash=${token}`;
+
+          // Fallback a Play Store después de 2 segundos
+          setTimeout(() => {
+            window.location.href = 'https://play.google.com/store/apps/details?id=com.guzh09.mifulbov2';
+          }, 8000);
+        }
+      }
+    </script>
+  </head>
+  <body onload="redirectToApp()">
+    <noscript>
+      <p>Please enable JavaScript or <a href="https://play.google.com/store/apps/details?id=com.guzh09.mifulbov2">download the app</a>.</p>
+    </noscript>
+
+    <div style="text-align: center; padding: 2rem;">
+      <p>Redirecting to MiFulbo...</p>
+      <p>If the app doesn't open, <a href="#" onclick="redirectToApp()">click here</a></p>
+    </div>
+  </body>
+</html>
