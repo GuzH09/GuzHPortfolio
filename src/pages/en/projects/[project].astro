@@ -17,6 +17,12 @@ export async function getStaticPaths() {
   });
 }
 
+const { project } = Astro.params;
+
+if (project === 'mifulbo' && Astro.url.pathname.endsWith('/deeplink')) {
+  Astro.redirect('com.guzh09.mifulbo://');
+}
+
 const { data } = Astro.props;
 ---
 
