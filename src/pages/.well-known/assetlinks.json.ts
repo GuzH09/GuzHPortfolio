@@ -5,7 +5,7 @@ export const GET: APIRoute = async () => {
   return new Response(
     JSON.stringify([
       {
-        relation: ['delegate_permission/common.handle_all_urls', 'delegate_permission/common.get_login_creds'],
+        relation: ['delegate_permission/common.handle_all_urls'],
         target: {
           namespace: 'android_app',
           package_name: 'com.guzh09.mifulbov2',
