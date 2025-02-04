@@ -4,26 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Redirecting to MiFulbo</title>
-    <!-- <script is:inline>
+    <script is:inline>
       // Obtener el token_hash de la URL
       const urlParams = new URLSearchParams(window.location.search);
       const token = urlParams.get('token_hash');
 
       // Redirección automática con fallback
       function redirectToApp() {
-        if (token) {
-          // Intentar abrir la app
-          window.location.href = `mifulbo://?token_hash=${token}`;
-
-          // Fallback a Play Store después de 2 segundos
-          setTimeout(() => {
+        setTimeout(() => {
+          if (token) {
+            // Intentar abrir la app
+            window.location.href = `mifulbo://?token_hash=${token}`;
+          } else {
+            // Fallback a Play Store
             window.location.href = 'https://play.google.com/store/apps/details?id=com.guzh09.mifulbov2';
-          }, 8000);
-        }
+          }
+        }, 10000);
       }
-    </script> -->
+    </script>
   </head>
-  <body>
+  <body onload="redirectToApp()">
     <noscript>
       <p>Please enable JavaScript or <a href="https://play.google.com/store/apps/details?id=com.guzh09.mifulbov2">download the app</a>.</p>
     </noscript>
