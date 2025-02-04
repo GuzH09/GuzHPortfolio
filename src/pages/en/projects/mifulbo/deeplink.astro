@@ -16,10 +16,15 @@
             // Intentar abrir la app
             window.location.href = `mifulbo://?token_hash=${token}`;
           } else {
-            // Fallback a Play Store
-            window.location.href = 'https://play.google.com/store/apps/details?id=com.guzh09.mifulbov2';
+            // Intentar abrir la app
+            window.location.href = `mifulbo://`;
+
+            setTimeout(() => {
+              // Fallback a Play Store
+              window.location.href = 'https://play.google.com/store/apps/details?id=com.guzh09.mifulbov2';
+            }, 3000);
           }
-        }, 10000);
+        }, 5000);
       }
     </script>
   </head>
