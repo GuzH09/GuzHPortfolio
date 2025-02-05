@@ -4,7 +4,7 @@ mobile:
   projects:
     - title: 'MiFulbo'
       description: 'Mobile app for tracking soccer matches and personal performance statistics.'
-      link: ''
+      link: 'https://play.google.com/store/apps/details?id=com.guzh09.mifulbov2'
       images:
         - '@/assets/projects/mifulbo/project1.webp'
         - '@/assets/projects/mifulbo/project2.webp'

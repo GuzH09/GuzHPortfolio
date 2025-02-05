@@ -4,7 +4,7 @@ mobile:
   projects:
     - title: 'MiFulbo'
       description: 'Aplicación móvil para llevar un registro de partidos de fútbol y estadísticas personales de rendimiento.'
-      link: ''
+      link: 'https://play.google.com/store/apps/details?id=com.guzh09.mifulbov2'
       images:
         - '@/assets/projects/mifulbo/project1.webp'
         - '@/assets/projects/mifulbo/project2.webp'
