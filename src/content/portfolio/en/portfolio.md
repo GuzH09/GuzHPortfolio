@@ -32,6 +32,30 @@ mobile:
 web:
   title: 'Latest Web Development Projects'
   projects:
+    - title: 'MGM Market'
+      description: 'Shopify Ecommerce for MGM Group.'
+      link: 'https://mgmtienda.com/'
+      images:
+        - '@/assets/projects/mgmtienda/project1.webp'
+        - '@/assets/projects/mgmtienda/project2.webp'
+        - '@/assets/projects/mgmtienda/project3.webp'
+      details:
+        summary: 'MGM Market website is a Shopify E-Commerce website, which provides efficient management of product catalogs, payment processing, and shipping options. Its responsive design ensures an optimal user experience across both desktop and mobile devices, facilitating intuitive navigation through categories such as headphones, microphones, speakers, and smartwatches. Additional features like user account management, and dynamic shopping carts, enhance customer interaction and retention.'
+        characteristics:
+          - 'E-Commerce.'
+          - 'Fully responsive.'
+        performance:
+          - '100 SEO'
+          - '78 Practices'
+          - '83 Performance'
+          - '96 Accessibility'
+        technologies:
+          - 'liquid'
+          - 'shopify'
+        release: '03.25'
+        latestupdate: '03.25'
+      slug: 'mgmtienda'
+
     - title: 'Play Safe AR'
       description: 'Static Site With Astro Framework, and Tailwind.'
       link: 'https://playsafe.ar/'
