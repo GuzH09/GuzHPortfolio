@@ -6,7 +6,12 @@
 >
   <section class="mx-auto">
     <p class="text-base text-slate-800/90 dark:text-white sm:text-lg md:text-base lg:text-base xl:text-base">
-      Copyright {new Date().toLocaleTimeString()} - Hernan Agustin Otero
+      Copyright
+      <script is:inline>
+        // This runs client‑side—Astro leaves it in your HTML
+        document.write(new Date().toLocaleTimeString());
+      </script>
+      - Hernan Agustin Otero
     </p>
   </section>
 </footer>
