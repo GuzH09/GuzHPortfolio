@@ -7,11 +7,12 @@
   <section class="mx-auto">
     <p class="text-base text-slate-800/90 dark:text-white sm:text-lg md:text-base lg:text-base xl:text-base">
       Copyright
-      <script is:inline data-astro-rerun>
-        // This runs client‑side—Astro leaves it in your HTML
-        document.write(new Date().getFullYear());
-      </script>
+      <span id="current-year"></span>
       - Hernan Agustin Otero
     </p>
   </section>
 </footer>
+
+<script data-astro-rerun>
+  document.getElementById('current-year').textContent = new Date().getFullYear().toString();
+</script>
