@@ -32,6 +32,38 @@ mobile:
 web:
   title: 'Latest Web Development Projects'
   projects:
+    - title: 'YouTube Subs Manager'
+      description: 'YouTube Subscription Manager built with Next.js.'
+      link: 'https://www.youtube.com/watch?v=SYh2Suvz93s&ab_channel=GuzH'
+      images:
+        - '@/assets/projects/ybsubscriptions/project1.webp'
+        - '@/assets/projects/ybsubscriptions/project2.webp'
+        - '@/assets/projects/ybsubscriptions/project3.webp'
+      details:
+        summary: 'YouTube Subs Manager is a full-featured web application that allows users to organize their YouTube subscriptions into custom feeds. The app uses Next.js for optimal performance with Server Side Rendering and React for a dynamic user interface. Users can sync their YouTube subscriptions, create custom feeds with their selected channels, and view the latest videos from each feed with filtering options by type (all, videos, shorts, livestreams) and status (watched, unwatched). The app implements optimistic updates for a smooth and fast user experience, infinite scrolling to load more videos seamlessly, and a smart caching system using TanStack Query.'
+        characteristics:
+          - 'Deployed on Vercel'
+          - 'Uses SSR (Server Side Rendering)'
+          - 'Skeleton Loading (Server and Client)'
+          - 'Supabase Auth & DB'
+          - 'Custom feed system'
+          - 'Infinite pagination with TanStack Query'
+          - 'Optimistic Updates with TanStack Query'
+          - 'Caching with TanStack Query'
+        performance:
+          - '100 SEO'
+          - '100 Practices'
+          - '97 Performance'
+          - '89 Accessibility'
+        technologies:
+          - 'nextjs'
+          - 'react'
+          - 'tailwind'
+          - 'supabase'
+        release: '05.25'
+        latestupdate: '05.25'
+      slug: 'ybsubscriptions'
+
     - title: 'MGM Market'
       description: 'Shopify Ecommerce for MGM Group.'
       link: 'https://mgmtienda.com/'

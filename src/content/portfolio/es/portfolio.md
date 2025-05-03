@@ -32,6 +32,38 @@ mobile:
 web:
   title: 'Últimos Proyectos de Desarrollo Web'
   projects:
+    - title: 'YouTube Subs Manager'
+      description: 'Gestor de Suscripciones de YouTube en NextJs.'
+      link: 'https://www.youtube.com/watch?v=SYh2Suvz93s&ab_channel=GuzH'
+      images:
+        - '@/assets/projects/ybsubscriptions/project1.webp'
+        - '@/assets/projects/ybsubscriptions/project2.webp'
+        - '@/assets/projects/ybsubscriptions/project3.webp'
+      details:
+        summary: 'YouTube Subs Manager es una aplicación web completa que permite a los usuarios organizar sus suscripciones de YouTube en feeds personalizados. La aplicación utiliza Next.js para un rendimiento óptimo con Server Side Rendering y React para una interfaz de usuario dinámica. Los usuarios pueden sincronizar sus suscripciones de YouTube, crear feeds personalizados con los canales que deseen, y ver los últimos videos de cada feed con opciones de filtrado por tipo (todos, videos, shorts, livestreams) y estado (vistos, no vistos). La aplicación implementa actualizaciones optimistas para una experiencia de usuario fluida y rápida, paginación infinita para cargar videos adicionales sin interrupciones, y un sistema de caché inteligente utilizando TanStack Query.'
+        characteristics:
+          - 'Desplegado en Vercel'
+          - 'Utiliza SSR (Server Side Rendering)'
+          - 'Skeleton Loading (Server y Cliente)'
+          - 'Supabase Auth & DB'
+          - 'Sistema de feeds personalizados'
+          - 'Paginación infinita con TanStack Query'
+          - 'Optimistic Updates con TanStack Query'
+          - 'Caching con TanStack Query'
+        performance:
+          - '100 SEO'
+          - '100 Practices'
+          - '97 Performance'
+          - '89 Accessibility'
+        technologies:
+          - 'nextjs'
+          - 'react'
+          - 'tailwind'
+          - 'supabase'
+        release: '05.25'
+        latestupdate: '05.25'
+      slug: 'ybsubscriptions'
+
     - title: 'MGM Market'
       description: 'Shopify Ecommerce para MGM Group.'
       link: 'https://mgmtienda.com/'
