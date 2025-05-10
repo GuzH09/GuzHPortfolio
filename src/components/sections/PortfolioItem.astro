@@ -30,33 +30,6 @@ const { src, alt, title, description, link, slug, class: additionalClasses } = A
     <Image src={src} class="w-full object-cover brightness-90" alt={alt} />
   </div>
 
-  <!-- <div
-    class={`
-    bg-gradient-to-b from-[#171a21]/10 to-[#171a21cc]/90 
-    px-2 w-full h-full 
-    z-10 absolute bottom-0 left-0 
-    flex flex-col items-center justify-center gap-3 
-    transform translate-y-full md:group-hover:translate-y-0 transition ease-in duration-300 
-    `}
-  >
-    {
-      link && (
-        <a class="flex flex-row items-center justify-center gap-2" href={link} target="_blank">
-          <p class="text-white underline">{t('portfolio.button.site')}</p>
-          <i class="fa-solid fa-arrow-up-right-from-square text-[#88d2fd] lg:text-base 2xl:text-2xl" />
-        </a>
-      )
-    }
-    {
-      slug && (
-        <a class="flex flex-row items-center justify-center gap-2" href={slug}>
-          <p class="text-white underline">{t('portfolio.button.details')}</p>
-          <i class="fa-solid fa-arrow-up-right-from-square text-[#88d2fd] lg:text-base 2xl:text-2xl" />
-        </a>
-      )
-    }
-  </div> -->
-
   <div class="flex flex-col items-start justify-start px-4 py-4">
     <h4 class="mb-2 text-xl font-semibold text-[hsl(217,33%,17%)] dark:text-white sm:text-4xl md:text-3xl lg:text-2xl xl:text-2xl 2xl:text-3xl">
       {title}
