@@ -6,8 +6,7 @@ import ProjectPage from '@/components/sections/ProjectPage.astro';
 export async function getStaticPaths() {
   const contentData = await getEntry('portfolio', `es/portfolio`);
   const WEBPROJECTS = contentData.data.web.projects;
-  const MOBILEPROJECTS = contentData.data.mobile.projects;
-  const ALLPROJECTS = [...WEBPROJECTS, ...MOBILEPROJECTS];
+  const ALLPROJECTS = [...WEBPROJECTS];
 
   return ALLPROJECTS.map((project) => {
     return {

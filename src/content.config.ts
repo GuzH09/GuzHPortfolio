@@ -23,29 +23,6 @@ const portfolioCollection = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/portfolio' }),
   schema: ({ image }) =>
     z.object({
-      mobile: z.object({
-        title: z.string(),
-        projects: z.array(
-          z.object({
-            title: z.string(),
-            description: z.string(),
-            link: z.string().optional(), // Optional because not all projects may have a link
-            images: z.array(image()),
-            details: z
-              .object({
-                summary: z.string(),
-                characteristics: z.array(z.string()),
-                performance: z.array(z.string()),
-                technologies: z.array(z.string()),
-                release: z.string(),
-                latestupdate: z.string(),
-                github: z.string().optional(),
-              })
-              .optional(),
-            slug: z.string(),
-          }),
-        ),
-      }),
       web: z.object({
         title: z.string(),
         projects: z.array(
@@ -68,17 +45,6 @@ const portfolioCollection = defineCollection({
             slug: z.string(),
           }),
         ),
-      }),
-      data: z.object({
-        title: z.string(),
-        projects: z.array(
-          z.object({
-            title: z.string(),
-            description: z.string(),
-            image: image(),
-          }),
-        ),
-        title2: z.string(),
       }),
     }),
 });

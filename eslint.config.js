@@ -12,7 +12,7 @@ export default [
       globals: globals.browser,
     },
   },
-  { ignores: ['**/*.mjs'] },
+  { ignores: ['**/*.mjs', '**/*.md'] },
   {
     rules: {
       '@typescript-eslint/triple-slash-reference': 'off',

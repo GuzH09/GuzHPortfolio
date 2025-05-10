@@ -1,36 +1,6 @@
 ---
-mobile:
-  title: 'Últimos Proyectos de Aplicaciones Móviles'
-  projects:
-    - title: 'MiFulbo'
-      description: 'Aplicación móvil para llevar un registro de partidos de fútbol y estadísticas personales de rendimiento.'
-      link: 'https://play.google.com/store/apps/details?id=com.guzh09.mifulbov2'
-      images:
-        - '@/assets/projects/mifulbo/project1.webp'
-        - '@/assets/projects/mifulbo/project2.webp'
-        - '@/assets/projects/mifulbo/project3.webp'
-      details:
-        summary: 'MiFulbo es una aplicación móvil desarrollada con React Native y Expo que permite a los usuarios registrar y analizar sus partidos de fútbol y su rendimiento personal a través de una interfaz atractiva e intuitiva. Incluye estadísticas personalizadas con gráficos interactivos, herramientas de gestión de partidos y autenticación segura de usuarios.'
-        characteristics:
-          - 'Añadir, editar, eliminar y visualizar partidos de fútbol.'
-          - 'Estadísticas personalizadas con gráficos de pastel y datos generales.'
-          - 'Autenticación segura mediante Supabase.'
-        performance:
-          - 'Interfaz rápida y responsiva optimizada para dispositivos móviles.'
-          - 'Sincronización eficiente de datos en tiempo real con Supabase.'
-          - 'Tamaño de la app minimizado con recursos y gráficos optimizados.'
-          - 'Flujo de autenticación confiable para recuperación de contraseñas e inicio de sesión.'
-        technologies:
-          - 'react'
-          - 'tailwind'
-          - 'supabase'
-          - 'js'
-        release: '01.25'
-        latestupdate: '01.25'
-      slug: 'mifulbo'
-
 web:
-  title: 'Últimos Proyectos de Desarrollo Web'
+  title: 'Últimos Proyectos'
   projects:
     - title: 'YouTube Subs Manager'
       description: 'Gestor de Suscripciones de YouTube en NextJs.'
@@ -87,6 +57,33 @@ web:
         release: '03.25'
         latestupdate: '03.25'
       slug: 'mgmtienda'
+
+    - title: 'MiFulbo'
+      description: 'Aplicación móvil para llevar un registro de partidos de fútbol y estadísticas personales de rendimiento.'
+      link: 'https://play.google.com/store/apps/details?id=com.guzh09.mifulbov2'
+      images:
+        - '@/assets/projects/mifulbo/project1.webp'
+        - '@/assets/projects/mifulbo/project2.webp'
+        - '@/assets/projects/mifulbo/project3.webp'
+      details:
+        summary: 'MiFulbo es una aplicación móvil desarrollada con React Native y Expo que permite a los usuarios registrar y analizar sus partidos de fútbol y su rendimiento personal a través de una interfaz atractiva e intuitiva. Incluye estadísticas personalizadas con gráficos interactivos, herramientas de gestión de partidos y autenticación segura de usuarios.'
+        characteristics:
+          - 'Añadir, editar, eliminar y visualizar partidos de fútbol.'
+          - 'Estadísticas personalizadas con gráficos de pastel y datos generales.'
+          - 'Autenticación segura mediante Supabase.'
+        performance:
+          - 'Interfaz rápida y responsiva optimizada para dispositivos móviles.'
+          - 'Sincronización eficiente de datos en tiempo real con Supabase.'
+          - 'Tamaño de la app minimizado con recursos y gráficos optimizados.'
+          - 'Flujo de autenticación confiable para recuperación de contraseñas e inicio de sesión.'
+        technologies:
+          - 'react'
+          - 'tailwind'
+          - 'supabase'
+          - 'js'
+        release: '01.25'
+        latestupdate: '01.25'
+      slug: 'mifulbo'
 
     - title: 'Play Safe AR'
       description: 'Pagina estatica con Astro, y Tailwind.'
@@ -268,44 +265,4 @@ web:
         release: '07.24'
         latestupdate: '08.24'
       slug: 'techecommerce'
-
-    - title: 'La Casita de Yoga'
-      description: 'Desarrollo Web utilizando ASTRO, y TAILWIND.'
-      link: 'https://lacasitadeyoga.vercel.app/'
-      images:
-        - '@/assets/projects/lacasitadeyoga/project1.webp'
-        - '@/assets/projects/lacasitadeyoga/project2.webp'
-        - '@/assets/projects/lacasitadeyoga/project3.webp'
-      details:
-        summary: 'Sitio Web estático realizado como proyecto final del curso de Coderhouse en Desarrollo Web. En principio fue realizado utilizando HTML, CSS, Javascript y SASS. Luego, fue migrado a Astro con Tailwind.'
-        characteristics:
-          - '5 Paginas mas pagina 404.'
-          - 'Totalmente responsive.'
-          - 'Integra Flowbite y Swiper para efecto carrusel.'
-        performance:
-          - '100 SEO'
-          - '100 Practices'
-          - '94 Performance'
-          - '86 Accessibility'
-        technologies:
-          - 'html'
-          - 'css'
-          - 'js'
-          - 'tailwind'
-          - 'astro'
-        release: '11.23'
-        latestupdate: '09.24'
-        github: 'https://github.com/GuzH09/LaCasitaDeYoga'
-      slug: 'lacasitadeyoga'
-
-data:
-  title: 'Visualización y Análisis de Datos'
-  projects:
-    - title: 'Streamlit Dashboards'
-      description: 'Dashboards interactivos para visualización de información.'
-      image: '../projectdata1.webp'
-    - title: 'Looker Studio Dashboards'
-      description: 'Dashboards interactivos para visualización de información.'
-      image: '../projectdata2.webp'
-  title2: 'Trabajos autodidactas con Streamlit, LookerStudio, y Discord Bots en Python y Javascript.'
 ---

@@ -11,7 +11,7 @@ export default {
   plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
   overrides: [
     {
-      files: ['.*', '*.md', '*.toml', '*.yml'],
+      files: ['.*', '*.toml', '*.yml'],
       options: {
         useTabs: false,
       },
@@ -20,6 +20,12 @@ export default {
       files: '*.astro',
       options: {
         parser: 'astro',
+      },
+    },
+    {
+      files: '*.md',
+      options: {
+        requirePragma: true,
       },
     },
   ],

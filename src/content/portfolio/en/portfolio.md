@@ -1,36 +1,6 @@
 ---
-mobile:
-  title: 'Latest Mobile Projects'
-  projects:
-    - title: 'MiFulbo'
-      description: 'Mobile app for tracking soccer matches and personal performance statistics.'
-      link: 'https://play.google.com/store/apps/details?id=com.guzh09.mifulbov2'
-      images:
-        - '@/assets/projects/mifulbo/project1.webp'
-        - '@/assets/projects/mifulbo/project2.webp'
-        - '@/assets/projects/mifulbo/project3.webp'
-      details:
-        summary: 'MiFulbo is a mobile app built with React Native and Expo that enables users to log and analyze their soccer matches and performance through a visually appealing and intuitive interface. It features personalized statistics with interactive charts, match management tools, and secure user authentication.'
-        characteristics:
-          - 'Add, edit, delete, and view soccer matches.'
-          - 'Personalized performance statistics with pie charts and general stats.'
-          - 'Secure authentication using Supabase.'
-        performance:
-          - 'Fast and responsive UI optimized for mobile devices.'
-          - 'Efficient data syncing with Supabase for real-time updates.'
-          - 'Minimal app size with optimized assets and images.'
-          - 'Reliable authentication flow for password resets and login.'
-        technologies:
-          - 'react'
-          - 'tailwind'
-          - 'supabase'
-          - 'js'
-        release: '01.25'
-        latestupdate: '01.25'
-      slug: 'mifulbo'
-
 web:
-  title: 'Latest Web Development Projects'
+  title: 'Latest Projects'
   projects:
     - title: 'YouTube Subs Manager'
       description: 'YouTube Subscription Manager built with Next.js.'
@@ -87,6 +57,33 @@ web:
         release: '03.25'
         latestupdate: '03.25'
       slug: 'mgmtienda'
+
+    - title: 'MiFulbo'
+      description: 'Mobile app for tracking soccer matches and personal performance statistics.'
+      link: 'https://play.google.com/store/apps/details?id=com.guzh09.mifulbov2'
+      images:
+        - '@/assets/projects/mifulbo/project1.webp'
+        - '@/assets/projects/mifulbo/project2.webp'
+        - '@/assets/projects/mifulbo/project3.webp'
+      details:
+        summary: 'MiFulbo is a mobile app built with React Native and Expo that enables users to log and analyze their soccer matches and performance through a visually appealing and intuitive interface. It features personalized statistics with interactive charts, match management tools, and secure user authentication.'
+        characteristics:
+          - 'Add, edit, delete, and view soccer matches.'
+          - 'Personalized performance statistics with pie charts and general stats.'
+          - 'Secure authentication using Supabase.'
+        performance:
+          - 'Fast and responsive UI optimized for mobile devices.'
+          - 'Efficient data syncing with Supabase for real-time updates.'
+          - 'Minimal app size with optimized assets and images.'
+          - 'Reliable authentication flow for password resets and login.'
+        technologies:
+          - 'react'
+          - 'tailwind'
+          - 'supabase'
+          - 'js'
+        release: '01.25'
+        latestupdate: '01.25'
+      slug: 'mifulbo'
 
     - title: 'Play Safe AR'
       description: 'Static Site With Astro Framework, and Tailwind.'
@@ -268,44 +265,4 @@ web:
         release: '07.24'
         latestupdate: '08.24'
       slug: 'techecommerce'
-
-    - title: 'La Casita de Yoga'
-      description: 'Web Development using ASTRO, and TAILWIND.'
-      link: 'https://lacasitadeyoga.vercel.app/'
-      images:
-        - '@/assets/projects/lacasitadeyoga/project1.webp'
-        - '@/assets/projects/lacasitadeyoga/project2.webp'
-        - '@/assets/projects/lacasitadeyoga/project3.webp'
-      details:
-        summary: 'Static website created as a final project for the Coderhouse Web Development course. Initially developed using HTML, CSS, JavaScript, and SASS, then migrated to Astro with Tailwind.'
-        characteristics:
-          - '5 pages plus 404 page.'
-          - 'Fully responsive.'
-          - 'Includes Flowbite and Swiper for carousel effect.'
-        performance:
-          - '100 SEO'
-          - '100 Practices'
-          - '94 Performance'
-          - '86 Accessibility'
-        technologies:
-          - 'html'
-          - 'css'
-          - 'js'
-          - 'tailwind'
-          - 'astro'
-        release: '11.23'
-        latestupdate: '09.24'
-        github: 'https://github.com/GuzH09/LaCasitaDeYoga'
-      slug: 'lacasitadeyoga'
-
-data:
-  title: 'Data Analysis & Visualization'
-  projects:
-    - title: 'Streamlit Dashboards'
-      description: 'Interactive dashboard for data visualization.'
-      image: '../projectdata1.webp'
-    - title: 'Looker Studio Dashboards'
-      description: 'Interactive dashboard for data visualization.'
-      image: '../projectdata2.webp'
-  title2: 'Self-taught work with Streamlit, LookerStudio, and Discord Bots in Python and Javascript.'
 ---
