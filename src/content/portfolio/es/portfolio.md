@@ -2,6 +2,35 @@
 web:
   title: 'Últimos Proyectos'
   projects:
+    - title: 'RandomPong'
+      description: 'Pong, pero Multijugador y con emparejamiento aleatorio.'
+      link: 'https://random-pong-frontend.vercel.app/'
+      images:
+        - '@/assets/projects/randompong/project1.webp'
+        - '@/assets/projects/randompong/project2.webp'
+        - '@/assets/projects/randompong/project3.webp'
+      details:
+        summary: 'RandomPong es una versión moderna y multijugador del clásico juego Pong, con partidas en tiempo real y emparejamiento aleatorio. Desarrollado con Vite, React y Socket.IO, ofrece una experiencia donde los jugadores pueden desafiar a oponentes aleatorios. El juego presenta controles de paleta fluidos, física de pelota en tiempo real y un diseño limpio y minimalista, manteniendo la esencia clásica de Pong.'
+        characteristics:
+          - 'Multijugador en tiempo real con Socket.IO'
+          - 'Sistema de emparejamiento aleatorio'
+          - 'Bucle de juego a 60 FPS con Canvas de HTML5'
+          - 'Controles receptivos mediante teclado'
+          - 'Interfaz limpia y diseño minimalista'
+        performance:
+          - '100 SEO'
+          - '100 Practices'
+          - '94 Performance'
+          - '100 Accessibility'
+        technologies:
+          - 'vite'
+          - 'react'
+          - 'tailwind'
+          - 'express'
+        release: '05.25'
+        latestupdate: '05.25'
+      slug: 'randompong'
+
     - title: 'YouTube Subs Manager'
       description: 'Gestor de Suscripciones de YouTube en NextJs.'
       link: 'https://www.youtube.com/watch?v=SYh2Suvz93s&ab_channel=GuzH'

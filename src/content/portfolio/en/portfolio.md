@@ -2,6 +2,35 @@
 web:
   title: 'Latest Projects'
   projects:
+    - title: 'RandomPong'
+      description: 'Pong, but Multiplayer only and with random match-making.'
+      link: 'https://random-pong-frontend.vercel.app/'
+      images:
+        - '@/assets/projects/randompong/project1.webp'
+        - '@/assets/projects/randompong/project2.webp'
+        - '@/assets/projects/randompong/project3.webp'
+      details:
+        summary: 'RandomPong is a modern multiplayer implementation of the classic Pong game, featuring real-time gameplay with random matchmaking. Built with React and Socket.IO, it offers a gaming experience where players can challenge random opponents. The game features smooth paddle controls, real-time ball physics, and a clean minimalist design, all while maintaining the classic Pong gameplay mechanics.'
+        characteristics:
+          - 'Real-time multiplayer with Socket.IO'
+          - 'Random matchmaking system'
+          - '60 FPS game loop with HTML5 Canvas'
+          - 'Responsive controls with keyboard input'
+          - 'Clean and minimalist UI design'
+        performance:
+          - '100 SEO'
+          - '100 Practices'
+          - '94 Performance'
+          - '100 Accessibility'
+        technologies:
+          - 'vite'
+          - 'react'
+          - 'tailwind'
+          - 'express'
+        release: '05.25'
+        latestupdate: '05.25'
+      slug: 'randompong'
+
     - title: 'YouTube Subs Manager'
       description: 'YouTube Subscription Manager built with Next.js.'
       link: 'https://www.youtube.com/watch?v=SYh2Suvz93s&ab_channel=GuzH'
