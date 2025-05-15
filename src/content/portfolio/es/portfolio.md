@@ -263,35 +263,4 @@ web:
         release: '09.24'
         latestupdate: '10.24'
       slug: 'astroecommerce'
-
-    - title: 'Tech Ecommerce'
-      description: 'Proyecto Full Stack utilizando el stack MERN.'
-      link: 'https://reacttechecommerce.vercel.app/'
-      images:
-        - '@/assets/projects/techecommerce/project1.webp'
-        - '@/assets/projects/techecommerce/project2.webp'
-        - '@/assets/projects/techecommerce/project3.webp'
-      details:
-        summary: 'Sitio Web dinamico que emula un e-commerce realizado como proyecto final del curso de React de Coderhouse. En principio fue realizado utilizando solamente una base de datos de Firebase. Luego, fue reutilizado como frontend para el proyecto final del curso de Programacion Backend de Coderhouse, donde se integro en un monorepo a un backend desarrollado con Express que utiliza MongoDB como base de datos.'
-        characteristics:
-          - '5 Paginas mas pagina 404.'
-          - 'Pagina de detalle para cada producto.'
-          - 'Totalmente responsive.'
-          - 'Contiene un chat realizado con websocket.'
-        performance:
-          - '75 SEO'
-          - '78 Practices'
-          - '96 Performance'
-          - '78 Accessibility'
-        technologies:
-          - 'html'
-          - 'css'
-          - 'js'
-          - 'react'
-          - 'tailwind'
-          - 'express'
-          - 'mongodb'
-        release: '07.24'
-        latestupdate: '08.24'
-      slug: 'techecommerce'
 ---
