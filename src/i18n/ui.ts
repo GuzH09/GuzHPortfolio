@@ -19,6 +19,11 @@ export const ui = {
     'nav.project.home': 'Back to Home',
     'portfolio.button.site': 'Visit Site',
     'portfolio.button.details': 'Site Details',
+    'portfolio.filter.all': 'All',
+    'portfolio.filter.fun': 'Fun Projects',
+    'portfolio.filter.ecommerce': 'E-Commerces',
+    'portfolio.filter.landing': 'Landing Pages & Static Sites',
+    'portfolio.filter.mobile': 'Mobile Apps',
   },
   es: {
     'nav.home': 'Inicio',
@@ -28,5 +33,10 @@ export const ui = {
     'nav.project.home': 'Volver al Inicio',
     'portfolio.button.site': 'Visitar Sitio',
     'portfolio.button.details': 'Detalles',
+    'portfolio.filter.all': 'Todos',
+    'portfolio.filter.fun': 'Proyectos Divertidos',
+    'portfolio.filter.ecommerce': 'E-Commerces',
+    'portfolio.filter.landing': 'Landing Pages & Sitios Estáticos',
+    'portfolio.filter.mobile': 'Apps Móviles',
   },
 } as const;
