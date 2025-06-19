@@ -2,6 +2,65 @@
 web:
   title: 'Últimos Proyectos'
   projects:
+    - title: '¿Se Viene?'
+      description: 'Micro-sitio que permite a los visitantes votar en tiempo real si “se viene” o no, mostrando los resultados con gráficos dinámicos.'
+      link: 'https://cviene.com/'
+      images:
+        - '@/assets/projects/seviene/project1.webp'
+        - '@/assets/projects/seviene/project2.webp'
+        - '@/assets/projects/seviene/project3.webp'
+      details:
+        summary: '¿Se Viene? es una encuesta lúdica y que responde continuamente a la pregunta “¿Se viene?” registrando los votos de los visitantes en una base de datos SQLite alojada en el edge, y mostrando el porcentaje en vivo con un indicador y un gráfico histórico. Demuestra el uso de Server Actions de Next.js 14, base de datos edge con Turso y una interfaz totalmente responsiva.'
+        characteristics:
+          - 'Votación instantánea mediante Server Actions de Next.js'
+          - 'Almacenamiento SQLite en el edge con Turso y revalidación ISR'
+          - 'Indicador y gráficos de línea auto-actualizables con Recharts'
+          - 'Enfriamiento para evitar el spam de votos'
+          - 'Interfaz oscura responsiva con Tailwind CSS'
+        performance:
+          - '100 SEO'
+          - '100 Buenas prácticas'
+          - '100 Rendimiento'
+          - '100 Accesibilidad'
+        technologies:
+          - 'nextjs'
+          - 'react'
+          - 'typescript'
+          - 'tailwind'
+        release: '06.19'
+        latestupdate: '06.19'
+      slug: 'seviene'
+
+    - title: 'F1 Race Position Tracker'
+      description: 'Visualización interactiva de carreras de Fórmula 1, mostrando la posición de cada piloto vuelta por vuelta con opciones de filtrado avanzadas.'
+      link: 'https://f1racepositiontracker.vercel.app/'
+      images:
+        - '@/assets/projects/f1racepositiontracker/project1.webp'
+        - '@/assets/projects/f1racepositiontracker/project2.webp'
+        - '@/assets/projects/f1racepositiontracker/project3.webp'
+      details:
+        summary: 'F1 Race Position Tracker permite a los fanáticos explorar cada Gran Premio de Fórmula 1 desde 1950 mediante un gráfico de líneas dinámico. Construido con Next.js 15 (App Router) y Recharts, obtiene datos en vivo desde la API de Ergast, los almacena en caché en el edge y renderiza un gráfico interactivo donde los usuarios pueden enfocarse en pilotos o momentos específicos de la carrera. Una interfaz limpia con Tailwind y componentes de Radix UI brinda una experiencia rápida y accesible en todos los dispositivos.'
+        characteristics:
+          - 'Gráfico de líneas vuelta por vuelta con posiciones de pilotos'
+          - 'Selectores de año y carrera con obtención de datos desde el servidor'
+          - 'Filtros por piloto y rango de vueltas con actualizaciones instantáneas'
+          - 'Líneas con colores de equipo y marcadores de abandono'
+          - 'Solicitudes a la API almacenadas en caché en el edge (revalida cada 7 días)'
+          - 'Interfaz totalmente responsiva y accesible con teclado'
+        performance:
+          - '100 SEO'
+          - '100 Buenas prácticas'
+          - '81 Rendimiento'
+          - '100 Accesibilidad'
+        technologies:
+          - 'nextjs'
+          - 'react'
+          - 'typescript'
+          - 'tailwind'
+        release: '05.21'
+        latestupdate: '05.21'
+      slug: 'f1racepositiontracker'
+
     - title: 'RandomPong'
       description: 'Pong, pero Multijugador y con emparejamiento aleatorio.'
       link: 'https://random-pong-frontend.vercel.app/'
@@ -27,8 +86,8 @@ web:
           - 'react'
           - 'tailwind'
           - 'express'
-        release: '05.25'
-        latestupdate: '05.25'
+        release: '05.12'
+        latestupdate: '05.12'
       slug: 'randompong'
 
     - title: 'YouTube Subs Manager'
@@ -59,8 +118,8 @@ web:
           - 'react'
           - 'tailwind'
           - 'supabase'
-        release: '05.25'
-        latestupdate: '05.25'
+        release: '04.24'
+        latestupdate: '04.24'
       slug: 'ybsubscriptions'
 
     - title: 'MGM Market'

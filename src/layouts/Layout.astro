@@ -3,7 +3,7 @@ import Header from '@/components/layouts/Header.astro';
 import Footer from '@/components/layouts/Footer.astro';
 import SEO from '@/components/layouts/SEO.astro';
 import BackgroundImage from '@/components/features/BackgroundImage.astro';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import '@fontsource/poppins/100.css';
 import '@fontsource/poppins/200.css';
 import '@fontsource/poppins/300.css';
@@ -40,7 +40,7 @@ const { title, description, canonical, lang } = Astro.props;
 
     <SEO canonical={canonical} description={description} title={title} lang={lang} />
     <script src="https://kit.fontawesome.com/d84373c6ce.js" crossorigin="anonymous" is:inline data-astro-rerun></script>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body transition:name="initial">
     <BackgroundImage />

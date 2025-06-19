@@ -2,6 +2,65 @@
 web:
   title: 'Latest Projects'
   projects:
+    - title: '¿Se Viene?'
+      description: 'Micro-site that lets visitors vote in real time whether “se viene” or not, displaying the results with dynamic charts.'
+      link: 'https://cviene.com/'
+      images:
+        - '@/assets/projects/seviene/project1.webp'
+        - '@/assets/projects/seviene/project2.webp'
+        - '@/assets/projects/seviene/project3.webp'
+      details:
+        summary: '¿Se Viene? is a playful, serverless poll that continuously answers the question “¿Se viene?” by recording visitor votes in an edge-hosted SQLite database and rendering the live percentage with a gauge and historical line chart. It showcases Next.js 14 Server Actions, Turso edge DB and a fully responsive dark-mode UI.'
+        characteristics:
+          - 'Instant voting through Next.js Server Actions'
+          - 'Edge SQLite storage with Turso and ISR revalidation'
+          - 'Auto-updating gauge & line charts powered by Recharts'
+          - 'Cooldown to prevent vote spamming'
+          - 'Responsive dark UI with Tailwind CSS'
+        performance:
+          - '100 SEO'
+          - '100 Practices'
+          - '100 Performance'
+          - '100 Accessibility'
+        technologies:
+          - 'nextjs'
+          - 'react'
+          - 'typescript'
+          - 'tailwind'
+        release: '06.19'
+        latestupdate: '06.19'
+      slug: 'seviene'
+
+    - title: 'F1 Race Position Tracker'
+      description: 'Interactive visualisation of Formula 1 races, showing each driver’s position lap-by-lap with rich filtering options.'
+      link: 'https://f1racepositiontracker.vercel.app/'
+      images:
+        - '@/assets/projects/f1racepositiontracker/project1.webp'
+        - '@/assets/projects/f1racepositiontracker/project2.webp'
+        - '@/assets/projects/f1racepositiontracker/project3.webp'
+      details:
+        summary: 'F1 Race Position Tracker lets fans explore every Formula 1 Grand Prix since 1950 in a dynamic line-chart. Built with Next.js 15 (App Router) and Recharts, it fetches live data from the Ergast API, caches it on the edge, and renders an interactive chart where users can focus on specific drivers or parts of the race. A clean Tailwind-powered UI and Radix UI components deliver a fast, accessible experience across devices.'
+        characteristics:
+          - 'Lap-by-lap line chart of driver positions'
+          - 'Year and race selectors with server-side data fetching'
+          - 'Driver and lap-range filters with instant updates'
+          - 'Team-coloured lines and retirement markers'
+          - 'Edge-cached API requests (revalidate every 7 days)'
+          - 'Fully responsive, keyboard-accessible UI'
+        performance:
+          - '100 SEO'
+          - '100 Best Practices'
+          - '81 Performance'
+          - '100 Accessibility'
+        technologies:
+          - 'nextjs'
+          - 'react'
+          - 'typescript'
+          - 'tailwind'
+        release: '05.21'
+        latestupdate: '05.21'
+      slug: 'f1racepositiontracker'
+
     - title: 'RandomPong'
       description: 'Pong, but Multiplayer only and with random match-making.'
       link: 'https://random-pong-frontend.vercel.app/'
@@ -27,8 +86,8 @@ web:
           - 'react'
           - 'tailwind'
           - 'express'
-        release: '05.25'
-        latestupdate: '05.25'
+        release: '05.12'
+        latestupdate: '05.12'
       slug: 'randompong'
 
     - title: 'YouTube Subs Manager'
@@ -59,8 +118,8 @@ web:
           - 'react'
           - 'tailwind'
           - 'supabase'
-        release: '05.25'
-        latestupdate: '05.25'
+        release: '04.24'
+        latestupdate: '04.24'
       slug: 'ybsubscriptions'
 
     - title: 'MGM Market'
