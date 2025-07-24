@@ -2,6 +2,34 @@
 web:
   title: 'Últimos Proyectos'
   projects:
+    - title: 'Cordoba Bus Gamer'
+      description: 'Landing page estática con Astro Framework y Tailwind.'
+      link: 'https://busgamer.ar/'
+      images:
+        - '@/assets/projects/busgamer/project1.webp'
+        - '@/assets/projects/busgamer/project2.webp'
+        - '@/assets/projects/busgamer/project3.webp'
+      details:
+        summary: 'El sitio de Bus Gamer es una página Astro rápida y completamente responsiva que combina gradientes llamativos, video e imágenes optimizadas con datos dinámicos. Las paradas del tour se obtienen en tiempo de ejecución desde un CSV público de Google Sheets y se renderizan como tarjetas en una línea de tiempo, luego de un estado de carga esqueleto. Una barra de navegación con efecto glassmorphism, estética en modo oscuro y CTAs sociales completan una interfaz atractiva—todo mientras mantiene puntajes perfectos en Lighthouse.'
+        characteristics:
+          - 'Página única.'
+          - 'Completamente responsiva.'
+          - 'Calendario dinámico de paradas cargado del lado del cliente desde un CSV de Google Sheets.'
+        performance:
+          - '100 SEO'
+          - '100 Buenas prácticas'
+          - '100 Rendimiento'
+          - '100 Accesibilidad'
+        technologies:
+          - 'html'
+          - 'css'
+          - 'js'
+          - 'astro'
+          - 'tailwind'
+        release: '07.24'
+        latestupdate: '07.24'
+      slug: 'busgamer'
+
     - title: '¿Se Viene?'
       description: 'Micro-sitio que permite a los visitantes votar en tiempo real si “se viene” o no, mostrando los resultados con gráficos dinámicos.'
       link: 'https://cviene.com/'

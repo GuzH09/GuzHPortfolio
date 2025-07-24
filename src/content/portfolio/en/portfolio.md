@@ -2,6 +2,34 @@
 web:
   title: 'Latest Projects'
   projects:
+    - title: 'Cordoba Bus Gamer'
+      description: 'Static Landing Page With Astro Framework, and Tailwind.'
+      link: 'https://busgamer.ar/'
+      images:
+        - '@/assets/projects/busgamer/project1.webp'
+        - '@/assets/projects/busgamer/project2.webp'
+        - '@/assets/projects/busgamer/project3.webp'
+      details:
+        summary: 'The Bus Gamer site is a fast, fully responsive Astro page that blends bold gradients, video, and optimized imagery with dynamic data. Tour stops are pulled at runtime from a public Google Sheets CSV, rendered into timeline cards after a skeleton loading state. A glass-morphism navbar, dark-mode aesthetics and social CTAs round out the engaging UI—all while keeping perfect Lighthouse scores.'
+        characteristics:
+          - 'Single Page.'
+          - 'Fully responsive.'
+          - 'Dynamic tour schedule loaded client-side from Google Sheets CSV.'
+        performance:
+          - '100 SEO'
+          - '100 Practices'
+          - '100 Performance'
+          - '100 Accessibility'
+        technologies:
+          - 'html'
+          - 'css'
+          - 'js'
+          - 'astro'
+          - 'tailwind'
+        release: '07.24'
+        latestupdate: '07.24'
+      slug: 'busgamer'
+
     - title: '¿Se Viene?'
       description: 'Micro-site that lets visitors vote in real time whether “se viene” or not, displaying the results with dynamic charts.'
       link: 'https://cviene.com/'
