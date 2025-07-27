@@ -2,6 +2,36 @@
 web:
   title: 'Latest Projects'
   projects:
+    - title: 'Gaukin Web App'
+      description: 'Full-stack wellness platform built with Next.js, Tailwind, and Supabase.'
+      link: 'https://app.gaukin.com/'
+      images:
+        - '@/assets/projects/gaukinapp/project1.webp'
+        - '@/assets/projects/gaukinapp/project2.webp'
+        - '@/assets/projects/gaukinapp/project3.webp'
+      details:
+        summary: 'Gaukin is a wellness platform that helps physiotherapists plan and monitor personalized exercise routines while patients log their wellness metrics. Built with Next.js 15 and TypeScript, it uses Supabase for authentication and data persistence, integrates PostHog for real-time analytics, and Resend for emails. It offers dedicated dashboards for patients, talents, and admins, a drag-and-drop routine builder, metric charts with Recharts, and an internal CMS for FAQs, Tips, and Resources. The entire app is protected by Supabase RLS policies.'
+        characteristics:
+          - 'Separate dashboards for patients, talents, and admins.'
+          - 'Drag-and-drop routine builder with DnD Kit.'
+          - 'Real-time charts for fatigue, DOMS, sleep, and stress.'
+          - 'Internal CMS for FAQs, Tips, and Resources.'
+          - 'Rich-text editor with Plate JS and floating toolbar.'
+        performance:
+          - '100 SEO'
+          - '100 Best Practices'
+          - '100 Performance'
+          - '100 Accessibility'
+        technologies:
+          - 'nextjs'
+          - 'react'
+          - 'typescript'
+          - 'tailwind'
+          - 'supabase'
+        release: '07.27'
+        latestupdate: '07.27'
+      slug: 'gaukinapp'
+
     - title: 'Cordoba Bus Gamer'
       description: 'Static Landing Page With Astro Framework, and Tailwind.'
       link: 'https://busgamer.ar/'
